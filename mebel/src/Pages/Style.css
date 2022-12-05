@@ -1,18 +1,19 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
 }
-button{
+
+button {
     cursor: pointer;
 }
 
 
 /* header //////////// */
 
-.header{
+.header {
     width: 100%;
     height: auto;
     padding: 10px 5%;
@@ -21,22 +22,28 @@ button{
     justify-content: space-between;
     border-bottom: 1px solid rgb(169, 168, 168);
 }
-.contact{
+
+.contact {
     padding: 5px 10px;
     border: 1px solid green;
     background-color: transparent;
     border-radius: 5px;
     display: flex;
-    align-items:flex-end;
+    align-items: flex-end;
     gap: 5px;
 }
 
 /* nav /////////////////// */
-.navbar{
+.navbar {
     width: 100%;
     height: auto;
 }
-.navbarHead{
+
+.mdiaNav {
+    display: none;
+}
+
+.navbarHead {
     width: 100%;
     height: auto;
     padding: 20px 5%;
@@ -44,32 +51,37 @@ button{
     align-items: flex-end;
     justify-content: space-between;
 }
-.search{
+
+.search {
     width: 300px;
-    display: grid ;
+    display: grid;
     grid-template-columns: 90% 10%;
     border-radius: 10px;
     background-color: rgb(217, 233, 244);
     padding: 10px 20px;
 }
-.search input{
+
+.search input {
     border: none;
     background-color: transparent;
     outline: none;
 }
-.search button{
+
+.search button {
     border: none;
     background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.btnGroups{
+
+.btnGroups {
     display: flex;
     align-items: flex-end;
     gap: 20px;
 }
-.navbtn{
+
+.navbtn {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,7 +90,8 @@ button{
     background-color: transparent;
     position: relative;
 }
-.badge{
+
+.badge {
     position: absolute;
     bottom: 40px;
     right: 0px;
@@ -88,7 +101,7 @@ button{
     border-radius: 15px 15px 15px 0;
 }
 
-.navbarBtns{
+.navbarBtns {
     width: 100%;
     height: 50px;
     padding: 0px 5%;
@@ -96,7 +109,8 @@ button{
     display: flex;
     flex-wrap: wrap;
 }
-.navbarBtns button{
+
+.navbarBtns button {
     padding: 0 20px;
     width: 20%;
     height: 100%;
@@ -106,7 +120,8 @@ button{
     background-color: transparent;
     transition: all 0.2s ease-out;
 }
-.navbarBtns button:hover{
+
+.navbarBtns button:hover {
     background: #384685;
     border-radius: 5px;
     color: white;
@@ -114,28 +129,218 @@ button{
 
 
 /* home /////////////////// */
-.home{
+.home {
     width: 100%;
     height: auto;
     padding: 20px 5%;
 }
-.sec1{
+
+.sec1 {
     width: 100%;
     height: auto;
 }
-.imgcard{
+
+.imgcard {
     width: 100%;
-    height: 40vh;
-    background-color:transparent;
+    height: auto;
+    background-color: transparent;
+    padding: 50px 0px;
 }
-.sec1img{
+
+.sec1img {
     width: 100%;
     height: 100%;
     z-index: -1;
-    object-fit: cover ;
-    border-radius: 10px ;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.bizningA{
-    height: 200vh;
+.bizningA {
+    width: 100%;
+    height: auto;
+    padding: 50px 0px;
+    text-align: start;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 39px;
+    padding: 10px 0px;
+    color: #000000;
+
+}
+
+.cards {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 21% 21% 21% 21%;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.cards button {
+    padding: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+    background: #F4F4F4;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.3s linear;
+}
+
+.cards button:hover {
+    transform: scale(0.95);
+}
+
+/* ////////// */
+.katalog {
+    width: 100%;
+    height: auto;
+    padding: 20px 0;
+    text-align: start;
+}
+
+.katalogCards {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 20px;
+}
+
+.katalogCards .card {
+    overflow: hidden;
+    position: relative;
+}
+
+.katalogCards .card img {
+    width: 100%;
+    height: 100%;
+}
+
+.katalogCards .card .text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #384685;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 0 0 0 10px;
+}
+
+
+/* ///////// */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:420px) {
+    .logo {
+        display: none;
+    }
+
+    .btnGroups {
+        display: none;
+    }
+
+    .navbarHead {
+        justify-content: center;
+    }
+    .imgcard{
+        padding: 10px 0px;
+    }
+    .navbarBtns{
+        display: none;
+        transition: all 0.5s ease-out;
+    }
+    .navbarBtns.active {
+        position: fixed;
+        bottom: 10vh;
+        left: 0;
+        width: 100%;
+        height: 90%;
+        padding: 10% 0;
+        background-color: grey;
+        color: white;
+        z-index: 55;
+        display: inline-block;
+    }
+
+    .navbarBtns button {
+        padding: 20px 20px;
+        width: 100%;
+        height: auto;
+        font-size: 25px;
+    }
+
+    .mdiaNav {
+        display: inline-block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 10vh;
+        background-color: #384685;
+        z-index: 55;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0px 10%;
+    }
+    .mdiaNav button{
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .title{
+        padding: 10px 10px;
+    }
+    /* ///////// */
+    .cards{
+        display: grid;
+        grid-template-columns: 80%;
+        row-gap: 10px;
+        justify-content: center;
+    }
+    .bizningA{
+        padding: 20px 0px;
+    }
+    .katalogCards{
+        grid-template-columns: repeat(2, auto);
+        gap: 5px;
+    }
+    .katalogCards .card .text{
+        padding: 5px 10px;
+    }
+    /* ///////// */
+
+
+
+
+
+    .home{
+        padding: 10px 0px;
+    }
+
+
 }
