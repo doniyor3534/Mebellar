@@ -4,6 +4,7 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    font-family:sans-serif;
 }
 
 button {
@@ -90,10 +91,12 @@ button {
     background-color: transparent;
     position: relative;
 }
-.navbtn img{
+
+.navbtn img {
     width: 30px;
     height: 30px;
 }
+
 .badge {
     position: absolute;
     bottom: 20px;
@@ -224,6 +227,7 @@ button {
     border-radius: 5px;
     overflow: hidden;
 }
+
 .katalogCards .card::after {
     position: absolute;
     top: 0;
@@ -241,10 +245,12 @@ button {
     opacity: 0;
     transform: scale(0);
 }
-.katalogCards .card:hover:after{
+
+.katalogCards .card:hover:after {
     opacity: 1;
     transform: scale(1);
 }
+
 .katalogCards .card img {
     width: 100%;
     height: 100%;
@@ -263,25 +269,184 @@ button {
 
 /* ///////// */
 
-.mashxurtavarlar{
+.mashxurtavarlar {
     width: 100%;
     height: auto;
     text-align: start;
 }
-.mashxurtavarlarCards{
+
+.mashxurtavarlarCards {
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: repeat();
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+    gap: 10px;
+    padding: 50px 0px;
 }
 
+.mashxurtavarlarCards .card {
+    width: 100%;
+    height: min-content;
+    background-color: rgba(243, 241, 241, 0.545);
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    box-shadow: inset 5px 0px 10px rgba(178, 178, 178, 0.59);
+    transition: all 0.4s ease-in-out;
+    z-index: 1;
+}
+.mashxurtavarlarCards .card:hover {
+    z-index: 55;
+    box-shadow: inset 5px 0px 10px rgba(178, 178, 178, 0.546), 0px 10px 30px rgba(178, 178, 178, 0.546);
+}
 
+.positionCard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    display: flex;
+}
 
+.skitka {
+    background-color: red;
+    color: rgb(224, 222, 222);
+    border-radius: 4px;
+    padding: 6px 10px;
+    display: none;
+}
+.skitka.active {
+    display: block;
+    background-color: red;
+    color: rgb(224, 222, 222);
+    border-radius: 4px;
+    padding: 6px 10px;
+}
 
+.new {
+    background-color: rgb(1, 93, 35);
+    color: rgb(224, 222, 222);
+    border-radius: 4px;
+    padding: 6px 10px;
+    display: none;
+}
+.new.active {
+    display: block;
+    background-color: rgb(1, 93, 35);
+    color: rgb(224, 222, 222);
+    border-radius: 4px;
+    padding: 6px 10px;
+}
+.cardimg {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+}
 
+.imgbtns {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 15px 0px;
+}
 
+.imgbtn {
+    content: "";
+    background-color: #efefef;
+    padding: 3px;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
 
+.imgbtn.active {
+    background-color: #384685;
+}
 
+.razmertext {
+    padding: 10px 0px;
+    color: grey;
+}
+.colorbtnGroups{
+    padding: 10px 0px;
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+}
+
+.colors{
+    width: 20px;
+    height: 20px;
+    content: "";
+    background-color: grey;
+    border: none;
+    border-radius: 4px;
+}
+.colors.active{
+    border: 2px solid black;
+    box-shadow: 0px 5px 10px   #384685;
+}
+.sena {
+    display: flex;
+    gap: 5px;
+    border-top: 1px solid rgb(179, 177, 177);
+    border-bottom: 1px solid rgb(179, 177, 177);
+    padding: 15px 0px;
+}
+
+.underlinetext {
+    text-decoration: line-through;
+    color: rgb(186, 184, 184);
+}
+
+.activetext {
+    color: rgb(76, 76, 76);
+    font-weight: 500;
+}
+
+.cardbtns {
+    display: grid;
+    grid-template-columns: 70% 20%;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+.buyurtma {
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    color: #1D1818;
+    transition: all 0.2s ease-in-out;
+}
+.buyurtma:hover {
+    background-color: #3846858a;
+    color: white;
+}
+.buyurtma.active {
+    background-color: #384685;
+    color: white;
+}
+.like{
+    border:none;
+    background-color: transparent;
+}
+
+.razmer{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    padding: 15px 0px;
+}
+.razmerbtn{
+    color: rgb(110, 110, 110);
+    font-weight: 500;
+}
 
 
 
@@ -302,16 +467,20 @@ button {
     .navbarHead {
         justify-content: center;
     }
-    .imgcard{
+
+    .imgcard {
         padding: 10px 0px;
     }
-    .header a{
+
+    .header a {
         font-size: 12px;
     }
-    .navbarBtns{
+
+    .navbarBtns {
         display: none;
         transition: all 0.5s ease-out;
     }
+
     .navbarBtns.active {
         position: fixed;
         bottom: 10vh;
@@ -347,40 +516,49 @@ button {
         justify-content: space-around;
         padding: 0px 10%;
     }
-    .mdiaNav button{
+
+    .mdiaNav button {
         border: none;
         background-color: transparent;
         cursor: pointer;
     }
-    .title{
+
+    .title {
         padding: 10px 10px;
     }
+
     /* ///////// */
-    .cards{
+    .cards {
         display: grid;
         grid-template-columns: 80%;
         row-gap: 10px;
         justify-content: center;
     }
-    .bizningA{
+
+    .bizningA {
         padding: 20px 0px;
     }
-    .katalogCards{
+
+    .katalogCards {
         grid-template-columns: repeat(2, auto);
         gap: 5px;
     }
-    .katalogCards .card .text{
+
+    .katalogCards .card .text {
         padding: 5px 10px;
     }
+
     /* ///////// */
 
 
 
 
 
-    .home{
+    .home {
         padding: 10px 0px;
     }
-
+    .mashxurtavarlarCards{
+        grid-template-columns:95%;
+    }
 
 }

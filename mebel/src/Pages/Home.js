@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Carousel } from 'react-carousel-minimal';
 import { useDispatch, useSelector } from 'react-redux';
+import { colorCounts, imgbtnCount } from '../redux/HomeReducer';
 
 function Home() {
-    const {caruselImg,katalog,data} = useSelector((state) => state.home)
+    const { caruselImg, katalog, data } = useSelector((state) => state.home)
     const dispatch = useDispatch()
-   
+
     console.log(data);
     const captionStyle = {
         fontSize: '2em',
@@ -16,7 +17,9 @@ function Home() {
         fontWeight: 'bold',
     }
     // ////////
-   
+    const [buyurtma, setBuyurtma] = useState(false)
+    const [like, setLike] = useState(false)
+    const [colors, setColors] = useState(false)
     return (
         <div className='home'>
             <div className="sec1">
@@ -80,32 +83,43 @@ function Home() {
             <div className="mashxurtavarlar">
                 <h1 className="title">Mashxur tavarlar</h1>
                 <div className="mashxurtavarlarCards">
-                    <div className="card">
-                        <div className="positionCard">
-                            <div className="skitka">30%</div>
-                            <div className="active">active</div>
-                        </div>
-                        <img src="./img/katalog/1.png" alt="" className="cardimg" />
-                        <div className="imgbtns">
-                            <button className="imgbtn"></button>
-                            <button className="imgbtn"></button>
-                            <button className="imgbtn"></button>
-                        </div>
-                        <h3>kuxni : kuxna uchun</h3>
-                        <div className="sena">
-                            <span className="underlinetext">120000 sum</span>
-                            <span className="activetext">11000 sum</span>
-                        </div>
-                        <div className="cardbtns">
-                            <button className="buyurtma">buyutma</button>
-                            <button className="like">like</button>
-                        </div>
-                        <div className="razmer">
-                            Razmer : <p className="razmerbtn">buyi  2-metr</p>
-                                     <p className="razmerbtn">eni 1-metr</p>
-                                     <p className="razmerbtn">qalinligi 1.5-sm</p>
-                        </div>
-                    </div>
+                    {
+                        data.map((val) => (
+                            <div className="card" key={val.id}>
+                                <div className="positionCard">
+                                    <div className={val.skitka > 0?"skitka active":"skitka"}>{val.skitka}%</div>
+                                    <div className={val.holati ?"new active":"new"}>new</div>
+                                </div>
+                                <img src={val.img[`${val.imgbtnCount}`]} alt="" className="cardimg" />
+                                <div className="imgbtns">
+                                    <button className={val.imgbtnCount === 0 ? "imgbtn active" : "imgbtn "} onClick={() => dispatch(imgbtnCount([val,0]))}></button>
+                                    <button className={val.imgbtnCount === 1 ? "imgbtn active" : "imgbtn "} onClick={() => dispatch(imgbtnCount([val,1]))}></button>
+                                    <button className={val.imgbtnCount === 2 ? "imgbtn active" : "imgbtn "} onClick={() => dispatch(imgbtnCount([val,2]))}></button>
+                                </div>
+                                <h3 className='razmertext'>kuxni : kuxna uchun</h3>
+                                <div className="colorbtnGroups">
+                                    {
+                                        val.color.map((v,e)=>(
+                                            <button className={val.colorCount === e?"colors active":"colors"} style={{background:v}} onClick={()=>dispatch(colorCounts([val,e]))} ></button>
+                                        ))
+                                    }
+                                </div>
+                                <div className="sena">
+                                    <span className="underlinetext">120000 sum</span>
+                                    <span className="activetext">11000 sum</span>
+                                </div>
+                                <div className="cardbtns">
+                                    <button className={buyurtma ? "buyurtma active" : "buyurtma "} onClick={() => setBuyurtma(!buyurtma)}>buyutma</button>
+                                    <button className="like" onClick={() => setLike(!like)}>{like ? <img src="./img/katalog/Vector (2).png" alt="" /> : <img src="./img/katalog/Vector (1).png" alt="" />}</button>
+                                </div>
+                                <div className="razmer">
+                                    Razmer : <p className="razmerbtn">buyi <br /> <hr />  2-metr</p>
+                                    <p className="razmerbtn">eni <br /> <hr /> 1-metr</p>
+                                    <p className="razmerbtn">qalinligi <br /> <hr /> 1.5-sm</p>
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </div>

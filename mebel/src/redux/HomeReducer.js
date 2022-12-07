@@ -61,12 +61,15 @@ const initialState = {
           './img/katalog/3.png',
         ],
         sort:'kuxni',
+        imgbtnCount:0,
+        colorCount:0,
+        color:['green','grey'],
         like:false,
         count:0,
         razmer:{buyi:'2-metr',eni:'1-metr',qalinligi:'1.5-sm'},
         narx:123000,
-        skitka:10,
-        holati:false
+        skitka:25,
+        holati:true
       },
       {
         id:2,
@@ -77,6 +80,9 @@ const initialState = {
           './img/katalog/3.png',
         ],
         sort:'kuxni',
+        imgbtnCount:0,
+        colorCount:0,
+        color:['green','grey','orange','red'],
         like:false,
         count:0,
         razmer:{buyi:'2-metr',eni:'1-metr',qalinligi:'1.5-sm'},
@@ -93,12 +99,15 @@ const initialState = {
           './img/katalog/3.png',
         ],
         sort:'kuxni',
+        imgbtnCount:0,
+        colorCount:0,
+        color:['green','grey','orange'],
         like:false,
         count:0,
         razmer:{buyi:'2-metr',eni:'1-metr',qalinligi:'1.5-sm'},
         narx:123000,
-        skitka:10,
-        holati:false
+        skitka:60,
+        holati:true
       },
       {
         id:4,
@@ -109,6 +118,9 @@ const initialState = {
           './img/katalog/3.png',
         ],
         sort:'kuxni',
+        imgbtnCount:0,
+        colorCount:0,
+        color:['green','grey','orange'],
         like:false,
         count:0,
         razmer:{buyi:'2-metr',eni:'1-metr',qalinligi:'1.5-sm'},
@@ -125,11 +137,14 @@ const initialState = {
           './img/katalog/3.png',
         ],
         sort:'kuxni',
+        imgbtnCount:0,
+        colorCount:0,
+        color:['green','grey','orange','red'],
         like:false,
         count:0,
         razmer:{buyi:'2-metr',eni:'1-metr',qalinligi:'1.5-sm'},
         narx:123000,
-        skitka:10,
+        skitka:50,
         holati:false
       },
     ]
@@ -139,15 +154,11 @@ const initialState = {
     name: 'home',
     initialState,
     reducers: {
-      increment: (state) => {
-        // Redux Toolkit allows us to write "mutating" logic in reducers. It
-        // doesn't actually mutate the state because it uses the Immer library,
-        // which detects changes to a "draft state" and produces a brand new
-        // immutable state based off those changes
-        state.value += 1
+      imgbtnCount: (state,action) => {
+          state.data =  state.data.map((val)=>val.id === action.payload[0].id? {...action.payload[0],imgbtnCount :  action.payload[1]}:val )
       },
-      decrement: (state) => {
-        state.value -= 1
+      colorCounts: (state,action) => {
+        state.data =  state.data.map((val)=>val.id === action.payload[0].id? {...action.payload[0],colorCount :  action.payload[1]}:val )
       },
       incrementByAmount: (state, action) => {
         state.value += action.payload
@@ -156,6 +167,6 @@ const initialState = {
   })
   
   // Action creators are generated for each case reducer function
-  export const { increment, decrement, incrementByAmount } = HomeReducer.actions
+  export const { imgbtnCount, colorCounts, incrementByAmount } = HomeReducer.actions
   
   export default HomeReducer.reducer
