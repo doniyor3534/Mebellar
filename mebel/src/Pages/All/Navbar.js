@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 
 function Navbar() {
+    const {like,karzinka} = useSelector((state) => state.home)
+    const dispatch = useDispatch()
+
     const [menu,setMenu]=useState(false)
-   
     return (
         <nav className='navbar'>
              <div className="navbarHead">
@@ -13,19 +16,15 @@ function Navbar() {
                 </div>
                 <div className="btnGroups">
                     <button className="navbtn">
-                        <h6 className="badge">0</h6>
                         <img src="./img/kirish.svg" alt="" />
-                        Kirish
                     </button>
                     <button className="navbtn">
-                        <h6 className="badge">0</h6>
+                        <h6 className="badge">{like}</h6>
                         <img src="./img/like.svg" alt="" />
-                        Like
                     </button>
                     <button className="navbtn">
-                         <h6 className="badge">0</h6>
+                         <h6 className="badge">{karzinka}</h6>
                         <img src="./img/karzinka.svg" alt="" />
-                        Karzinka
                     </button>
                 </div>
                 {/* /////////medianav */}

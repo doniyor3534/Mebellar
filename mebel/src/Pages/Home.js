@@ -1,45 +1,12 @@
 import React from 'react';
 import { Carousel } from 'react-carousel-minimal';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Home() {
-    const data = [
-        {
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/1200px-GoldenGateBridge-001.jpg",
-            caption: "San Francisco"
-        },
-        {
-            image: "https://cdn.britannica.com/s:800x450,c:crop/35/204435-138-2F2B745A/Time-lapse-hyper-lapse-Isle-Skye-Scotland.jpg",
-            caption: "Scotland"
-        },
-        {
-            image: "https://static2.tripoto.com/media/filter/tst/img/735873/TripDocument/1537686560_1537686557954.jpg",
-            caption: "Darjeeling"
-        },
-        {
-            image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg",
-            caption: "San Francisco"
-        },
-        {
-            image: "https://i.natgeofe.com/n/f7732389-a045-402c-bf39-cb4eda39e786/scotland_travel_4x3.jpg",
-            caption: "Scotland"
-        },
-        {
-            image: "https://www.tusktravel.com/blog/wp-content/uploads/2020/07/Best-Time-to-Visit-Darjeeling-for-Honeymoon.jpg",
-            caption: "Darjeeling"
-        },
-        {
-            image: "https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx",
-            caption: "San Francisco"
-        },
-        {
-            image: "https://images.ctfassets.net/bth3mlrehms2/6Ypj2Qd3m3jQk6ygmpsNAM/61d2f8cb9f939beed918971b9bc59bcd/Scotland.jpg?w=750&h=422&fl=progressive&q=50&fm=jpg",
-            caption: "Scotland"
-        },
-        {
-            image: "https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/02/summer-7.jpg",
-            caption: "Darjeeling"
-        }
-    ];
+    const {caruselImg,katalog,data} = useSelector((state) => state.home)
+    const dispatch = useDispatch()
+   
+    console.log(data);
     const captionStyle = {
         fontSize: '2em',
         fontWeight: 'bold',
@@ -49,16 +16,7 @@ function Home() {
         fontWeight: 'bold',
     }
     // ////////
-    const katalog = [
-        { id: 1, img: './img/katalog/1.png', title: 'Kuxni' },
-        { id: 2, img: './img/katalog/2.png', title: 'Spalni' },
-        { id: 3, img: './img/katalog/3.png', title: 'Detski' },
-        { id: 4, img: './img/katalog/4.png', title: 'Shkaf' },
-        { id: 5, img: './img/katalog/5.png', title: 'Stol-Stul' },
-        { id: 6, img: './img/katalog/6.png', title: 'Mexmonxona' },
-        { id: 7, img: './img/katalog/7.png', title: 'Devan' },
-        { id: 8, img: './img/katalog/8.png', title: 'Kuxni' },
-    ]
+   
     return (
         <div className='home'>
             <div className="sec1">
@@ -69,7 +27,7 @@ function Home() {
                             padding: "0 20px"
                         }}>
                             <Carousel
-                                data={data}
+                                data={caruselImg}
                                 time={3000}
                                 width="100%"
                                 height="500px"
@@ -120,7 +78,35 @@ function Home() {
                 </div>
             </div>
             <div className="mashxurtavarlar">
-
+                <h1 className="title">Mashxur tavarlar</h1>
+                <div className="mashxurtavarlarCards">
+                    <div className="card">
+                        <div className="positionCard">
+                            <div className="skitka">30%</div>
+                            <div className="active">active</div>
+                        </div>
+                        <img src="./img/katalog/1.png" alt="" className="cardimg" />
+                        <div className="imgbtns">
+                            <button className="imgbtn"></button>
+                            <button className="imgbtn"></button>
+                            <button className="imgbtn"></button>
+                        </div>
+                        <h3>kuxni : kuxna uchun</h3>
+                        <div className="sena">
+                            <span className="underlinetext">120000 sum</span>
+                            <span className="activetext">11000 sum</span>
+                        </div>
+                        <div className="cardbtns">
+                            <button className="buyurtma">buyutma</button>
+                            <button className="like">like</button>
+                        </div>
+                        <div className="razmer">
+                            Razmer : <p className="razmerbtn">buyi  2-metr</p>
+                                     <p className="razmerbtn">eni 1-metr</p>
+                                     <p className="razmerbtn">qalinligi 1.5-sm</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

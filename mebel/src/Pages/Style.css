@@ -90,11 +90,14 @@ button {
     background-color: transparent;
     position: relative;
 }
-
+.navbtn img{
+    width: 30px;
+    height: 30px;
+}
 .badge {
     position: absolute;
-    bottom: 40px;
-    right: 0px;
+    bottom: 20px;
+    right: -20px;
     background-color: rgb(19, 98, 254);
     color: white;
     padding: 0 5px;
@@ -218,8 +221,30 @@ button {
 .katalogCards .card {
     overflow: hidden;
     position: relative;
+    border-radius: 5px;
+    overflow: hidden;
 }
-
+.katalogCards .card::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: '+';
+    color: white;
+    font-size: 30px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.474);
+    transition: all 0.3s ease-out;
+    opacity: 0;
+    transform: scale(0);
+}
+.katalogCards .card:hover:after{
+    opacity: 1;
+    transform: scale(1);
+}
 .katalogCards .card img {
     width: 100%;
     height: 100%;
@@ -238,6 +263,17 @@ button {
 
 /* ///////// */
 
+.mashxurtavarlar{
+    width: 100%;
+    height: auto;
+    text-align: start;
+}
+.mashxurtavarlarCards{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat();
+}
 
 
 
@@ -269,6 +305,9 @@ button {
     .imgcard{
         padding: 10px 0px;
     }
+    .header a{
+        font-size: 12px;
+    }
     .navbarBtns{
         display: none;
         transition: all 0.5s ease-out;
@@ -291,6 +330,7 @@ button {
         width: 100%;
         height: auto;
         font-size: 25px;
+        color: white;
     }
 
     .mdiaNav {
