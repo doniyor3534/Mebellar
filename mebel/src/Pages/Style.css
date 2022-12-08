@@ -447,6 +447,30 @@ button {
     color: rgb(110, 110, 110);
     font-weight: 500;
 }
+.paginationbtns{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.paginationbtns button{
+    padding: 5px 15px;
+    border: 1px solid grey;
+    border-radius: 3px;
+}
+.paginationbtns button:hover{
+    background-color: #384685bb;
+    color: white;
+    border-radius: 3px;
+}
+.paginationbtns button.active{
+    background-color: #384685;
+    color: white;
+    border-radius: 3px;
+}
+
+
 
 
 
