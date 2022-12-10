@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Carousel } from 'react-carousel-minimal';
 import { useDispatch, useSelector } from 'react-redux';
 import { colorCounts, imgbtnCount } from '../redux/HomeReducer';
+import CarouselSkitka from './All/Crousel';
 
 function Home() {
   const { caruselImg, katalog, data } = useSelector((state) => state.home);
@@ -207,12 +208,15 @@ function Home() {
         <div className="paginationbtns">
           <button onClick={prev}>prev</button>
           {pegmass.map((val, i) => (
-            <button key={val} className={pagcount === i + 1 ? "active" : ""}>
+            <button key={val} className={pagcount === i + 1 ? "active" : ""} onClick={()=>setPagcount(i+1)} >
               {val}
             </button>
           ))}
           <button onClick={next}>next</button>
         </div>
+      </div>
+      <div className="skitkaCards">
+          <CarouselSkitka  />
       </div>
     </div>
   );

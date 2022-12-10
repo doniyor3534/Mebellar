@@ -312,6 +312,7 @@ const initialState = {
       colorCounts: (state,action) => {
         state.data =  state.data.map((val)=>val.id === action.payload[0].id? {...action.payload[0],colorCount :  action.payload[1]}:val )
       },
+    
       incrementByAmount: (state, action) => {
         state.value += action.payload
       },
