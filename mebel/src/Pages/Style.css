@@ -425,7 +425,7 @@ button {
     transition: all 0.2s ease-in-out;
 }
 .buyurtma:hover {
-    background-color: #3846858a;
+    background-color: #0743b38a;
     color: white;
 }
 .buyurtma.active {
@@ -477,7 +477,27 @@ button {
     height: auto;
 }
 
+.carusell   .slick-track {
+    display: flex !important;
+    gap: 20px !important;
+}
+.slick-track .card{
+     width: 100%;
+    height: min-content;
+    background-color: rgba(243, 241, 241, 0.545);
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    box-shadow: inset 5px 0px 10px rgba(178, 178, 178, 0.59);
+    transition: all 0.4s ease-in-out;
+    z-index: 1;
+}
 
+
+.slick-track .card:hover {
+    z-index: 55;
+    box-shadow: inset 5px 0px 10px rgba(178, 178, 178, 0.546), 0px 10px 30px rgba(178, 178, 178, 0.546);
+}
 
 
 
@@ -572,6 +592,7 @@ button {
     .katalogCards {
         grid-template-columns: repeat(2, auto);
         gap: 5px;
+        padding: 10px;
     }
 
     .katalogCards .card .text {
@@ -589,6 +610,10 @@ button {
     }
     .mashxurtavarlarCards{
         grid-template-columns:95%;
+    }
+    /* skitka lar  */
+    .carusell{
+        padding: 50px 0;
     }
 
 }

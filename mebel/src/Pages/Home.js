@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import { Carousel } from 'react-carousel-minimal';
 import { useDispatch, useSelector } from 'react-redux';
-import { colorCounts, imgbtnCount } from '../redux/HomeReducer';
+import {
+  colorCounts,
+  imgbtnCount,
+  buyurtmafun,
+  likefun,
+  showToastMessage,
+} from "../redux/HomeReducer";
 import CarouselSkitka from './All/Crousel';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function Home() {
   const { caruselImg, katalog, data } = useSelector((state) => state.home);
@@ -17,9 +26,6 @@ function Home() {
     fontWeight: "bold",
   };
   // ////////
-  const [buyurtma, setBuyurtma] = useState(false);
-  const [like, setLike] = useState(false);
-  const [colors, setColors] = useState(false);
   //  pagination /////////////////
     const [pagcount,setPagcount]=useState(1)
   let pegbtn = parseInt(data.length / 4);
@@ -42,9 +48,42 @@ function Home() {
         }
     }
   //  pagination /////////////////
+  //  toastfun /////////////////
+   const toastsucces = (a) => {
+     toast.success(`${a}`, {
+       position: toast.POSITION.TOP_CENTER,
+     });
+   };
+   const toastwarning=(a) => {
+     toast.warning(`${a}`, {
+       position: toast.POSITION.TOP_CENTER,
+     });
+   };
+  //  toastfun /////////////////
+  //  buyurtma fun /////////////////
+  const buyurtma = (val) => {
+    if (val.buyurtma) {
+      toastwarning('Buyurtma rad etildi !')
+    } else {
+      toastsucces("Buyurtma qabul qilindi !");
+    }
+    dispatch(buyurtmafun(val))
+    }
+  //  buyurtma fun /////////////////
+  //  like fun /////////////////
+  const likeFunn = (val) => {
+    if (val.like) {
+      toastwarning('like qaytarildi !')
+    } else {
+      toastsucces("like bosildi !");
+    }
+     dispatch(likefun(val));
+    }
+  //  like fun /////////////////
 
   return (
     <div className="home">
+      <ToastContainer />
       <div className="sec1">
         <div className="imgcard">
           <div style={{ textAlign: "center" }}>
@@ -118,7 +157,7 @@ function Home() {
       <div className="mashxurtavarlar">
         <h1 className="title">Mashxur tavarlar</h1>
         <div className="mashxurtavarlarCards">
-          {data.slice(pagcount*4-4,pagcount*4).map((val) => (
+          {data.slice(pagcount * 4 - 4, pagcount * 4).map((val) => (
             <div className="card" key={val.id}>
               <div className="positionCard">
                 <div className={val.skitka > 0 ? "skitka active" : "skitka"}>
@@ -172,13 +211,13 @@ function Home() {
               </div>
               <div className="cardbtns">
                 <button
-                  className={buyurtma ? "buyurtma active" : "buyurtma "}
-                  onClick={() => setBuyurtma(!buyurtma)}
+                  className={val.buyurtma ? "buyurtma active" : "buyurtma "}
+                  onClick={() => buyurtma(val)}
                 >
                   buyutma
                 </button>
-                <button className="like" onClick={() => setLike(!like)}>
-                  {like ? (
+                <button className="like" onClick={() =>likeFunn(val)}>
+                  {val.like ? (
                     <img src="./img/katalog/Vector (2).png" alt="" />
                   ) : (
                     <img src="./img/katalog/Vector (1).png" alt="" />
@@ -208,7 +247,11 @@ function Home() {
         <div className="paginationbtns">
           <button onClick={prev}>prev</button>
           {pegmass.map((val, i) => (
-            <button key={val} className={pagcount === i + 1 ? "active" : ""} onClick={()=>setPagcount(i+1)} >
+            <button
+              key={val}
+              className={pagcount === i + 1 ? "active " : ""}
+              onClick={() => setPagcount(i + 1)}
+            >
               {val}
             </button>
           ))}
@@ -216,7 +259,7 @@ function Home() {
         </div>
       </div>
       <div className="skitkaCards">
-          <CarouselSkitka  />
+        <CarouselSkitka />
       </div>
     </div>
   );

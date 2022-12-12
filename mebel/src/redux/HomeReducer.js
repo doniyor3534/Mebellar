@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
+
 const initialState = {
     like: 0,
     karzinka: 0,
@@ -55,6 +56,7 @@ const initialState = {
       {
         id:1,
         name:'ishxona uchun',
+        buyurtma:false,
         img:[
           './img/katalog/1.png',
           './img/katalog/2.png',
@@ -74,6 +76,7 @@ const initialState = {
       {
         id:2,
         name:'bolalar uchun',
+        buyurtma:false,
         img:[
           './img/katalog/2.png',
           './img/katalog/1.png',
@@ -93,6 +96,7 @@ const initialState = {
       {
         id:3,
         name:'Yotoqxona uchun',
+        buyurtma:false,
         img:[
           './img/katalog/3.png',
           './img/katalog/2.png',
@@ -112,6 +116,7 @@ const initialState = {
       {
         id:4,
         name:'kuxna uchun',
+        buyurtma:false,
         img:[
           './img/katalog/4.png',
           './img/katalog/2.png',
@@ -131,6 +136,7 @@ const initialState = {
       {
         id:5,
         name:'kuxna uchun',
+        buyurtma:false,
         img:[
           './img/katalog/5.png',
           './img/katalog/2.png',
@@ -150,6 +156,7 @@ const initialState = {
       {
         id:6,
         name:'kuxna uchun',
+        buyurtma:false,
         img:[
           './img/katalog/5.png',
           './img/katalog/2.png',
@@ -169,6 +176,7 @@ const initialState = {
       {
         id:7,
         name:'kuxna uchun',
+        buyurtma:false,
         img:[
           './img/katalog/5.png',
           './img/katalog/2.png',
@@ -188,6 +196,7 @@ const initialState = {
       {
         id:8,
         name:'kuxna uchun',
+        buyurtma:false,
         img:[
           './img/katalog/5.png',
           './img/katalog/2.png',
@@ -207,6 +216,7 @@ const initialState = {
       {
         id:9,
         name:'kuxna uchun',
+        buyurtma:false,
         img:[
           './img/katalog/5.png',
           './img/katalog/2.png',
@@ -226,6 +236,7 @@ const initialState = {
       {
         id:10,
         name:'kuxna uchun',
+        buyurtma:false,
         img:[
           './img/katalog/5.png',
           './img/katalog/2.png',
@@ -245,6 +256,7 @@ const initialState = {
       {
         id:11,
         name:'kuxna uchun',
+        buyurtma:false,
         img:[
           './img/katalog/5.png',
           './img/katalog/2.png',
@@ -264,6 +276,7 @@ const initialState = {
       {
         id:12,
         name:'kuxna uchun',
+        buyurtma:false,
         img:[
           './img/katalog/5.png',
           './img/katalog/2.png',
@@ -283,6 +296,7 @@ const initialState = {
       {
         id:13,
         name:'kuxna uchun',
+        buyurtma:false,
         img:[
           './img/katalog/5.png',
           './img/katalog/2.png',
@@ -313,13 +327,34 @@ const initialState = {
         state.data =  state.data.map((val)=>val.id === action.payload[0].id? {...action.payload[0],colorCount :  action.payload[1]}:val )
       },
     
-      incrementByAmount: (state, action) => {
-        state.value += action.payload
+      buyurtmafun: (state, action) => {
+        if (action.payload.buyurtma === false) {
+          state.data = state.data.map((val => val.id === action.payload.id ? { ...action.payload, buyurtma: true } : val))
+        } else {
+          state.data = state.data.map((val) =>
+            val.id === action.payload.id
+              ? { ...action.payload, buyurtma: false }
+              : val
+          );
+        }
       },
+      likefun: (state, action) => {
+        if (action.payload.like === false) {
+          state.data = state.data.map((val => val.id === action.payload.id ? { ...action.payload, like: true } : val))
+        } else {
+          state.data = state.data.map((val) =>
+            val.id === action.payload.id
+              ? { ...action.payload, like: false }
+              : val
+          );
+        }
+      },
+     
     },
   })
   
   // Action creators are generated for each case reducer function
-  export const { imgbtnCount, colorCounts, incrementByAmount } = HomeReducer.actions
+  export const { imgbtnCount, colorCounts, buyurtmafun, likefun } =
+    HomeReducer.actions;
   
   export default HomeReducer.reducer
