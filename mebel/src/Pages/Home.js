@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { Carousel } from 'react-carousel-minimal';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from "react";
+import { Carousel } from "react-carousel-minimal";
+import { useDispatch, useSelector } from "react-redux";
 import {
   colorCounts,
   imgbtnCount,
   buyurtmafun,
   likefun,
-  showToastMessage,
 } from "../redux/HomeReducer";
-import CarouselSkitka from './All/Crousel';
+import CarouselSkitka from "./All/Crousel";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 function Home() {
-  const { caruselImg, katalog, data } = useSelector((state) => state.home);
+  const { caruselImg, katalog, data, qilinganIshalr } = useSelector(
+    (state) => state.home
+  );
   const dispatch = useDispatch();
 
   const captionStyle = {
@@ -27,58 +27,58 @@ function Home() {
   };
   // ////////
   //  pagination /////////////////
-    const [pagcount,setPagcount]=useState(1)
+  const [pagcount, setPagcount] = useState(1);
   let pegbtn = parseInt(data.length / 4);
   let pegmass = [];
   let i = 1;
 
   for (i; i <= pegbtn + 1; i++) {
     pegmass.push(i);
+  }
+  const prev = () => {
+    setPagcount(pagcount - 1);
+    if (pagcount <= 1) {
+      setPagcount(pegmass.pop());
     }
-    const prev = () => {
-        setPagcount(pagcount-1)
-        if (pagcount <= 1) {
-            setPagcount(pegmass.pop())
-        }
+  };
+  const next = () => {
+    setPagcount(pagcount + 1);
+    if (pagcount >= pegmass.pop()) {
+      setPagcount(1);
     }
-    const next = () => {
-        setPagcount( pagcount+1)
-        if (pagcount >= pegmass.pop()) {
-          setPagcount(1);
-        }
-    }
+  };
   //  pagination /////////////////
   //  toastfun /////////////////
-   const toastsucces = (a) => {
-     toast.success(`${a}`, {
-       position: toast.POSITION.TOP_CENTER,
-     });
-   };
-   const toastwarning=(a) => {
-     toast.warning(`${a}`, {
-       position: toast.POSITION.TOP_CENTER,
-     });
-   };
+  const toastsucces = (a) => {
+    toast.success(`${a}`, {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+  const toastwarning = (a) => {
+    toast.warning(`${a}`, {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
   //  toastfun /////////////////
   //  buyurtma fun /////////////////
   const buyurtma = (val) => {
     if (val.buyurtma) {
-      toastwarning('Buyurtma rad etildi !')
+      toastwarning("Buyurtma rad etildi !");
     } else {
       toastsucces("Buyurtma qabul qilindi !");
     }
-    dispatch(buyurtmafun(val))
-    }
+    dispatch(buyurtmafun(val));
+  };
   //  buyurtma fun /////////////////
   //  like fun /////////////////
   const likeFunn = (val) => {
     if (val.like) {
-      toastwarning('like qaytarildi !')
+      toastwarning("like qaytarildi !");
     } else {
       toastsucces("like bosildi !");
     }
-     dispatch(likefun(val));
-    }
+    dispatch(likefun(val));
+  };
   //  like fun /////////////////
 
   return (
@@ -216,7 +216,7 @@ function Home() {
                 >
                   buyutma
                 </button>
-                <button className="like" onClick={() =>likeFunn(val)}>
+                <button className="like" onClick={() => likeFunn(val)}>
                   {val.like ? (
                     <img src="./img/katalog/Vector (2).png" alt="" />
                   ) : (
@@ -261,6 +261,15 @@ function Home() {
       <div className="skitkaCards">
         <CarouselSkitka />
       </div>
+      <div className="qilinganIshlar">
+        {qilinganIshalr.map((val) => (
+          <div className={"ishlarcard" + val.class} key={val.id}>
+            <img src={val.img} alt="" />
+            <h3 className="ishlarname">{val.name}</h3>
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 }
