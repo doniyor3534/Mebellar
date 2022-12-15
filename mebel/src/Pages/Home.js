@@ -87,7 +87,7 @@ function Home() {
       <div className="sec1">
         <div className="imgcard">
           <div style={{ textAlign: "center" }}>
-            <h1>Eng qulay mebellar bizda</h1>
+            <h1 className="title">Biz haqimizda !</h1>
             <div
               style={{
                 padding: "0 20px",
@@ -95,7 +95,7 @@ function Home() {
             >
               <Carousel
                 data={caruselImg}
-                time={3000}
+                time={2000}
                 width="100%"
                 height="500px"
                 captionStyle={captionStyle}
@@ -103,7 +103,7 @@ function Home() {
                 slideNumber={true}
                 slideNumberStyle={slideNumberStyle}
                 captionPosition="bottom"
-                automatic={true}
+                automatic={false}
                 dots={true}
                 pauseIconColor="white"
                 pauseIconSize="40px"
@@ -261,15 +261,17 @@ function Home() {
       <div className="skitkaCards">
         <CarouselSkitka />
       </div>
-      <div className="qilinganIshlar">
-        {qilinganIshalr.map((val) => (
-          <div className={"ishlarcard" + val.class} key={val.id}>
-            <img src={val.img} alt="" />
-            <h3 className="ishlarname">{val.name}</h3>
-          </div>
-        ))}
+      <div className="bajarilganIshlar">
+        <h1 className="title">Bajarilgan ishlar</h1>
+        <div className="qilinganIshlar">
+          {qilinganIshalr.map((val) => (
+            <div className={"ishlarcard" + val.class} key={val.id}>
+              <img src={val.img} alt="" />
+              <h3 className="ishlarname">{val.name}</h3>
+            </div>
+          ))}
+        </div>
       </div>
-
     </div>
   );
 }

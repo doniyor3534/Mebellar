@@ -106,28 +106,39 @@ button {
     padding: 0 5px;
     border-radius: 15px 15px 15px 0;
 }
-
-.navbarBtns {
+.navbtnsScroll::-webkit-scrollbar{
+    display: none;
+}
+.navbtnsScroll{
     width: 100%;
-    height: 50px;
-    padding: 0px 5%;
-    background: #A8D1E7;
+    overflow-x: scroll;
+}
+.navbarBtns {
+    height: 80px;
+    padding: 0px 5% 10px;
+    /* background: #A8D1E7; */
     display: flex;
-    flex-wrap: wrap;
+    border-bottom: 1px solid rgb(215, 215, 215);
 }
 
 .navbarBtns button {
-    padding: 0 20px;
-    width: 20%;
+    padding: 0 60px;
     height: 100%;
     color: rgb(92, 91, 91);
     font-size: 20px;
     border: none;
     background-color: transparent;
     transition: all 0.2s ease-out;
+     border: 1px solid rgb(215, 215, 215);
+     border-radius: 5px;
 }
 
 .navbarBtns button:hover {
+    background: #384685;
+    border-radius: 5px;
+    color: white;
+}
+.navbarBtns button.active {
     background: #384685;
     border-radius: 5px;
     color: white;
@@ -167,15 +178,26 @@ button {
     padding: 50px 0px;
     text-align: start;
 }
-
+.dot{
+    width: 10px !important;
+    height: 10px !important;
+}
+.dot.active{
+    width: 15px !important;
+    height: 15px !important;
+}
+.carousel-caption-bottom{
+    bottom: 50px !important;
+    font-size: 50px !important;
+}
 .title {
     font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
+    font-weight: 500;
+    font-size: 55px;
     line-height: 39px;
     padding: 10px 0px;
-    color: #000000;
-
+    color: #555555;
+    
 }
 
 .cards {
@@ -500,8 +522,12 @@ button {
 }
 
 /* ///////ishlar */
+.bajarilganIshlar{
+    padding-top: 100px;
+    text-align: start;
+}
 .qilinganIshlar{
-    margin: 100px 0px;
+    margin: 20px 0px 100px;
     width: 100%;
     height: auto;
     display: grid;
@@ -610,9 +636,10 @@ button {
         background-color: transparent;
         cursor: pointer;
     }
-
+    
     .title {
         padding: 10px 10px;
+        font-size: 25px;
     }
 
     /* ///////// */
@@ -626,7 +653,20 @@ button {
     .bizningA {
         padding: 20px 0px;
     }
+    .dot {
+        width: 7px !important;
+        height: 7px !important;
+    }
 
+    .dot.active {
+        width: 10px !important;
+        height: 10px !important;
+    }
+
+    .carousel-caption-bottom {
+        bottom: 30px !important;
+        font-size: 50px !important;
+    }
     .katalogCards {
         grid-template-columns: repeat(2, auto);
         gap: 5px;
@@ -653,5 +693,20 @@ button {
     .carusell{
         padding: 50px 0;
     }
-
+   .qilinganIshlar {
+       margin: 100px 0px;
+       width: 100%;
+       height: auto;
+       display: grid;
+       grid-template-areas:
+           'a a '
+           'a a '
+           'c c '
+           'c c '
+           'b b '
+           'b b '
+           'd d ';
+       gap: 30px;
+       padding: 10px;
+   }
 }
