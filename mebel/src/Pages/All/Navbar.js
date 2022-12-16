@@ -8,18 +8,11 @@ function Navbar() {
 
     const [menu, setMenu] = useState(false)
     // kategorybtn 
-    let btn = document.querySelectorAll(".kategorybtn");
+    const [allcount,setAll]=useState(0)
   const kategBtn = (i) => {
-    btn.forEach((val, x) => {
-            if (i === x ) {
-              val.classList.add('active')
-               console.log(val);
-            } else {
-                val.classList.remove("active");
-            }
-            
-        })
+       setAll(i)
     }
+   
     // kategorybtn 
     return (
       <nav className="navbar">
@@ -69,7 +62,7 @@ function Navbar() {
         <div className="navbtnsScroll">
           <div className={menu ? "navbarBtns active" : "navbarBtns"}>
                     {kategoryabtns.map((val, i) => (
-                        <button className='kategorybtn' onClick={()=> kategBtn(i)} >{val }</button>
+                        <button className={allcount === i?' active':''} key={i} onClick={()=> kategBtn(i)} >{val }</button>
             ))}
           </div>
         </div>

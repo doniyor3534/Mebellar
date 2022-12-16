@@ -17,7 +17,7 @@ button {
 .header {
     width: 100%;
     height: auto;
-    padding: 10px 5%;
+    padding: 30px 5% 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -103,7 +103,7 @@ function Home() {
                 slideNumber={true}
                 slideNumberStyle={slideNumberStyle}
                 captionPosition="bottom"
-                automatic={false}
+                automatic={true}
                 dots={true}
                 pauseIconColor="white"
                 pauseIconSize="40px"
