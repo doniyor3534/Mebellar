@@ -10,6 +10,8 @@ import {
 import CarouselSkitka from "./All/Crousel";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Button, Select } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 
 function Home() {
   const { caruselImg, katalog, data, qilinganIshalr } = useSelector(
@@ -80,7 +82,14 @@ function Home() {
     dispatch(likefun(val));
   };
   //  like fun /////////////////
-
+  // ///select
+  const onChange = (value) => {
+    console.log(`selected ${value}`);
+  };
+  const onSearch = (value) => {
+    console.log("search:", value);
+  };
+  // ///select
   return (
     <div className="home">
       <ToastContainer />
@@ -88,36 +97,82 @@ function Home() {
         <div className="imgcard">
           <div style={{ textAlign: "center" }}>
             <h1 className="title">Biz haqimizda !</h1>
-            <div
-              style={{
-                padding: "0 20px",
-              }}
-            >
-              <Carousel
-                data={caruselImg}
-                time={2000}
-                width="100%"
-                height="500px"
-                captionStyle={captionStyle}
-                radius="10px"
-                slideNumber={true}
-                slideNumberStyle={slideNumberStyle}
-                captionPosition="bottom"
-                automatic={true}
-                dots={true}
-                pauseIconColor="white"
-                pauseIconSize="40px"
-                slideBackgroundColor="darkgrey"
-                slideImageFit="cover"
-                thumbnails={true}
-                thumbnailWidth="100px"
+            <div className="headerCaruselcard">
+              <div
                 style={{
-                  textAlign: "center",
-                  maxWidth: "1920px",
-                  maxHeight: "500px",
-                  margin: "40px auto",
+                  padding: "0 20px",
                 }}
-              />
+              >
+                <Carousel
+                  data={caruselImg}
+                  time={2000}
+                  width="100%"
+                  height="500px"
+                  captionStyle={captionStyle}
+                  radius="10px"
+                  slideNumber={true}
+                  slideNumberStyle={slideNumberStyle}
+                  captionPosition="bottom"
+                  automatic={true}
+                  dots={true}
+                  pauseIconColor="white"
+                  pauseIconSize="40px"
+                  slideBackgroundColor="darkgrey"
+                  slideImageFit="cover"
+                  thumbnails={true}
+                  thumbnailWidth="100px"
+                  style={{
+                    textAlign: "center",
+                    maxWidth: "1920px",
+                    maxHeight: "500px",
+                    margin: "40px auto",
+                  }}
+                />
+              </div>
+              <div className="malumotheader">
+                <h1 className="selecttext">Viloyat tanlang !</h1>
+                <Select
+                  showSearch
+                  placeholder="Viloyat tanlang !"
+                  optionFilterProp="children"
+                  onChange={onChange}
+                  onSearch={onSearch}
+                  filterOption={(input, option) =>
+                    (option?.label ?? "")
+                      .toLowerCase()
+                      .includes(input.toLowerCase())
+                  }
+                  options={[
+                    {
+                      value: "Namangan",
+                      label: "Namangan",
+                    },
+                    {
+                      value: "Toshkent",
+                      label: "Toshkent",
+                    },
+                    {
+                      value: "Buxoro",
+                      label: "Buxoro",
+                    },
+                  ]}
+                />
+                <h1 className="selecttext">Mavjud Tumanlar</h1>
+                <div className="selectBody">
+                  <Button>Minbuloq 1100+</Button>
+                  <Button>Minbuloq 1100+</Button>
+                  <Button>Minbuloq 1100+</Button>
+                  <Button>Minbuloq 1100+</Button>
+                  <Button>Minbuloq 1100+</Button>
+                  <Button>Minbuloq 1100+</Button>
+                  <Button>Minbuloq 1100+</Button>
+                  <Button>Minbuloq 1100+</Button>
+                  <Button>Minbuloq 1100+</Button>
+                  <Button>Minbuloq 1100+</Button>
+                  <Button>Minbuloq 1100+</Button>
+                  <Button>Minbuloq 1100+</Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -193,7 +248,7 @@ function Home() {
               <h3 className="razmertext">
                 {val.sort} : {val.name}
               </h3>
-              <div className="colorbtnGroups">
+              {/* <div className="colorbtnGroups">
                 {val.color.map((v, e) => (
                   <button
                     key={e}
@@ -204,7 +259,7 @@ function Home() {
                     onClick={() => dispatch(colorCounts([val, e]))}
                   ></button>
                 ))}
-              </div>
+              </div> */}
               <div className="sena">
                 <span className="underlinetext">120000 sum</span>
                 <span className="activetext">11000 sum</span>
@@ -214,7 +269,7 @@ function Home() {
                   className={val.buyurtma ? "buyurtma active" : "buyurtma "}
                   onClick={() => buyurtma(val)}
                 >
-                  buyutma
+                  Savtga <ShoppingCartOutlined />
                 </button>
                 <button className="like" onClick={() => likeFunn(val)}>
                   {val.like ? (
@@ -224,7 +279,7 @@ function Home() {
                   )}
                 </button>
               </div>
-              <div className="razmer">
+              {/* <div className="razmer">
                 Razmer :{" "}
                 <p className="razmerbtn">
                   <span style={{ borderBottom: "1px solid grey" }}>buyi</span>{" "}
@@ -240,7 +295,7 @@ function Home() {
                   </span>{" "}
                   <br /> 1.5-sm
                 </p>
-              </div>
+              </div> */}
             </div>
           ))}
         </div>

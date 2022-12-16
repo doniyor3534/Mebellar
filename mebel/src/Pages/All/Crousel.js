@@ -2,11 +2,16 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useDispatch, useSelector } from "react-redux";
-import { buyurtmafun, colorCounts, imgbtnCount, likefun } from "../../redux/HomeReducer";
+import {
+  buyurtmafun,
+  colorCounts,
+  imgbtnCount,
+  likefun,
+} from "../../redux/HomeReducer";
 import "../Style.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { ShoppingCartOutlined } from "@ant-design/icons";
 
 const CarouselSkitka = () => {
   const { caruselImg, katalog, data } = useSelector((state) => state.home);
@@ -124,7 +129,7 @@ const CarouselSkitka = () => {
               <h3 className="razmertext">
                 {val.sort} : {val.name}
               </h3>
-              <div className="colorbtnGroups">
+              {/* <div className="colorbtnGroups">
                 {val.color.map((v, e) => (
                   <button
                     key={e}
@@ -135,7 +140,7 @@ const CarouselSkitka = () => {
                     onClick={() => dispatch(colorCounts([val, e]))}
                   ></button>
                 ))}
-              </div>
+              </div> */}
               <div className="sena">
                 <span className="underlinetext">120000 sum</span>
                 <span className="activetext">11000 sum</span>
@@ -145,7 +150,7 @@ const CarouselSkitka = () => {
                   className={val.buyurtma ? "buyurtma active" : "buyurtma "}
                   onClick={() => buyurtma(val)}
                 >
-                  buyutma
+                  Savtga <ShoppingCartOutlined />
                 </button>
                 <button className="like" onClick={() => likeFunn(val)}>
                   {val.like ? (
@@ -155,7 +160,7 @@ const CarouselSkitka = () => {
                   )}
                 </button>
               </div>
-              <div className="razmer">
+              {/* <div className="razmer">
                 Razmer :{" "}
                 <p className="razmerbtn">
                   <span style={{ borderBottom: "1px solid grey" }}>buyi</span>{" "}
@@ -167,11 +172,11 @@ const CarouselSkitka = () => {
                 </p>
                 <p className="razmerbtn">
                   <span style={{ borderBottom: "1px solid grey" }}>
-                    qalinligi
+                    qalin ligi
                   </span>{" "}
                   <br /> 1.5-sm
                 </p>
-              </div>
+              </div> */}
             </div>
           ))}
       </Slider>

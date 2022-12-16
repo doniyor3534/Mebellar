@@ -6,7 +6,7 @@ const initialState = {
   karzinka: 0,
   caruselImg: [
     {
-      image: "./img/carusel/images (2).jfif",
+      image: "./img/carusel/1.webp",
       caption: "San Francisco",
     },
     {
@@ -26,7 +26,7 @@ const initialState = {
       caption: "San Francisco",
     },
     {
-      image: "./img/carusel/1.webp",
+      image: "./img/carusel/images (2).jfif",
       caption: "San Francisco",
     },
     {
