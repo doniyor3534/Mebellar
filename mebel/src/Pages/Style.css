@@ -6,7 +6,14 @@
     list-style: none;
     font-family:sans-serif;
 }
-
+:root{
+    --havorang:rgb(217, 233, 244);
+    --cardbg:rgba(238, 236, 236, 0.757);
+}
+.active{
+    --havorang:rgb(217, 233, 244);
+    --cardbg:rgba(30, 25, 25, 0.757);
+}
 button {
     cursor: pointer;
 }
@@ -359,18 +366,15 @@ button {
 .mashxurtavarlarCards .card {
     width: 100%;
     height: min-content;
-    background-color: rgba(243, 241, 241, 0.545);
     border-radius: 5    px;
     padding: 10px;
     position: relative;
-    /* box-shadow: inset 5px 0px 10px rgba(178, 178, 178, 0.59); */
     transition: all 0.4s ease-in-out;
     z-index: 1;
 }
 .mashxurtavarlarCards .card:hover {
     z-index: 55;
-      background-color: rgba(217, 214, 214, 0.757);
-    /* box-shadow: inset 5px 0px 10px rgba(178, 178, 178, 0.546), 0px 10px 30px rgba(178, 178, 178, 0.546); */
+      background-color: var(--cardbg);
 }
 
 .positionCard {
