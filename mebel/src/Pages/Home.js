@@ -10,7 +10,7 @@ import {
 import CarouselSkitka from "./All/Crousel";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button, Select } from "antd";
+import { Button, Dropdown, Select } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 
 function Home() {
@@ -90,6 +90,46 @@ function Home() {
     console.log("search:", value);
   };
   // ///select
+  // card select
+  const items = [
+    {
+      key: "1",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.antgroup.com"
+        >
+          1st menu item
+        </a>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.aliyun.com"
+        >
+          2nd menu item
+        </a>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.luohanacademy.com"
+        >
+          3rd menu item
+        </a>
+      ),
+    },
+  ];
+  // card select
   return (
     <div className="home">
       <ToastContainer />
@@ -205,7 +245,17 @@ function Home() {
             <div className="card" key={val.id}>
               <img src={val.img} alt="" />
               <p className="text">{val.title}</p>
-            </div>
+              <div className="cardHoverCatalog">
+                    <Button>catalog a</Button>
+                    <Button>catalog b</Button>
+                    <Button>catalog c</Button>
+                    <Button>catalog c</Button>
+                    <Button>catalog c</Button>
+                    <Button>catalog c</Button>
+                    <Button>catalog c</Button>
+                    <Button>catalog c</Button>
+                   </div>
+              </div>
           ))}
         </div>
       </div>
@@ -213,90 +263,91 @@ function Home() {
         <h1 className="title">Mashxur tavarlar</h1>
         <div className="mashxurtavarlarCards">
           {data.slice(pagcount * 4 - 4, pagcount * 4).map((val) => (
-            <div className="card" key={val.id}>
-              <div className="positionCard">
-                <div className={val.skitka > 0 ? "skitka active" : "skitka"}>
-                  {val.skitka}%
+         
+              <div  className="card" key={val.id}>
+                <div className="positionCard">
+                  <div className={val.skitka > 0 ? "skitka active" : "skitka"}>
+                    {val.skitka}%
+                  </div>
+                  <div className={val.holati ? "new active" : "new"}>new</div>
                 </div>
-                <div className={val.holati ? "new active" : "new"}>new</div>
-              </div>
-              <img
-                src={val.img[`${val.imgbtnCount}`]}
-                alt=""
-                className="cardimg"
-              />
-              <div className="imgbtns">
-                <button
-                  className={
-                    val.imgbtnCount === 0 ? "imgbtn active" : "imgbtn "
-                  }
-                  onClick={() => dispatch(imgbtnCount([val, 0]))}
-                ></button>
-                <button
-                  className={
-                    val.imgbtnCount === 1 ? "imgbtn active" : "imgbtn "
-                  }
-                  onClick={() => dispatch(imgbtnCount([val, 1]))}
-                ></button>
-                <button
-                  className={
-                    val.imgbtnCount === 2 ? "imgbtn active" : "imgbtn "
-                  }
-                  onClick={() => dispatch(imgbtnCount([val, 2]))}
-                ></button>
-              </div>
-              <h3 className="razmertext">
-                {val.sort} : {val.name}
-              </h3>
-              {/* <div className="colorbtnGroups">
+                <img
+                  src={val.img[`${val.imgbtnCount}`]}
+                  alt=""
+                  className="cardimg"
+                />
+                <div className="imgbtns">
+                  <button
+                    className={
+                      val.imgbtnCount === 0 ? "imgbtn active" : "imgbtn "
+                    }
+                    onClick={() => dispatch(imgbtnCount([val, 0]))}
+                  ></button>
+                  <button
+                    className={
+                      val.imgbtnCount === 1 ? "imgbtn active" : "imgbtn "
+                    }
+                    onClick={() => dispatch(imgbtnCount([val, 1]))}
+                  ></button>
+                  <button
+                    className={
+                      val.imgbtnCount === 2 ? "imgbtn active" : "imgbtn "
+                    }
+                    onClick={() => dispatch(imgbtnCount([val, 2]))}
+                  ></button>
+                </div>
+                <h3 className="razmertext">
+                  {val.sort} : {val.name}
+                </h3>
+                {/* <div className="colorbtnGroups">
                 {val.color.map((v, e) => (
                   <button
-                    key={e}
-                    className={
-                      val.colorCount === e ? "colors active" : "colors"
-                    }
-                    style={{ background: v }}
-                    onClick={() => dispatch(colorCounts([val, e]))}
+                  key={e}
+                  className={
+                    val.colorCount === e ? "colors active" : "colors"
+                  }
+                  style={{ background: v }}
+                  onClick={() => dispatch(colorCounts([val, e]))}
                   ></button>
-                ))}
-              </div> */}
-              <div className="sena">
-                <span className="underlinetext">120000 sum</span>
-                <span className="activetext">11000 sum</span>
-              </div>
-              <div className="cardbtns">
-                <button
-                  className={val.buyurtma ? "buyurtma active" : "buyurtma "}
-                  onClick={() => buyurtma(val)}
-                >
-                  Savtga <ShoppingCartOutlined />
-                </button>
-                <button className="like" onClick={() => likeFunn(val)}>
-                  {val.like ? (
-                    <img src="./img/katalog/Vector (2).png" alt="" />
-                  ) : (
-                    <img src="./img/katalog/Vector (1).png" alt="" />
-                  )}
-                </button>
-              </div>
-              {/* <div className="razmer">
+                  ))}
+                </div> */}
+                <div className="sena">
+                  <span className="underlinetext">120000 sum</span>
+                  <span className="activetext">11000 sum</span>
+                </div>
+                <div className="cardbtns">
+                  <button
+                    className={val.buyurtma ? "buyurtma active" : "buyurtma "}
+                    onClick={() => buyurtma(val)}
+                  >
+                    Savtga <ShoppingCartOutlined />
+                  </button>
+                  <button className="like" onClick={() => likeFunn(val)}>
+                    {val.like ? (
+                      <img src="./img/katalog/Vector (2).png" alt="" />
+                    ) : (
+                      <img src="./img/katalog/Vector (1).png" alt="" />
+                    )}
+                  </button>
+                </div>
+                {/* <div className="razmer">
                 Razmer :{" "}
                 <p className="razmerbtn">
-                  <span style={{ borderBottom: "1px solid grey" }}>buyi</span>{" "}
-                  <br /> 2-metr
+                <span style={{ borderBottom: "1px solid grey" }}>buyi</span>{" "}
+                <br /> 2-metr
                 </p>
                 <p className="razmerbtn">
-                  <span style={{ borderBottom: "1px solid grey" }}>eni</span>{" "}
-                  <br /> 1-metr
+                <span style={{ borderBottom: "1px solid grey" }}>eni</span>{" "}
+                <br /> 1-metr
                 </p>
                 <p className="razmerbtn">
                   <span style={{ borderBottom: "1px solid grey" }}>
-                    qalinligi
+                  qalinligi
                   </span>{" "}
                   <br /> 1.5-sm
-                </p>
-              </div> */}
-            </div>
+                  </p>
+                </div> */}
+              </div>
           ))}
         </div>
         <div className="paginationbtns">
@@ -326,6 +377,7 @@ function Home() {
             </div>
           ))}
         </div>
+        <Button>Ko'proq ko'rish...</Button>
       </div>
     </div>
   );
