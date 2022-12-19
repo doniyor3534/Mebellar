@@ -363,6 +363,44 @@ const initialState = {
     "Activlar",
     "Skitkalar",
   ],
+  qilinganishlarImgs: [
+    {
+      id: 1,
+      categorya: "kuxni",
+      img: [
+        "./img/ishlar/image 7.png",
+        "./img/ishlar/image 7.png",
+        "./img/ishlar/image 7.png",
+      ],
+    },
+    {
+      id: 2,
+      categorya: "Mexmonxona",
+      img: [
+        "./img/ishlar/image 7 (1).png",
+        "./img/ishlar/image 7 (1).png",
+        "./img/ishlar/image 7 (1).png",
+      ],
+    },
+    {
+      id: 3,
+      categorya: "aaa",
+      img: [
+        "./img/ishlar/image 9.png",
+        "./img/ishlar/image 9.png",
+        "./img/ishlar/image 9.png",
+      ],
+    },
+    {
+      id: 4,
+      categorya: "bbb",
+      img: [
+        "./img/ishlar/image 8.png",
+        "./img/ishlar/image 8.png",
+        "./img/ishlar/image 8.png",
+      ],
+    },
+  ],
 };
   
   export const HomeReducer = createSlice({

@@ -6,6 +6,9 @@
     list-style: none;
     font-family:sans-serif;
 }
+a{
+    color: grey;
+}
 :root{
     --havorang:rgb(217, 233, 244);
     --cardbg:rgba(238, 236, 236, 0.757);
@@ -604,6 +607,27 @@ button {
     overflow: hidden;
     position: relative;
 }
+.positionLupaimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    background-color: #3846857f;
+    z-index: -55;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.qilinganIshlar .ishlarcard:hover .positionLupaimg {
+       z-index: 55;
+       opacity: 1;
+}
 .qilinganIshlar .ishlarname {
     position: absolute;
     bottom: 0;
@@ -618,10 +642,91 @@ button {
     width: 100%;
     height: 100%;
 }
+.qilinganImgcarusel{
+    width: 100%;
+    height: 70vh;
+}
+.modall{
+    width: 80%;
+}
 
+/* boglanish */
+.malumotlarCards{
+    width: 100%;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.boglanish{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: relative;
+}
+.boglanish img{
+    width: 100%;
+    height: 100%;
+}
+.boglanishcard{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+    background-color: #a4a25a5b;
+    border-radius: 10px;
+    padding: 25px;
+}
+.boglanishcard h1{
+    font-size: 40px;
+}
+.boglanishcard p{
+    color: #384685;
+}
+.sasvollarbtn {
+    background: #384685;
+    border-radius: 5px;
+    padding: 15px 40px;
+    border: none;
+    color: white;
+    font-size: 25px;
+}
+.xarita{
+    border-radius: 10px;
+    overflow: hidden;
+}
 
-
-
+/* boglanish */
+/* footer//// */
+.footer{
+    width: 100%;
+    height: auto;
+    padding: 20px 5%;
+    margin: 50px 0px;
+    display: grid;
+    grid-template-columns: repeat(5,auto);
+    background-color: #384685;
+}
+.logoSocial {
+    color: rgb(230, 0, 255);
+    font-size: 60px;
+}
+.footerUl{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+.footerUl h3{
+    color: white;
+}
+/* footer//// */
 
 
 
@@ -757,7 +862,7 @@ button {
         padding: 50px 0;
     }
    .qilinganIshlar {
-       margin: 100px 0px;
+       margin: 10px 0px;
        width: 100%;
        height: auto;
        display: grid;
@@ -772,4 +877,13 @@ button {
        gap: 30px;
        padding: 10px;
    }
+   .qilinganImgcarusel {
+       width: 100%;
+       height:auto;
+   }
+   .modall{
+    width: 100%;
+   }
+
+
 }

@@ -10,8 +10,10 @@ import {
 import CarouselSkitka from "./All/Crousel";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button, Dropdown, Select } from "antd";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { Button, Dropdown, Modal, Select } from "antd";
+import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import QilinganCaruselimg from "./All/QilinganCaruselImg";
+import MalumotlarCards from "./All/MalumotCArds";
 
 function Home() {
   const { caruselImg, katalog, data, qilinganIshalr } = useSelector(
@@ -130,6 +132,25 @@ function Home() {
     },
   ];
   // card select
+  //Modal //////////
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalCount, setIsModalcount] = useState(0);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  //Modal //////////
+  //ishlarcardFun/////
+  const ishlarcardFun = (i) => {
+    setIsModalcount(i)
+      showModal()
+  }
+  //ishlarcardFun/////
   return (
     <div className="home">
       <ToastContainer />
@@ -216,6 +237,7 @@ function Home() {
             </div>
           </div>
         </div>
+        {/* //////////////////////////////////////////////// */}
         <div className="bizningA">
           <h1 className="title">Bizning afzalliklar</h1>
           <div className="cards">
@@ -238,6 +260,7 @@ function Home() {
           </div>
         </div>
       </div>
+      {/* /////////////////// */}
       <div className="katalog">
         <h1 className="title">KATALOG</h1>
         <div className="katalogCards">
@@ -246,60 +269,60 @@ function Home() {
               <img src={val.img} alt="" />
               <p className="text">{val.title}</p>
               <div className="cardHoverCatalog">
-                    <Button>catalog a</Button>
-                    <Button>catalog b</Button>
-                    <Button>catalog c</Button>
-                    <Button>catalog c</Button>
-                    <Button>catalog c</Button>
-                    <Button>catalog c</Button>
-                    <Button>catalog c</Button>
-                    <Button>catalog c</Button>
-                   </div>
+                <Button>catalog a</Button>
+                <Button>catalog b</Button>
+                <Button>catalog c</Button>
+                <Button>catalog c</Button>
+                <Button>catalog c</Button>
+                <Button>catalog c</Button>
+                <Button>catalog c</Button>
+                <Button>catalog c</Button>
               </div>
+            </div>
           ))}
         </div>
       </div>
+      {/* /////////////////// */}
       <div className="mashxurtavarlar">
         <h1 className="title">Mashxur tavarlar</h1>
         <div className="mashxurtavarlarCards">
           {data.slice(pagcount * 4 - 4, pagcount * 4).map((val) => (
-         
-              <div  className="card" key={val.id}>
-                <div className="positionCard">
-                  <div className={val.skitka > 0 ? "skitka active" : "skitka"}>
-                    {val.skitka}%
-                  </div>
-                  <div className={val.holati ? "new active" : "new"}>new</div>
+            <div className="card" key={val.id}>
+              <div className="positionCard">
+                <div className={val.skitka > 0 ? "skitka active" : "skitka"}>
+                  {val.skitka}%
                 </div>
-                <img
-                  src={val.img[`${val.imgbtnCount}`]}
-                  alt=""
-                  className="cardimg"
-                />
-                <div className="imgbtns">
-                  <button
-                    className={
-                      val.imgbtnCount === 0 ? "imgbtn active" : "imgbtn "
-                    }
-                    onClick={() => dispatch(imgbtnCount([val, 0]))}
-                  ></button>
-                  <button
-                    className={
-                      val.imgbtnCount === 1 ? "imgbtn active" : "imgbtn "
-                    }
-                    onClick={() => dispatch(imgbtnCount([val, 1]))}
-                  ></button>
-                  <button
-                    className={
-                      val.imgbtnCount === 2 ? "imgbtn active" : "imgbtn "
-                    }
-                    onClick={() => dispatch(imgbtnCount([val, 2]))}
-                  ></button>
-                </div>
-                <h3 className="razmertext">
-                  {val.sort} : {val.name}
-                </h3>
-                {/* <div className="colorbtnGroups">
+                <div className={val.holati ? "new active" : "new"}>new</div>
+              </div>
+              <img
+                src={val.img[`${val.imgbtnCount}`]}
+                alt=""
+                className="cardimg"
+              />
+              <div className="imgbtns">
+                <button
+                  className={
+                    val.imgbtnCount === 0 ? "imgbtn active" : "imgbtn "
+                  }
+                  onClick={() => dispatch(imgbtnCount([val, 0]))}
+                ></button>
+                <button
+                  className={
+                    val.imgbtnCount === 1 ? "imgbtn active" : "imgbtn "
+                  }
+                  onClick={() => dispatch(imgbtnCount([val, 1]))}
+                ></button>
+                <button
+                  className={
+                    val.imgbtnCount === 2 ? "imgbtn active" : "imgbtn "
+                  }
+                  onClick={() => dispatch(imgbtnCount([val, 2]))}
+                ></button>
+              </div>
+              <h3 className="razmertext">
+                {val.sort} : {val.name}
+              </h3>
+              {/* <div className="colorbtnGroups">
                 {val.color.map((v, e) => (
                   <button
                   key={e}
@@ -311,26 +334,26 @@ function Home() {
                   ></button>
                   ))}
                 </div> */}
-                <div className="sena">
-                  <span className="underlinetext">120000 sum</span>
-                  <span className="activetext">11000 sum</span>
-                </div>
-                <div className="cardbtns">
-                  <button
-                    className={val.buyurtma ? "buyurtma active" : "buyurtma "}
-                    onClick={() => buyurtma(val)}
-                  >
-                    Savtga <ShoppingCartOutlined />
-                  </button>
-                  <button className="like" onClick={() => likeFunn(val)}>
-                    {val.like ? (
-                      <img src="./img/katalog/Vector (2).png" alt="" />
-                    ) : (
-                      <img src="./img/katalog/Vector (1).png" alt="" />
-                    )}
-                  </button>
-                </div>
-                {/* <div className="razmer">
+              <div className="sena">
+                <span className="underlinetext">120000 sum</span>
+                <span className="activetext">11000 sum</span>
+              </div>
+              <div className="cardbtns">
+                <button
+                  className={val.buyurtma ? "buyurtma active" : "buyurtma "}
+                  onClick={() => buyurtma(val)}
+                >
+                  Savtga <ShoppingCartOutlined />
+                </button>
+                <button className="like" onClick={() => likeFunn(val)}>
+                  {val.like ? (
+                    <img src="./img/katalog/Vector (2).png" alt="" />
+                  ) : (
+                    <img src="./img/katalog/Vector (1).png" alt="" />
+                  )}
+                </button>
+              </div>
+              {/* <div className="razmer">
                 Razmer :{" "}
                 <p className="razmerbtn">
                 <span style={{ borderBottom: "1px solid grey" }}>buyi</span>{" "}
@@ -347,7 +370,7 @@ function Home() {
                   <br /> 1.5-sm
                   </p>
                 </div> */}
-              </div>
+            </div>
           ))}
         </div>
         <div className="paginationbtns">
@@ -364,21 +387,42 @@ function Home() {
           <button onClick={next}>next</button>
         </div>
       </div>
+      {/* /////////////////////////// */}
       <div className="skitkaCards">
         <CarouselSkitka />
       </div>
+      {/* /////////////////////////////// */}
       <div className="bajarilganIshlar">
         <h1 className="title">Bajarilgan ishlar</h1>
         <div className="qilinganIshlar">
-          {qilinganIshalr.map((val) => (
-            <div className={"ishlarcard" + val.class} key={val.id}>
+          {qilinganIshalr.map((val,i) => (
+            <div
+              className={"ishlarcard" + val.class}
+              key={val.id}
+              onClick={()=>ishlarcardFun(i)}
+            >
               <img src={val.img} alt="" />
               <h3 className="ishlarname">{val.name}</h3>
+              <div className="positionLupaimg">
+                <SearchOutlined />
+              </div>
             </div>
           ))}
         </div>
         <Button>Ko'proq ko'rish...</Button>
       </div>
+      {/* ////////////////////////////////////// */}
+      <MalumotlarCards/>
+      {/* /////////////////////////////////////////////////////////////////////////// */}
+      <Modal
+        className="modall"
+        title=""
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <QilinganCaruselimg count={modalCount} />
+      </Modal>
     </div>
   );
 }
