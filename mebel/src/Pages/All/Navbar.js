@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import { NavLink} from 'react-router-dom'
 
 function Navbar() {
     const { like, karzinka, kategoryabtns } = useSelector( (state) => state.home
@@ -62,7 +63,7 @@ function Navbar() {
         <div className="navbtnsScroll">
           <div className={menu ? "navbarBtns active" : "navbarBtns"}>
                     {kategoryabtns.map((val, i) => (
-                        <button className={allcount === i?' active':''} key={i} onClick={()=> kategBtn(i)} >{val }</button>
+                        <NavLink to={`/${val}`}><button className={allcount === i?' active':''} key={i} onClick={()=> kategBtn(i)} >{val }</button></NavLink>       
             ))}
           </div>
         </div>

@@ -20,9 +20,9 @@ function Footer() {
           <div className="footerUl">
               <h3>Kuxni</h3>
               <a href="#">aaaaaaaa</a>
+              <a href="#">aaaaeeeeaaaa</a>
               <a href="#">aaaaaaaa</a>
-              <a href="#">aaaaaaaa</a>
-              <a href="#">aaaaaaaa</a>
+              <a href="#">aaaeeeeaaaaa</a>
               <a href="#">aaaaaaaa</a>
               <a href="#">aaaaaaaa</a>
       </div>
@@ -30,7 +30,7 @@ function Footer() {
               <h3>Mexmonxona</h3>
               <a href="#">aaaaaaaa</a>
               <a href="#">aaaaaaaa</a>
-              <a href="#">aaaaaaaa</a>
+              <a href="#">aaaeeeeeeaaaaa</a>
               <a href="#">aaaaaaaa</a>
               <a href="#">aaaaaaaa</a>
               <a href="#">aaaaaaaa</a>
@@ -42,13 +42,13 @@ function Footer() {
               <a href="#">aaaaaaaa</a>
               <a href="#">aaaaaaaa</a>
               <a href="#">aaaaaaaa</a>
-              <a href="#">aaaaaaaa</a>
+              <a href="#">aaaaaeeeaaa</a>
       </div>
           <div className="footerUl">
               <h3>Bolalar uchun</h3>
               <a href="#">aaaaaaaa</a>
               <a href="#">aaaaaaaa</a>
-              <a href="#">aaaaaaaa</a>
+              <a href="#">aaaeeeaaaaa</a>
               <a href="#">aaaaaaaa</a>
               <a href="#">aaaaaaaa</a>
               <a href="#">aaaaaaaa</a>

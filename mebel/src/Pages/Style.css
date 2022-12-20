@@ -4,19 +4,23 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-    font-family:sans-serif;
+    font-family: sans-serif;
 }
-a{
+
+a {
     color: grey;
 }
-:root{
-    --havorang:rgb(217, 233, 244);
-    --cardbg:rgba(238, 236, 236, 0.757);
+
+:root {
+    --havorang: rgb(217, 233, 244);
+    --cardbg: rgba(238, 236, 236, 0.757);
 }
-.active{
-    --havorang:rgb(217, 233, 244);
-    --cardbg:rgba(30, 25, 25, 0.757);
+
+.active {
+    --havorang: rgb(217, 233, 244);
+    --cardbg: rgba(30, 25, 25, 0.757);
 }
+
 button {
     cursor: pointer;
 }
@@ -116,13 +120,16 @@ button {
     padding: 0 5px;
     border-radius: 15px 15px 15px 0;
 }
-.navbtnsScroll::-webkit-scrollbar{
+
+.navbtnsScroll::-webkit-scrollbar {
     display: none;
 }
-.navbtnsScroll{
+
+.navbtnsScroll {
     width: 100%;
     overflow-x: scroll;
 }
+
 .navbarBtns {
     height: 80px;
     padding: 0px 5% 10px;
@@ -139,8 +146,8 @@ button {
     border: none;
     background-color: transparent;
     transition: all 0.2s ease-out;
-     border: 1px solid rgb(215, 215, 215);
-     border-radius: 5px;
+    border: 1px solid rgb(215, 215, 215);
+    border-radius: 5px;
 }
 
 .navbarBtns button:hover {
@@ -148,6 +155,7 @@ button {
     border-radius: 5px;
     color: white;
 }
+
 .navbarBtns button.active {
     background: #384685;
     border-radius: 5px;
@@ -166,29 +174,34 @@ button {
     width: 100%;
     height: auto;
 }
-.headerCaruselcard{
+
+.headerCaruselcard {
     width: 100%;
     height: auto;
     display: grid;
     grid-template-columns: 70% 30%;
 }
+
 /* select header // */
 
-.malumotheader::-webkit-scrollbar{
-    width:10px;
+.malumotheader::-webkit-scrollbar {
+    width: 10px;
     background-color: transparent;
 }
-.malumotheader::-webkit-scrollbar-button{
-    width:0px;
-    height:0px;
+
+.malumotheader::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
     background-color: transparent;
 }
-.malumotheader::-webkit-scrollbar-thumb{
-    width:10px;
+
+.malumotheader::-webkit-scrollbar-thumb {
+    width: 10px;
     background-color: rgb(90, 166, 252);
     border-radius: 5px;
 }
-.malumotheader{
+
+.malumotheader {
     width: 100%;
     max-height: 600px;
     padding: 10% 0;
@@ -197,24 +210,29 @@ button {
     flex-direction: column;
     gap: 20px;
 }
+
 .malumotheader .ant-select-selector {
     height: 100px !important;
     align-items: center;
     font-size: 35px;
 }
-.selecttext{
+
+.selecttext {
     color: grey;
     text-align: start;
 }
-.selectBody{
+
+.selectBody {
     width: 100%;
     height: auto;
     display: grid;
     grid-template-columns: 100%;
 }
-.selectBody Button{
-    height: 50px;   
+
+.selectBody Button {
+    height: 50px;
 }
+
 /* select header // */
 .imgcard {
     width: 100%;
@@ -237,18 +255,22 @@ button {
     padding: 50px 0px;
     text-align: start;
 }
-.dot{
+
+.dot {
     width: 10px !important;
     height: 10px !important;
 }
-.dot.active{
+
+.dot.active {
     width: 15px !important;
     height: 15px !important;
 }
-.carousel-caption-bottom{
+
+.carousel-caption-bottom {
     bottom: 50px !important;
     font-size: 50px !important;
 }
+
 .title {
     font-style: normal;
     font-weight: 500;
@@ -256,7 +278,7 @@ button {
     line-height: 39px;
     padding: 10px 0px;
     color: #555555;
-    
+
 }
 
 .cards {
@@ -371,18 +393,19 @@ button {
     padding: 50px 0px;
 }
 
- .card {
+.card {
     width: 100%;
     height: min-content;
-    border-radius: 5    px;
+    border-radius: 5 px;
     padding: 10px;
     position: relative;
     transition: all 0.4s ease-in-out;
     z-index: 1;
 }
- .card:hover {
+
+.card:hover {
     z-index: 55;
-      background-color: var(--cardbg);
+    background-color: var(--cardbg);
 }
 
 .positionCard {
@@ -400,6 +423,7 @@ button {
     padding: 6px 10px;
     display: none;
 }
+
 .skitka.active {
     display: block;
     background-color: red;
@@ -415,6 +439,7 @@ button {
     padding: 6px 10px;
     display: none;
 }
+
 .new.active {
     display: block;
     background-color: rgb(1, 93, 35);
@@ -422,6 +447,7 @@ button {
     border-radius: 4px;
     padding: 6px 10px;
 }
+
 .cardimg {
     width: 100%;
     height: 200px;
@@ -453,14 +479,15 @@ button {
     padding: 10px 0px;
     color: grey;
 }
-.colorbtnGroups{
+
+.colorbtnGroups {
     padding: 10px 0px;
     display: flex;
     justify-content: start;
     gap: 10px;
 }
 
-.colors{
+.colors {
     width: 20px;
     height: 20px;
     content: "";
@@ -468,10 +495,12 @@ button {
     border: none;
     border-radius: 4px;
 }
-.colors.active{
+
+.colors.active {
     border: 2px solid black;
-    box-shadow: 0px 5px 10px   #384685;
+    box-shadow: 0px 5px 10px #384685;
 }
+
 .sena {
     display: flex;
     gap: 5px;
@@ -508,47 +537,55 @@ button {
     color: #1D1818;
     transition: all 0.2s ease-in-out;
 }
+
 .buyurtma:hover {
     background-color: #384685;
     color: white;
 }
+
 .buyurtma.active {
     background-color: #384685;
     color: white;
 }
-.like{
-    border:none;
+
+.like {
+    border: none;
     background-color: transparent;
 }
 
-.razmer{
+.razmer {
     display: flex;
     justify-content: space-between;
     font-weight: 500;
     padding: 15px 0px;
 }
-.razmerbtn{
+
+.razmerbtn {
     color: rgb(110, 110, 110);
     font-weight: 500;
 }
-.paginationbtns{
+
+.paginationbtns {
     width: 100%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.paginationbtns button{
+
+.paginationbtns button {
     padding: 5px 15px;
     border: 1px solid grey;
     border-radius: 3px;
 }
-.paginationbtns button:hover{
+
+.paginationbtns button:hover {
     background-color: #384685bb;
     color: white;
     border-radius: 3px;
 }
-.paginationbtns button.active{
+
+.paginationbtns button.active {
     background-color: #384685;
     color: white;
     border-radius: 3px;
@@ -556,15 +593,16 @@ button {
 
 
 /* /////// */
-.skitkaCards{
+.skitkaCards {
     width: 100%;
     height: auto;
 }
 
-.carusell   .slick-track {
+.carusell .slick-track {
     display: flex !important;
     gap: 20px !important;
 }
+
 /* .slick-track .card{
      width: 100%;
     height: min-content;
@@ -582,31 +620,45 @@ button {
 } */
 
 /* ///////ishlar */
-.bajarilganIshlar{
+.bajarilganIshlar {
     padding-top: 100px;
     text-align: start;
-      margin: 20px 0px 100px;
+    margin: 20px 0px 100px;
 }
-.qilinganIshlar{
+
+.qilinganIshlar {
     margin: 20px 0px 20px;
     width: 100%;
     height: auto;
     display: grid;
     grid-template-areas: 'a a b b d d'
-                         'a a b b d d' 
-                         'c c c c d d' 
-                         'c c c c d d' ;
+        'a a b b d d'
+        'c c c c d d'
+        'c c c c d d';
     gap: 20px;
 }
 
-.qilinganIshlar .a{grid-area: a;}
-.qilinganIshlar .b{grid-area: b;}
-.qilinganIshlar .c{grid-area: c;}
-.qilinganIshlar .d{grid-area: d;}
-.qilinganIshlar .ishlarcard{
+.qilinganIshlar .a {
+    grid-area: a;
+}
+
+.qilinganIshlar .b {
+    grid-area: b;
+}
+
+.qilinganIshlar .c {
+    grid-area: c;
+}
+
+.qilinganIshlar .d {
+    grid-area: d;
+}
+
+.qilinganIshlar .ishlarcard {
     overflow: hidden;
     position: relative;
 }
+
 .positionLupaimg {
     position: absolute;
     top: 0;
@@ -624,10 +676,12 @@ button {
     opacity: 0;
     transition: all 0.3s ease-in-out;
 }
+
 .qilinganIshlar .ishlarcard:hover .positionLupaimg {
-       z-index: 55;
-       opacity: 1;
+    z-index: 55;
+    opacity: 1;
 }
+
 .qilinganIshlar .ishlarname {
     position: absolute;
     bottom: 0;
@@ -638,36 +692,42 @@ button {
     background-color: #384685;
     color: #FFF;
 }
-.qilinganIshlar .ishlarcard img{
+
+.qilinganIshlar .ishlarcard img {
     width: 100%;
     height: 100%;
 }
-.qilinganImgcarusel{
+
+.qilinganImgcarusel {
     width: 100%;
     height: 70vh;
 }
-.modall{
+
+.modall {
     width: 80%;
 }
 
 /* boglanish */
-.malumotlarCards{
+.malumotlarCards {
     width: 100%;
     height: 400px;
     display: grid;
     grid-template-columns: 50% 50%;
 }
-.boglanish{
+
+.boglanish {
     width: 100%;
     height: 100%;
     border-radius: 10px;
     position: relative;
 }
-.boglanish img{
+
+.boglanish img {
     width: 100%;
     height: 100%;
 }
-.boglanishcard{
+
+.boglanishcard {
     position: absolute;
     top: 0;
     left: 0;
@@ -682,12 +742,15 @@ button {
     border-radius: 10px;
     padding: 25px;
 }
-.boglanishcard h1{
+
+.boglanishcard h1 {
     font-size: 40px;
 }
-.boglanishcard p{
+
+.boglanishcard p {
     color: #384685;
 }
+
 .sasvollarbtn {
     background: #384685;
     border-radius: 5px;
@@ -696,36 +759,41 @@ button {
     color: white;
     font-size: 25px;
 }
-.xarita{
+
+.xarita {
     border-radius: 10px;
     overflow: hidden;
 }
 
 /* boglanish */
 /* footer//// */
-.footer{
+.footer {
     width: 100%;
     height: auto;
     padding: 20px 5%;
     margin: 50px 0px;
     display: grid;
-    grid-template-columns: repeat(5,auto);
+    grid-template-columns: repeat(5, auto);
     background-color: #384685;
 }
+
 .logoSocial {
     color: rgb(230, 0, 255);
     font-size: 60px;
 }
-.footerUl{
+
+.footerUl {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     gap: 20px;
 }
-.footerUl h3{
+
+.footerUl h3 {
     color: white;
 }
+
 /* footer//// */
 
 
@@ -799,17 +867,20 @@ button {
         background-color: transparent;
         cursor: pointer;
     }
-    
+
     .title {
         padding: 10px 10px;
         font-size: 25px;
     }
-    .headerCaruselcard{
+
+    .headerCaruselcard {
         grid-template-columns: 100%;
     }
-    .malumotheader{
+
+    .malumotheader {
         padding: 10% 5%;
     }
+
     /* ///////// */
     .cards {
         display: grid;
@@ -821,6 +892,7 @@ button {
     .bizningA {
         padding: 20px 0px;
     }
+
     .dot {
         width: 7px !important;
         height: 7px !important;
@@ -835,6 +907,7 @@ button {
         bottom: 30px !important;
         font-size: 50px !important;
     }
+
     .katalogCards {
         grid-template-columns: repeat(2, auto);
         gap: 5px;
@@ -854,36 +927,59 @@ button {
     .home {
         padding: 10px 0px;
     }
-    .mashxurtavarlarCards{
-        grid-template-columns:95%;
+
+    .mashxurtavarlarCards {
+        grid-template-columns: 95%;
     }
+
     /* skitka lar  */
-    .carusell{
+    .carusell {
         padding: 50px 0;
     }
-   .qilinganIshlar {
-       margin: 10px 0px;
-       width: 100%;
-       height: auto;
-       display: grid;
-       grid-template-areas:
-           'a a '
-           'a a '
-           'c c '
-           'c c '
-           'b b '
-           'b b '
-           'd d ';
-       gap: 30px;
-       padding: 10px;
-   }
-   .qilinganImgcarusel {
-       width: 100%;
-       height:auto;
-   }
-   .modall{
-    width: 100%;
-   }
+
+    .qilinganIshlar {
+        margin: 10px 0px;
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-areas:
+            'a a '
+            'a a '
+            'c c '
+            'c c '
+            'b b '
+            'b b '
+            'd d ';
+        gap: 30px;
+        padding: 10px;
+    }
+
+    .qilinganImgcarusel {
+        width: 100%;
+        height: auto;
+    }
+
+    .modall {
+        width: 100%;
+    }
+
+    .malumotlarCards {
+        grid-template-columns: 100%;
+        height: auto;
+        gap: 20px;
+        padding: 5px;
+    }
+
+    .xarita {
+        width: 100%;
+        height: 300px;
+    }
+
+    .footer {
+        grid-template-columns: repeat(1, auto);
+        padding: 20px 10%;
+    }
+
 
 
 }
