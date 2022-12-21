@@ -19,8 +19,8 @@ function MalumotlarCards() {
             id="gmap_canvas"
             src="//www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48182.41418511791!2d71.604535!3d40.994598!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3573ff83551d97df!2sSportivnyy%20Fitnes%20Kompleks%22Alpomish%22!5e0!3m2!1suz!2sus!4v1671428560120!5m2!1suz!2sus"
             scrolling="no"
-            marginheight="0"
-            marginwidth="0"
+            // marginheight="0"
+            // marginwidth="0"
           ></iframe>
         </div>
       </div>

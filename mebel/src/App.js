@@ -24,7 +24,7 @@ function App() {
                    <Route path='/Kuxni' element={<Kuxni/>} />
                    <Route path='/Mexmonxona' element={<Gostinni/>} />
                    <Route path='/Devan' element={<Spalni/>} />
-                   <Route path='/Oshxona' element={<Shkaf/>} />
+                   <Route path='/Shkaf' element={<Shkaf/>} />
                    <Route path='/Bolalar' element={<Detski/>} />
                </Routes>
             <Footer/>

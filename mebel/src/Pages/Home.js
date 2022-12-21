@@ -10,10 +10,11 @@ import {
 import CarouselSkitka from "./All/Crousel";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button, Dropdown, Modal, Select } from "antd";
+import { Button, Modal } from "antd";
 import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import QilinganCaruselimg from "./All/QilinganCaruselImg";
 import MalumotlarCards from "./All/MalumotCArds";
+import FilterControl from "./All/FilterControl";
 
 function Home() {
   const { caruselImg, katalog, data, qilinganIshalr } = useSelector(
@@ -84,54 +85,7 @@ function Home() {
     dispatch(likefun(val));
   };
   //  like fun /////////////////
-  // ///select
-  const onChange = (value) => {
-    console.log(`selected ${value}`);
-  };
-  const onSearch = (value) => {
-    console.log("search:", value);
-  };
-  // ///select
-  // card select
-  const items = [
-    {
-      key: "1",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
-        >
-          1st menu item
-        </a>
-      ),
-    },
-    {
-      key: "2",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
-        >
-          2nd menu item
-        </a>
-      ),
-    },
-    {
-      key: "3",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          3rd menu item
-        </a>
-      ),
-    },
-  ];
-  // card select
+
   //Modal //////////
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalCount, setIsModalcount] = useState(0);
@@ -190,50 +144,7 @@ function Home() {
                   }}
                 />
               </div>
-              <div className="malumotheader">
-                <h1 className="selecttext">Viloyat tanlang !</h1>
-                <Select
-                  showSearch
-                  placeholder="Viloyat tanlang !"
-                  optionFilterProp="children"
-                  onChange={onChange}
-                  onSearch={onSearch}
-                  filterOption={(input, option) =>
-                    (option?.label ?? "")
-                      .toLowerCase()
-                      .includes(input.toLowerCase())
-                  }
-                  options={[
-                    {
-                      value: "Namangan",
-                      label: "Namangan",
-                    },
-                    {
-                      value: "Toshkent",
-                      label: "Toshkent",
-                    },
-                    {
-                      value: "Buxoro",
-                      label: "Buxoro",
-                    },
-                  ]}
-                />
-                <h1 className="selecttext">Mavjud Tumanlar</h1>
-                <div className="selectBody">
-                  <Button>Minbuloq 1100+</Button>
-                  <Button>Minbuloq 1100+</Button>
-                  <Button>Minbuloq 1100+</Button>
-                  <Button>Minbuloq 1100+</Button>
-                  <Button>Minbuloq 1100+</Button>
-                  <Button>Minbuloq 1100+</Button>
-                  <Button>Minbuloq 1100+</Button>
-                  <Button>Minbuloq 1100+</Button>
-                  <Button>Minbuloq 1100+</Button>
-                  <Button>Minbuloq 1100+</Button>
-                  <Button>Minbuloq 1100+</Button>
-                  <Button>Minbuloq 1100+</Button>
-                </div>
-              </div>
+              <FilterControl/>
             </div>
           </div>
         </div>

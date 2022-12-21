@@ -41,10 +41,12 @@ function Kuxni() {
     });
   };
   //  toastfun /////////////////
+  //  filter /////////////////
+  //  filter /////////////////
     return (
         <div>
             <div className="mashxurtavarlarCards">
-                {data.map((val) => (
+                {data.filter((val) => val.sort == "kuxni").map((val) => (
                     <div className="card" key={val.id}>
                         <div className="positionCard">
                             <div className={val.skitka > 0 ? "skitka active" : "skitka"}>
