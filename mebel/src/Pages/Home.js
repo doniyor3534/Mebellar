@@ -120,7 +120,7 @@ function Home() {
               >
                 <Carousel
                   data={caruselImg}
-                  time={2000}
+                  time={5000}
                   width="100%"
                   height="500px"
                   captionStyle={captionStyle}

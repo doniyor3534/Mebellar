@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit"
 
 
 const initialState = {
-  like: 0,
+  likecount: 0,
   karzinka: 0,
   caruselImg: [
     {
-      image: "./img/carusel/1.webp",
+      image: "./img/carusel/1.jpg",
       caption: "San Francisco",
     },
     {
@@ -401,6 +401,7 @@ const initialState = {
       ],
     },
   ],
+  
 };
   
   export const HomeReducer = createSlice({
@@ -424,6 +425,8 @@ const initialState = {
               : val
           );
         }
+        let savathisob  =  state.data.filter(val=>val.buyurtma===true);
+        state.karzinka = savathisob.length
       },
       likefun: (state, action) => {
         if (action.payload.like === false) {
@@ -435,6 +438,8 @@ const initialState = {
               : val
           );
         }
+        let likehisob  =  state.data.filter(val=>val.like===true);
+        state.likecount = likehisob.length
       },
      
     },

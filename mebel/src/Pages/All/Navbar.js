@@ -1,9 +1,11 @@
+import { Modal } from "antd";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { Likecards, Savatcards } from "./ModalSavat";
 
 function Navbar() {
-  const { like, karzinka, kategoryabtns } = useSelector((state) => state.home);
+  const { likecount, karzinka, kategoryabtns } = useSelector((state) => state.home);
 
   const [menu, setMenu] = useState(false);
   // kategorybtn
@@ -11,8 +13,28 @@ function Navbar() {
   const kategBtn = (i) => {
     setAll(i);
   };
-
   // kategorybtn
+  //modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalcount, setIsModalCount] = useState();
+  const likefun=()=>{
+    setIsModalCount(1)
+    showModal()
+  }
+  const savatfun=()=>{
+    setIsModalCount(2)
+    showModal()
+  }
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  //modal
   return (
     <nav className="navbar">
       <div className="navbarHead">
@@ -29,11 +51,11 @@ function Navbar() {
           <button className="navbtn">
             <img src="./img/kirish.svg" alt="" />
           </button>
-          <button className="navbtn">
-            <h6 className="badge">{like}</h6>
+          <button className="navbtn" onClick={likefun}>
+            <h6 className="badge">{likecount}</h6>
             <img src="./img/like.svg" alt="" />
           </button>
-          <button className="navbtn">
+          <button className="navbtn" onClick={savatfun}>
             <h6 className="badge">{karzinka}</h6>
             <img src="./img/karzinka.svg" alt="" />
           </button>
@@ -73,6 +95,12 @@ function Navbar() {
           ))}
         </div>
       </div>
+      <Modal footer={false} title="" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+         { modalcount ===1?
+          <Likecards/>
+          :
+          <Savatcards/>}
+      </Modal>
     </nav>
   );
 }
