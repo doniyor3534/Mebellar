@@ -62,16 +62,8 @@ function Navbar() {
         </div>
         <div className="navbtnsScroll">
           <div className={menu ? "navbarBtns active" : "navbarBtns"}>
-            {kategoryabtns.map((val, i) => (
-              <NavLink to={`/${val}`} >
-                <button
-                  className={allcount === i ? " active" : ""}
-                  key={i}
-                  onClick={() => kategBtn(i)}
-                >
-                  {val}
-                </button>
-              </NavLink>
+                    {kategoryabtns.map((val, i) => (
+                        <NavLink to={`/${val}`}><button className={allcount === i?' active':''} key={i} onClick={()=> kategBtn(i)} >{val }</button></NavLink>       
             ))}
           </div>
         </div>
