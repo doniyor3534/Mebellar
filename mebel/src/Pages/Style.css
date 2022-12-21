@@ -647,7 +647,7 @@ button {
     height: 70vh;
 }
 .modall{
-    width: 80%;
+    width: 80% !important;
 }
 
 /* boglanish */
@@ -678,7 +678,7 @@ button {
     align-items: flex-start;
     justify-content: center;
     gap: 15px;
-    background-color: #a4a25a5b;
+    background-color: #4da9f05b;
     border-radius: 10px;
     padding: 25px;
 }

@@ -20,11 +20,12 @@ function App() {
             <Navbar/>
                <Routes>
                    <Route path='/' element={<Home/>} />
-                   <Route path='/kuxni' element={<Kuxni/>} />
-                   <Route path='/gostinni' element={<Gostinni/>} />
-                   <Route path='/spalni' element={<Spalni/>} />
-                   <Route path='/shkaf' element={<Shkaf/>} />
-                   <Route path='/detski' element={<Detski/>} />
+                   <Route path='/All' element={<Home/>} />
+                   <Route path='/Kuxni' element={<Kuxni/>} />
+                   <Route path='/Mexmonxona' element={<Gostinni/>} />
+                   <Route path='/Devan' element={<Spalni/>} />
+                   <Route path='/Oshxona' element={<Shkaf/>} />
+                   <Route path='/Bolalar' element={<Detski/>} />
                </Routes>
             <Footer/>
          </Router>
