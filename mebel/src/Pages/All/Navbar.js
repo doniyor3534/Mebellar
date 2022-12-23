@@ -14,27 +14,7 @@ function Navbar() {
     setAll(i);
   };
   // kategorybtn
-  //modal
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalcount, setIsModalCount] = useState();
-  const likefun=()=>{
-    setIsModalCount(1)
-    showModal()
-  }
-  const savatfun=()=>{
-    setIsModalCount(2)
-    showModal()
-  }
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-  //modal
+ 
   return (
     <nav className="navbar">
       <div className="navbarHead">
@@ -48,17 +28,17 @@ function Navbar() {
           </button>
         </div>
         <div className="btnGroups">
-          <button className="navbtn">
+          <NavLink to={"/ProfilePage"} className="navbtn">
             <img src="./img/kirish.svg" alt="" />
-          </button>
-          <button className="navbtn" onClick={likefun}>
+          </NavLink>
+          <NavLink to={"/LikePage"} className="navbtn">
             <h6 className="badge">{likecount}</h6>
             <img src="./img/like.svg" alt="" />
-          </button>
-          <button className="navbtn" onClick={savatfun}>
+          </NavLink>
+          <NavLink to={"/SavatPage"} className="navbtn">
             <h6 className="badge">{karzinka}</h6>
             <img src="./img/karzinka.svg" alt="" />
-          </button>
+          </NavLink>
         </div>
         {/* /////////medianav */}
         <div className="mdiaNav">
@@ -83,24 +63,17 @@ function Navbar() {
       <div className="navbtnsScroll">
         <div className={menu ? "navbarBtns active" : "navbarBtns"}>
           {kategoryabtns.map((val, i) => (
-            <NavLink to={`/${val}`} key={i}>
-              <button
-                className={allcount === i ? " active" : ""}
-                key={i}
-                onClick={() => kategBtn(i)}
-              >
-                {val}
-              </button>
+            <NavLink
+              to={`/${val}`}
+              className={allcount === i ? " active" : ""}
+              key={i}
+              onClick={() => kategBtn(i)}
+            >
+               {val}
             </NavLink>
           ))}
         </div>
       </div>
-      <Modal footer={false} title="" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-         { modalcount ===1?
-          <Likecards/>
-          :
-          <Savatcards/>}
-      </Modal>
     </nav>
   );
 }
