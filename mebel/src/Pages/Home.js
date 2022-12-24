@@ -11,7 +11,7 @@ import {
 import CarouselSkitka from "./All/Crousel";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button, Modal } from "antd";
+import { Button, Empty, Modal } from "antd";
 import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import QilinganCaruselimg from "./All/QilinganCaruselImg";
 import MalumotlarCards from "./All/MalumotCArds";
@@ -103,10 +103,10 @@ function Home() {
   //ishlarcardFun/////
   const ishlarcardFun = (i) => {
     setIsModalcount(i)
-      showModal()
+    showModal()
   }
   //ishlarcardFun/////
-  
+
   return (
     <div className="home">
       <ToastContainer />
@@ -146,7 +146,7 @@ function Home() {
                   }}
                 />
               </div>
-              <FilterControl/>
+              <FilterControl />
             </div>
           </div>
         </div>
@@ -198,94 +198,98 @@ function Home() {
       {/* /////////////////// */}
       <div className="mashxurtavarlar">
         <h1 className="title">Mashxur tavarlar</h1>
-        <div className="mashxurtavarlarCards">
-          {data.slice(pagcount * 4 - 4, pagcount * 4).map((val) => (
-            <div className="card" key={val.id}>
-              <div className="positionCard">
-                <div className={val.skitka > 0 ? "skitka active" : "skitka"}>
-                  {val.skitka}%
+        {
+          data.length > 0 ?
+            <div className="mashxurtavarlarCards">
+              {data.slice(pagcount * 4 - 4, pagcount * 4).map((val) => (
+                <div className="card" key={val.id}>
+                  <div className="positionCard">
+                    <div className={val.skitka > 0 ? "skitka active" : "skitka"}>
+                      {val.skitka}%
+                    </div>
+                    <div className={val.holati ? "new active" : "new"}>new</div>
+                  </div>
+                  <img
+                    src={val.img[`${val.imgbtnCount}`]}
+                    alt=""
+                    className="cardimg"
+                  />
+                  <div className="imgbtns">
+                    <button
+                      className={
+                        val.imgbtnCount === 0 ? "imgbtn active" : "imgbtn "
+                      }
+                      onClick={() => dispatch(imgbtnCount([val, 0]))}
+                    ></button>
+                    <button
+                      className={
+                        val.imgbtnCount === 1 ? "imgbtn active" : "imgbtn "
+                      }
+                      onClick={() => dispatch(imgbtnCount([val, 1]))}
+                    ></button>
+                    <button
+                      className={
+                        val.imgbtnCount === 2 ? "imgbtn active" : "imgbtn "
+                      }
+                      onClick={() => dispatch(imgbtnCount([val, 2]))}
+                    ></button>
+                  </div>
+                  <h3 className="razmertext">
+                    {val.sort} : {val.name}
+                  </h3>
+                  {/* <div className="colorbtnGroups">
+                    {val.color.map((v, e) => (
+                      <button
+                      key={e}
+                      className={
+                        val.colorCount === e ? "colors active" : "colors"
+                      }
+                      style={{ background: v }}
+                      onClick={() => dispatch(colorCounts([val, e]))}
+                      ></button>
+                      ))}
+                    </div> */}
+                  <div className="sena">
+                    <span className="underlinetext">120000 sum</span>
+                    <span className="activetext">11000 sum</span>
+                  </div>
+                  <div className="cardbtns">
+                    <button
+                      className={val.buyurtma ? "buyurtma active" : "buyurtma "}
+                      onClick={() => buyurtma(val)}
+                    >
+                      Savtga <ShoppingCartOutlined />
+                    </button>
+                    <button className="like" onClick={() => likeFunn(val)}>
+                      {val.like ? (
+                        <img src="./img/katalog/Vector (2).png" alt="" />
+                      ) : (
+                        <img src="./img/katalog/Vector (1).png" alt="" />
+                      )}
+                    </button>
+                  </div>
+                  {/* <div className="razmer">
+                    Razmer :{" "}
+                    <p className="razmerbtn">
+                    <span style={{ borderBottom: "1px solid grey" }}>buyi</span>{" "}
+                    <br /> 2-metr
+                    </p>
+                    <p className="razmerbtn">
+                    <span style={{ borderBottom: "1px solid grey" }}>eni</span>{" "}
+                    <br /> 1-metr
+                    </p>
+                    <p className="razmerbtn">
+                      <span style={{ borderBottom: "1px solid grey" }}>
+                      qalinligi
+                      </span>{" "}
+                      <br /> 1.5-sm
+                      </p>
+                    </div> */}
                 </div>
-                <div className={val.holati ? "new active" : "new"}>new</div>
-              </div>
-              <img
-                src={val.img[`${val.imgbtnCount}`]}
-                alt=""
-                className="cardimg"
-              />
-              <div className="imgbtns">
-                <button
-                  className={
-                    val.imgbtnCount === 0 ? "imgbtn active" : "imgbtn "
-                  }
-                  onClick={() => dispatch(imgbtnCount([val, 0]))}
-                ></button>
-                <button
-                  className={
-                    val.imgbtnCount === 1 ? "imgbtn active" : "imgbtn "
-                  }
-                  onClick={() => dispatch(imgbtnCount([val, 1]))}
-                ></button>
-                <button
-                  className={
-                    val.imgbtnCount === 2 ? "imgbtn active" : "imgbtn "
-                  }
-                  onClick={() => dispatch(imgbtnCount([val, 2]))}
-                ></button>
-              </div>
-              <h3 className="razmertext">
-                {val.sort} : {val.name}
-              </h3>
-              {/* <div className="colorbtnGroups">
-                {val.color.map((v, e) => (
-                  <button
-                  key={e}
-                  className={
-                    val.colorCount === e ? "colors active" : "colors"
-                  }
-                  style={{ background: v }}
-                  onClick={() => dispatch(colorCounts([val, e]))}
-                  ></button>
-                  ))}
-                </div> */}
-              <div className="sena">
-                <span className="underlinetext">120000 sum</span>
-                <span className="activetext">11000 sum</span>
-              </div>
-              <div className="cardbtns">
-                <button
-                  className={val.buyurtma ? "buyurtma active" : "buyurtma "}
-                  onClick={() => buyurtma(val)}
-                >
-                  Savtga <ShoppingCartOutlined />
-                </button>
-                <button className="like" onClick={() => likeFunn(val)}>
-                  {val.like ? (
-                    <img src="./img/katalog/Vector (2).png" alt="" />
-                  ) : (
-                    <img src="./img/katalog/Vector (1).png" alt="" />
-                  )}
-                </button>
-              </div>
-              {/* <div className="razmer">
-                Razmer :{" "}
-                <p className="razmerbtn">
-                <span style={{ borderBottom: "1px solid grey" }}>buyi</span>{" "}
-                <br /> 2-metr
-                </p>
-                <p className="razmerbtn">
-                <span style={{ borderBottom: "1px solid grey" }}>eni</span>{" "}
-                <br /> 1-metr
-                </p>
-                <p className="razmerbtn">
-                  <span style={{ borderBottom: "1px solid grey" }}>
-                  qalinligi
-                  </span>{" "}
-                  <br /> 1.5-sm
-                  </p>
-                </div> */}
+              ))}
             </div>
-          ))}
-        </div>
+            : <Empty />
+        }
         <div className="paginationbtns">
           <button onClick={prev}>prev</button>
           {pegmass.map((val, i) => (
@@ -308,11 +312,11 @@ function Home() {
       <div className="bajarilganIshlar">
         <h1 className="title">Bajarilgan ishlar</h1>
         <div className="qilinganIshlar">
-          {qilinganIshalr.map((val,i) => (
+          {qilinganIshalr.map((val, i) => (
             <div
               className={"ishlarcard" + val.class}
               key={val.id}
-              onClick={()=>ishlarcardFun(i)}
+              onClick={() => ishlarcardFun(i)}
             >
               <img src={val.img} alt="" />
               <h3 className="ishlarname">{val.name}</h3>
@@ -325,7 +329,7 @@ function Home() {
         <Button>Ko'proq ko'rish...</Button>
       </div>
       {/* ////////////////////////////////////// */}
-      <MalumotlarCards/>
+      <MalumotlarCards />
       {/* /////////////////////////////////////////////////////////////////////////// */}
       <Modal
         className="modall"

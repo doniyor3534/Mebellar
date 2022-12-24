@@ -20,7 +20,7 @@ function Header() {
         <img src="./img/Vector.svg" alt="" />
         +99899 110 11 97
       </button>
-      <Button onClick={showModal}>Filter  <PicCenterOutlined /></Button>
+      <Button onClick={showModal} className="headerselect">Filter  <PicCenterOutlined /></Button>
       <a href=".">
         {" "}
         <img src="./img/Vector (1).svg" alt="" /> Namangan/Mingbuloq/...

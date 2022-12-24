@@ -133,7 +133,7 @@ button {
 .navbarBtns {
     height: 80px;
     padding: 0px 5% 10px;
-    /* background: #A8D1E7; */
+    background: white !important;
     display: flex;
     border-bottom: 1px solid rgb(215, 215, 215);
 }
@@ -141,11 +141,11 @@ button {
 
 .navbarBtns a {
     padding: 0 60px;
-    height: 100%;
+    height: auto;
     color: rgb(92, 91, 91);
     font-size: 20px;
     border: none;
-    background-color: transparent ;
+    background-color: white ;
     transition: all 0.2s ease-out;
     border: 1px solid rgb(215, 215, 215);
     border-radius: 5px;
@@ -160,7 +160,7 @@ button {
     color: white;
 }
 
-.navbarBtns a.active {
+.navbarBtns a.activ {
     background: #384685;
     border-radius: 5px;
     color: white;
@@ -187,6 +187,10 @@ button {
 }
 
 /* select header // */
+.filterBtns{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
 
 .malumotheader::-webkit-scrollbar {
     width: 10px;
@@ -265,10 +269,10 @@ button {
     height: 10px !important;
 }
 
-.dot.active {
+/* .dot.active {
     width: 15px !important;
     height: 15px !important;
-}
+} */
 
 .carousel-caption-bottom {
     bottom: 50px !important;
@@ -826,6 +830,15 @@ button {
 .countcard{
     color: grey;
 }
+.savatnarx{
+    font-size: 35px;
+    color: grey;
+    text-align: end;
+}
+.bodysavat{
+    color: grey;
+    font-style: italic;
+}
 /* filterlangan like va savat card  */
 /* footer//// */
 .footer {
@@ -865,7 +878,18 @@ button {
     .logo {
         display: none;
     }
-
+    .header{
+        padding: 3px;
+    }
+    .header a{
+        font-size: 10px
+    }
+    .header .contact{
+        font-size: 12px
+    }
+    .headerselect{
+        font-size: 12px
+    }
     .btnGroups {
         display: none;
     }
@@ -877,11 +901,6 @@ button {
     .imgcard {
         padding: 10px 0px;
     }
-
-    .header a {
-        font-size: 12px;
-    }
-
     .navbarBtns {
         display: none;
         transition: all 0.5s ease-out;
@@ -893,19 +912,22 @@ button {
         left: 0;
         width: 100%;
         height: 90%;
-        padding: 10% 0;
+        padding: 10% 10px;
         background-color: grey;
         color: white;
         z-index: 55;
         display: inline-block;
+        display: grid;
+        grid-template-columns: 100%;
     }
 
-    .navbarBtns button {
-        padding: 20px 20px;
+    .navbarBtns a {
+        padding: 0px 20px;
         width: 100%;
         height: auto;
         font-size: 25px;
         color: white;
+        background-color: #3846856f;
     }
 
     .mdiaNav {
@@ -959,10 +981,10 @@ button {
         height: 7px !important;
     }
 
-    .dot.active {
+    /* .dot.active {
         width: 10px !important;
         height: 10px !important;
-    }
+    } */
 
     .carousel-caption-bottom {
         bottom: 30px !important;

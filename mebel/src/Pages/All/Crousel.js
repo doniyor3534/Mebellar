@@ -12,6 +12,7 @@ import "../Style.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ShoppingCartOutlined } from "@ant-design/icons";
+import { Empty } from "antd";
 
 const CarouselSkitka = () => {
   const { caruselImg, katalog, data } = useSelector((state) => state.home);
@@ -86,11 +87,10 @@ const CarouselSkitka = () => {
 
   return (
     <div className="carusell">
-      <h1 className="title" style={{ textAlign: "start" }}>
-        {" "}
-        Skitka tavarlar{" "}
-      </h1>
-      <Slider {...settings}>
+      <h1 className="title" style={{ textAlign: "start" }}>  Skitka tavarlar</h1>
+      {
+        data.filter((val)=>val.skitka>0).length >0 ?
+        <Slider {...settings}>
         {data
           .filter((val) => val.skitka > 0)
           .map((val) => (
@@ -180,6 +180,8 @@ const CarouselSkitka = () => {
             </div>
           ))}
       </Slider>
+      :<Empty/>
+      }
     </div>
   );
 };

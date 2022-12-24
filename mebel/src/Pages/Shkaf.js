@@ -1,3 +1,4 @@
+import { Empty } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
@@ -8,10 +9,16 @@ function Shkaf() {
   let props = data.filter((val) => val.sort == "Shkaf");
  
   return (
-    <div>
-      <ToastContainer />
-      <FilterPage props={props} />
-    </div>
+    <>
+    {
+      props.length > 0 ?
+        <>
+          <ToastContainer />
+          <FilterPage props={props} />
+        </>
+        :<Empty/>
+      }
+  </>
   );
 }
 

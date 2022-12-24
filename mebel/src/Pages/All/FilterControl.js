@@ -1,4 +1,5 @@
 import { Button, Select } from "antd";
+import { useState } from "react";
 
 function FilterControl() {
   // ///select
@@ -49,10 +50,18 @@ function FilterControl() {
     },
   ];
   // card select
+  const [count,setCount]=useState(1)
   return (
     <div className="malumotheader">
-      <h1 className="selecttext">Viloyat tanlang !</h1>
-      <Select
+      <h1 className="selecttext">Filter qiling !</h1>
+      <div className="filterBtns">
+         <Button onClick={()=>setCount(1)}>Viloyat</Button>
+         <Button  onClick={()=>setCount(2)}>Brend</Button>
+      </div>
+      {
+        count ===1?
+        <>
+     <Select
         showSearch
         placeholder="Viloyat tanlang !"
         optionFilterProp="children"
@@ -91,6 +100,11 @@ function FilterControl() {
         <Button>Minbuloq 1100+</Button>
         <Button>Minbuloq 1100+</Button>
       </div>
+     </>
+     :<div className="brend">
+          <Button><img src="" alt="" /></Button>
+     </div>
+      }
     </div>
   );
 }

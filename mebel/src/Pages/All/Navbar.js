@@ -1,11 +1,11 @@
-import { Modal } from "antd";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { SearchFilter } from "../../redux/HomeReducer";
 
 function Navbar() {
-  const { likecount, karzinka, kategoryabtns, data } = useSelector(
+  const { likecount, karzinka, kategoryabtns, data, dataDefault } = useSelector(
     (state) => state.home
   );
   const dispatch = useDispatch()
@@ -14,22 +14,27 @@ function Navbar() {
   const [allcount, setAll] = useState();
   const kategBtn = (i) => {
     setAll(i);
+    setMenu(!menu)
   };
   // kategorybtn
   // search
   const search = (e) => {
     if (e.target.value !== '') {
-      const ddd = data.filter((val) =>
+      let ddd = data.filter((val) =>
         val.sort.toLowerCase().includes(e.target.value.toLowerCase())
       );
       dispatch(SearchFilter(ddd));
       console.log(ddd);
     } else {
-       dispatch(SearchFilter());
+      dispatch(SearchFilter(dataDefault));
     }
   }
+
+  useEffect(() => {
+    dispatch(SearchFilter(dataDefault));
+  },[])
   // search
-  
+
   return (
     <nav className="navbar">
       <div className="navbarHead">
@@ -57,18 +62,18 @@ function Navbar() {
         </div>
         {/* /////////medianav */}
         <div className="mdiaNav">
-          <button>
+          <NavLink to={"/All"}>
             <img src="./img/mednav/home.png" alt="" />
-          </button>
-          <button>
+          </NavLink>
+          <NavLink to={"/LikePage"}>
             <img src="./img/mednav/like.png" alt="" />
-          </button>
-          <button>
+          </NavLink>
+          <NavLink to={"/ProfilePage"}>
             <img src="./img/mednav/kirish.png" alt="" />
-          </button>
-          <button>
+          </NavLink>
+          <NavLink to={"/SavatPage"}>
             <img src="./img/mednav/shop.png" alt="" />
-          </button>
+          </NavLink>
           <button onClick={() => setMenu(!menu)}>
             <img src="./img/mednav/menu.png" alt="" />
           </button>
@@ -80,11 +85,11 @@ function Navbar() {
           {kategoryabtns.map((val, i) => (
             <NavLink
               to={`/${val}`}
-              className={allcount === i ? " active" : ""}
+              className={allcount === i ? " activ" : ""}
               key={i}
               onClick={() => kategBtn(i)}
             >
-               {val}
+              {val}
             </NavLink>
           ))}
         </div>

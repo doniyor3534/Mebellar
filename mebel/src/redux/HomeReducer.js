@@ -55,7 +55,7 @@ const initialState = {
     { id: 7, img: "./img/katalog/7.png", title: "Devan" },
     { id: 8, img: "./img/katalog/8.png", title: "Kuxni" },
   ],
-  data: [
+  dataDefault: [
     {
       id: 1,
       name: "ishxona uchun",
@@ -317,6 +317,7 @@ const initialState = {
       holati: false,
     },
   ],
+  data:[],
   qilinganIshalr: [
     {
       id: 1,
@@ -400,6 +401,16 @@ const initialState = {
       ],
     },
   ],
+  brend:[
+    {id:1,img:'./img/brend/images (1).jfif',name:'brend'},
+    {id:2,img:'./img/brend/images (1).jfif',name:'brend'},
+    {id:3,img:'./img/brend/images (1).jfif',name:'brend'},
+    {id:4,img:'./img/brend/images (1).jfif',name:'brend'},
+    {id:5,img:'./img/brend/images (1).jfif',name:'brend'},
+    {id:6,img:'./img/brend/images (1).jfif',name:'brend'},
+    {id:7,img:'./img/brend/images (1).jfif',name:'brend'},
+    {id:8,img:'./img/brend/images (1).jfif',name:'brend'},
+  ]
 };
 
 export const HomeReducer = createSlice({
@@ -453,10 +464,20 @@ export const HomeReducer = createSlice({
       let likehisob = state.data.filter((val) => val.like === true);
       state.likecount = likehisob.length;
     },
-    SearchFilter: (state, action) => {
-      console.log(action.payload);
-        state.data = action.payload
+    savatCount: (state, action) => {
+        state.data = state.data.map((val) =>
+          val.id === action.payload.id ? { ...action.payload, count: action.payload.count +1 } : val
+        );
     },
+    savatCountdecr: (state, action) => {
+        state.data = state.data.map((val) =>
+          val.id === action.payload.id ? { ...action.payload, count: (action.payload.count >1? action.payload.count -1:1) } : val
+        );
+    },
+    SearchFilter: (state, action) => {
+        state.data = action.payload 
+    },
+   
   },
 });
 
@@ -468,6 +489,8 @@ export const {
   likefun,
   kategoryabtns,
   SearchFilter,
+  savatCount,
+  savatCountdecr
 } = HomeReducer.actions;
 
 export default HomeReducer.reducer;

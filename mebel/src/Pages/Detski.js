@@ -1,3 +1,4 @@
+import { Empty } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
@@ -9,10 +10,17 @@ function Detski() {
   let props = data.filter((val) => val.sort == "Bolalar");
 
   return (
-    <div>
-      <ToastContainer />
-      <FilterPage props={props} />
-    </div>
+    <>
+    {
+      props.length > 0 ?
+        <>
+        <h1 className="title">Bolalar uchun</h1>
+          <ToastContainer />
+          <FilterPage props={props} />
+        </>
+        :<Empty/>
+      }
+  </>
   );
 }
 
