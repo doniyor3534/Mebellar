@@ -1,5 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
-
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   likecount: 0,
@@ -71,7 +70,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 123000,
       skitka: 25,
@@ -91,7 +90,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey", "orange", "red"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 123000,
       skitka: 10,
@@ -111,7 +110,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey", "orange"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 123000,
       skitka: 0,
@@ -131,7 +130,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey", "orange"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 123000,
       skitka: 10,
@@ -151,7 +150,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey", "orange", "red"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 123000,
       skitka: 50,
@@ -171,7 +170,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey", "orange", "red"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 13000,
       skitka: 20,
@@ -191,7 +190,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey", "orange", "red"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 123000,
       skitka: 50,
@@ -211,7 +210,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey", "orange", "red"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 123000,
       skitka: 50,
@@ -231,7 +230,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey", "orange", "red"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 123000,
       skitka: 50,
@@ -251,7 +250,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey", "orange", "red"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 123000,
       skitka: 50,
@@ -271,7 +270,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey", "orange", "red"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 123000,
       skitka: 50,
@@ -291,7 +290,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey", "orange", "red"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 123000,
       skitka: 50,
@@ -311,7 +310,7 @@ const initialState = {
       colorCount: 0,
       color: ["green", "grey", "orange", "red"],
       like: false,
-      count: 0,
+      count: 1,
       razmer: { buyi: "2-metr", eni: "1-metr", qalinligi: "1.5-sm" },
       narx: 123000,
       skitka: 50,
@@ -401,52 +400,74 @@ const initialState = {
       ],
     },
   ],
-  
 };
-  
-  export const HomeReducer = createSlice({
-    name: 'home',
-    initialState,
-    reducers: {
-      imgbtnCount: (state,action) => {
-          state.data =  state.data.map((val)=>val.id === action.payload[0].id? {...action.payload[0],imgbtnCount :  action.payload[1]}:val )
-      },
-      colorCounts: (state,action) => {
-        state.data =  state.data.map((val)=>val.id === action.payload[0].id? {...action.payload[0],colorCount :  action.payload[1]}:val )
-      },
-    
-      buyurtmafun: (state, action) => {
-        if (action.payload.buyurtma === false) {
-          state.data = state.data.map((val => val.id === action.payload.id ? { ...action.payload, buyurtma: true } : val))
-        } else {
-          state.data = state.data.map((val) =>
-            val.id === action.payload.id
-              ? { ...action.payload, buyurtma: false }
-              : val
-          );
-        }
-        let savathisob  =  state.data.filter(val=>val.buyurtma===true);
-        state.karzinka = savathisob.length
-      },
-      likefun: (state, action) => {
-        if (action.payload.like === false) {
-          state.data = state.data.map((val => val.id === action.payload.id ? { ...action.payload, like: true } : val))
-        } else {
-          state.data = state.data.map((val) =>
-            val.id === action.payload.id
-              ? { ...action.payload, like: false }
-              : val
-          );
-        }
-        let likehisob  =  state.data.filter(val=>val.like===true);
-        state.likecount = likehisob.length
-      },
-     
+
+export const HomeReducer = createSlice({
+  name: "home",
+  initialState,
+  reducers: {
+    imgbtnCount: (state, action) => {
+      state.data = state.data.map((val) =>
+        val.id === action.payload[0].id
+          ? { ...action.payload[0], imgbtnCount: action.payload[1] }
+          : val
+      );
     },
-  })
-  
-  // Action creators are generated for each case reducer function
-  export const { imgbtnCount, colorCounts, buyurtmafun, likefun, kategoryabtns } =
-    HomeReducer.actions;
-  
-  export default HomeReducer.reducer
+    colorCounts: (state, action) => {
+      state.data = state.data.map((val) =>
+        val.id === action.payload[0].id
+          ? { ...action.payload[0], colorCount: action.payload[1] }
+          : val
+      );
+    },
+
+    buyurtmafun: (state, action) => {
+      if (action.payload.buyurtma === false) {
+        state.data = state.data.map((val) =>
+          val.id === action.payload.id
+            ? { ...action.payload, buyurtma: true }
+            : val
+        );
+      } else {
+        state.data = state.data.map((val) =>
+          val.id === action.payload.id
+            ? { ...action.payload, buyurtma: false }
+            : val
+        );
+      }
+      let savathisob = state.data.filter((val) => val.buyurtma === true);
+      state.karzinka = savathisob.length;
+    },
+    likefun: (state, action) => {
+      if (action.payload.like === false) {
+        state.data = state.data.map((val) =>
+          val.id === action.payload.id ? { ...action.payload, like: true } : val
+        );
+      } else {
+        state.data = state.data.map((val) =>
+          val.id === action.payload.id
+            ? { ...action.payload, like: false }
+            : val
+        );
+      }
+      let likehisob = state.data.filter((val) => val.like === true);
+      state.likecount = likehisob.length;
+    },
+    SearchFilter: (state, action) => {
+      console.log(action.payload);
+        state.data = action.payload
+    },
+  },
+});
+
+// Action creators are generated for each case reducer function
+export const {
+  imgbtnCount,
+  colorCounts,
+  buyurtmafun,
+  likefun,
+  kategoryabtns,
+  SearchFilter,
+} = HomeReducer.actions;
+
+export default HomeReducer.reducer;

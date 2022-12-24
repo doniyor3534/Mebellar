@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
 import { FilterPage } from "./All/filterPage";
 
 function Shkaf() {
@@ -8,6 +9,7 @@ function Shkaf() {
  
   return (
     <div>
+      <ToastContainer />
       <FilterPage props={props} />
     </div>
   );

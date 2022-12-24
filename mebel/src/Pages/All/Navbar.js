@@ -2,11 +2,13 @@ import { Modal } from "antd";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { Likecards, Savatcards } from "./ModalSavat";
+import { SearchFilter } from "../../redux/HomeReducer";
 
 function Navbar() {
-  const { likecount, karzinka, kategoryabtns } = useSelector((state) => state.home);
-
+  const { likecount, karzinka, kategoryabtns, data } = useSelector(
+    (state) => state.home
+  );
+  const dispatch = useDispatch()
   const [menu, setMenu] = useState(false);
   // kategorybtn
   const [allcount, setAll] = useState();
@@ -14,7 +16,20 @@ function Navbar() {
     setAll(i);
   };
   // kategorybtn
- 
+  // search
+  const search = (e) => {
+    if (e.target.value !== '') {
+      const ddd = data.filter((val) =>
+        val.sort.toLowerCase().includes(e.target.value.toLowerCase())
+      );
+      dispatch(SearchFilter(ddd));
+      console.log(ddd);
+    } else {
+       dispatch(SearchFilter());
+    }
+  }
+  // search
+  
   return (
     <nav className="navbar">
       <div className="navbarHead">
@@ -22,7 +37,7 @@ function Navbar() {
           <img src="./img/Vector.png" alt="" className="logo" />
         </a>
         <div className="search">
-          <input type="search" placeholder="Search" />
+          <input type="search" placeholder="Search" onChange={search} />
           <button>
             <img src="./img/Group.svg" alt="" />
           </button>

@@ -6,6 +6,7 @@ import {
   imgbtnCount,
   buyurtmafun,
   likefun,
+  SearchFilter,
 } from "../redux/HomeReducer";
 import CarouselSkitka from "./All/Crousel";
 import { toast, ToastContainer } from "react-toastify";
@@ -105,6 +106,7 @@ function Home() {
       showModal()
   }
   //ishlarcardFun/////
+  
   return (
     <div className="home">
       <ToastContainer />

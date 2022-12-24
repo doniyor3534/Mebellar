@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import { FilterPage } from './All/filterPage';
 
 
@@ -9,9 +10,10 @@ function Kuxni() {
   let props = data.filter((val => val.sort == 'kuxni'))
 
     return (
-        <div>
-           <FilterPage props={props} />
-        </div>
+      <div>
+        <ToastContainer />
+        <FilterPage props={props} />
+      </div>
     );
 }
 

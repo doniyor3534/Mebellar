@@ -115,8 +115,8 @@ button {
     position: absolute;
     bottom: 20px;
     right: -20px;
-    background-color: rgb(19, 98, 254);
-    color: white;
+    color:#384685  !important;
+    font-size: 25px;
     padding: 0 5px;
     border-radius: 15px 15px 15px 0;
 }
@@ -807,6 +807,7 @@ button {
     width: 100%;
     max-height: 500px ;
     overflow: hidden;
+    cursor:ew-resize;
 } 
 .imgcaruselcard img {
     width: 100% ;
