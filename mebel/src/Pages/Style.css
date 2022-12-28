@@ -104,8 +104,15 @@ button {
     border: none;
     background-color: transparent !important;
     position: relative;
+    border: 1px solid #c5cbe3;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
 }
 
+.navbtn:hover {
+   background-color: #c5cbe3 !important;
+}
 .navbtn img {
     width: 30px;
     height: 30px;
@@ -113,8 +120,8 @@ button {
 
 .badge {
     position: absolute;
-    bottom: 20px;
-    right: -20px;
+    bottom: 30px;
+    right: -10px;
     color:#384685  !important;
     font-size: 25px;
     padding: 0 5px;
