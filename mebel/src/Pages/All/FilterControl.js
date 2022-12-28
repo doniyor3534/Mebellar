@@ -1,110 +1,86 @@
 import { Button, Select } from "antd";
 import { useState } from "react";
+import { useSelector } from 'react-redux'
+import {CheckOutlined} from '@ant-design/icons'
 
 function FilterControl() {
+  const { brend, data } = useSelector((state) => state.home);
   // ///select
+  // ///select viloyat
+  let viloyatCategorya = [...new Set(data.map((val) => val.viloyat))];
+  let d = [];
+  viloyatCategorya.map((val) => {
+    d.push({
+      value: val,
+      label: val,
+    });
+  });
+  // ///select viloyat
+  // card select
+  const [count, setCount] = useState(1);
+  const [selectCount, setSelectCount] = useState('');
   const onChange = (value) => {
-    console.log(`selected ${value}`);
+    setSelectCount(value);
   };
   const onSearch = (value) => {
     console.log("search:", value);
   };
-  // ///select
-  // card select
-  const items = [
-    {
-      key: "1",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
-        >
-          1st menu item
-        </a>
-      ),
-    },
-    {
-      key: "2",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
-        >
-          2nd menu item
-        </a>
-      ),
-    },
-    {
-      key: "3",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          3rd menu item
-        </a>
-      ),
-    },
+  // card select  tumannnn
+  let tumanCategorya = [
+    ...new Set(
+      data.filter((val) => val.viloyat === selectCount).map((val) => val.tuman)
+    ),
   ];
-  // card select
-  const [count,setCount]=useState(1)
+  // card select  tumannnn
   return (
     <div className="malumotheader">
       <h1 className="selecttext">Filter qiling !</h1>
       <div className="filterBtns">
-         <Button onClick={()=>setCount(1)}>Viloyat</Button>
-         <Button  onClick={()=>setCount(2)}>Brend</Button>
+        <Button
+          onClick={() => setCount(1)}
+          className={count == 1 ? "filterbtn" : ""}
+        >
+          Viloyat
+        </Button>
+        <Button
+          onClick={() => setCount(2)}
+          className={count == 2 ? "filterbtn" : ""}
+        >
+          Brend
+        </Button>
       </div>
-      {
-        count ===1?
-        <>
-     <Select
-        showSearch
-        placeholder="Viloyat tanlang !"
-        optionFilterProp="children"
-        onChange={onChange}
-        onSearch={onSearch}
-        filterOption={(input, option) =>
-          (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
-        }
-        options={[
-          {
-            value: "Namangan",
-            label: "Namangan",
-          },
-          {
-            value: "Toshkent",
-            label: "Toshkent",
-          },
-          {
-            value: "Buxoro",
-            label: "Buxoro",
-          },
-        ]}
-      />
-      <h1 className="selecttext">Mavjud Tumanlar</h1>
-      <div className="selectBody">
-        <Button>Minbuloq 1100+</Button>
-        <Button>Minbuloq 1100+</Button>
-        <Button>Minbuloq 1100+</Button>
-        <Button>Minbuloq 1100+</Button>
-        <Button>Minbuloq 1100+</Button>
-        <Button>Minbuloq 1100+</Button>
-        <Button>Minbuloq 1100+</Button>
-        <Button>Minbuloq 1100+</Button>
-        <Button>Minbuloq 1100+</Button>
-        <Button>Minbuloq 1100+</Button>
-        <Button>Minbuloq 1100+</Button>
-        <Button>Minbuloq 1100+</Button>
-      </div>
-     </>
-     :<div className="brend">
-          <Button><img src="" alt="" /></Button>
-     </div>
-      }
+      {count === 1 ? (
+        <div className="filterjoylashuv">
+          <Select
+            showSearch
+            placeholder="Viloyat tanlang !"
+            optionFilterProp="children"
+            onChange={onChange}
+            onSearch={onSearch}
+            filterOption={(input, option) =>
+              (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
+            }
+            options={d}
+          />
+          <h1 className="selecttext">Mavjud Tumanlar</h1>
+          <div className="selectBody">
+            {tumanCategorya.map((val) => (
+              <Button style={{ color: "grey", fontSize: "20px" }}>
+                {val}{" "}
+                <CheckOutlined style={{ color: "green", fontSize: "30px" }} />
+              </Button>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="brend">
+          {brend.map((val) => (
+            <button>
+              <img src={val.img} alt="" />
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

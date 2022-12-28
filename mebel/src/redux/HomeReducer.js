@@ -59,6 +59,8 @@ const initialState = {
     {
       id: 1,
       name: "ishxona uchun",
+      viloyat: "Namangan",
+      tuman: "Mingbuloq",
       buyurtma: false,
       img: [
         "./img/katalog/1.png",
@@ -79,6 +81,8 @@ const initialState = {
     {
       id: 2,
       name: "Bolalar uchun",
+      viloyat: "Toshkent",
+      tuman: "Boka",
       buyurtma: false,
       img: [
         "./img/katalog/2.png",
@@ -99,6 +103,8 @@ const initialState = {
     {
       id: 3,
       name: "Yotoqxona uchun",
+      viloyat: "Namangan",
+      tuman: "Toroqorgon",
       buyurtma: false,
       img: [
         "./img/katalog/3.png",
@@ -119,6 +125,8 @@ const initialState = {
     {
       id: 4,
       name: "kuxna uchun",
+      viloyat: "Namangan",
+      tuman: "Pop",
       buyurtma: false,
       img: [
         "./img/katalog/4.png",
@@ -139,6 +147,8 @@ const initialState = {
     {
       id: 5,
       name: "kuxna uchun",
+      viloyat: "Namangan",
+      tuman: "Mingbuloq",
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -159,6 +169,8 @@ const initialState = {
     {
       id: 6,
       name: "kuxna uchun",
+      viloyat: "Toshkent",
+      tuman: "Toshkent",
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -179,6 +191,8 @@ const initialState = {
     {
       id: 7,
       name: "kuxna uchun",
+      viloyat: "Namangan",
+      tuman: "Mingbuloq",
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -199,6 +213,8 @@ const initialState = {
     {
       id: 8,
       name: "kuxna uchun",
+      viloyat: "Namangan",
+      tuman: "Namangan",
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -219,6 +235,8 @@ const initialState = {
     {
       id: 9,
       name: "kuxna uchun",
+      viloyat: "Namangan",
+      tuman: "Mingbuloq",
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -239,6 +257,8 @@ const initialState = {
     {
       id: 10,
       name: "kuxna uchun",
+      viloyat: "Toshkent",
+      tuman: "Mirzo Ulugbek",
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -259,6 +279,8 @@ const initialState = {
     {
       id: 11,
       name: "kuxna uchun",
+      viloyat: "Toshkent",
+      tuman: "Mirzo Ulugbek",
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -279,6 +301,8 @@ const initialState = {
     {
       id: 12,
       name: "Shkaf uchun",
+      viloyat: "Namangan",
+      tuman: "Mingbuloq",
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -299,6 +323,8 @@ const initialState = {
     {
       id: 13,
       name: "Shkaf uchun",
+      viloyat: "Toshkent",
+      tuman: "Mirzo Ulugbek",
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -317,7 +343,7 @@ const initialState = {
       holati: false,
     },
   ],
-  data:[],
+  data: [],
   qilinganIshalr: [
     {
       id: 1,
@@ -401,16 +427,16 @@ const initialState = {
       ],
     },
   ],
-  brend:[
-    {id:1,img:'./img/brend/images (1).jfif',name:'brend'},
-    {id:2,img:'./img/brend/images (1).jfif',name:'brend'},
-    {id:3,img:'./img/brend/images (1).jfif',name:'brend'},
-    {id:4,img:'./img/brend/images (1).jfif',name:'brend'},
-    {id:5,img:'./img/brend/images (1).jfif',name:'brend'},
-    {id:6,img:'./img/brend/images (1).jfif',name:'brend'},
-    {id:7,img:'./img/brend/images (1).jfif',name:'brend'},
-    {id:8,img:'./img/brend/images (1).jfif',name:'brend'},
-  ]
+  brend: [
+    { id: 1, img: "./img/brend/images (1).jfif", name: "brend" },
+    { id: 2, img: "./img/brend/images (2).jfif", name: "brend" },
+    { id: 3, img: "./img/brend/images (1).png", name: "brend" },
+    { id: 4, img: "./img/brend/images (2).png", name: "brend" },
+    { id: 5, img: "./img/brend/images (1).jfif", name: "brend" },
+    { id: 3, img: "./img/brend/images (1).png", name: "brend" },
+    { id: 4, img: "./img/brend/images (2).png", name: "brend" },
+    { id: 8, img: "./img/brend/images (1).jfif", name: "brend" },
+  ],
 };
 
 export const HomeReducer = createSlice({
