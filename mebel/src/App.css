@@ -7,7 +7,10 @@ body{
   height: auto;
   margin: 0 auto;
   text-align: center;
-  overflow: hidden;
   background-color: rgb(255, 255, 255);
+  position: relative;
+}
+html{
+  scroll-behavior: smooth;
 }
 

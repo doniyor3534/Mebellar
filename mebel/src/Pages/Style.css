@@ -6,6 +6,13 @@
     list-style: none;
     font-family: sans-serif;
 }
+.topbtnscrol{
+    position: fixed;
+    top:90vh;
+    right:300px;
+    padding: 15px;
+    z-index: 66;
+}
 .scletonnav{
     display: flex;
     align-items: center;
@@ -55,6 +62,10 @@ button {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid rgb(169, 168, 168);
+        position: fixed;
+        top: 0;
+        z-index: 55;
+        backdrop-filter: blur(10px);
 }
 
 .contact {
@@ -71,6 +82,7 @@ button {
 .navbar {
     width: 100%;
     height: auto;
+    padding-top: 50px;
 }
 
 .mdiaNav {
@@ -201,8 +213,14 @@ button {
     width: 100%;
     height: auto;
     padding: 20px 5%;
+    /* scroll-snap-type:y mandatory; */
 }
-
+/* .home > div{
+    scroll-snap-align: start;
+}
+.home::-webkit-scrollbar{
+    display: none;
+} */
 .sec1 {
     width: 100%;
     height: auto;
@@ -1120,7 +1138,12 @@ button {
 
     .header {
         padding: 3px;
-    }
+        position: fixed;
+        top: 0;
+        z-index: 55;
+        /* background-color: #3846854f; */
+        backdrop-filter: blur(10px);
+        }
 
     .header a {
         font-size: 10px
@@ -1137,7 +1160,9 @@ button {
     .btnGroups {
         display: none;
     }
-
+    .navbar{
+        margin-top: 30px;
+    }
     .navbarHead {
         justify-content: center;
     }

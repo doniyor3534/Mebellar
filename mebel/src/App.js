@@ -21,6 +21,12 @@ function App() {
   const {data } = useSelector(
     (state) => state.home
   );
+  //////////////////
+  const top= ()=>{
+    document.documentElement.scrollTop = 0
+  }
+ 
+  //////////////////
   return (
     <div className="App ">
       {
@@ -43,6 +49,7 @@ function App() {
           <Route path="/SavatPage" element={<SavatPage />} />
         </Routes>
         <Footer />
+        <button className="topbtnscrol" onClick={top}>top</button>
       </Router>
       }
     </div>
