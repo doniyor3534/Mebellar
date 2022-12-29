@@ -13,11 +13,20 @@ import Header from './Pages/All/Header';
 import LikePage from './Pages/LikePage';
 import SavatPage from './Pages/SavatPage';
 import ProfilePage from './Pages/ProfilePage';
+import Scleton from './Pages/All/scleton';
+import { useSelector } from 'react-redux';
 
 
 function App() {
+  const {data } = useSelector(
+    (state) => state.home
+  );
   return (
     <div className="App ">
+      {
+        data.length < 0?
+        <Scleton/>
+        :
       <Router>
         <Header />
         <Navbar />
@@ -35,6 +44,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
+      }
     </div>
   );
 }

@@ -17,6 +17,7 @@ import QilinganCaruselimg from "./All/QilinganCaruselImg";
 import MalumotlarCards from "./All/MalumotCArds";
 import FilterControl from "./All/FilterControl";
 
+
 function Home() {
   const { caruselImg, katalog, data, qilinganIshalr } = useSelector(
     (state) => state.home

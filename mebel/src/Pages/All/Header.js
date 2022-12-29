@@ -26,7 +26,7 @@ function Header() {
         <img src="./img/Vector (1).svg" alt="" /> Namangan/UITC/...
       </a>
 
-      <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+      <Modal title="Basic Modal" footer={false} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
         <FilterControl/>
       </Modal>
     </div>

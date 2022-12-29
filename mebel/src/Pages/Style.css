@@ -6,7 +6,26 @@
     list-style: none;
     font-family: sans-serif;
 }
-
+.scletonnav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.scletonnavbtns{
+    display: grid;
+    grid-template-columns: repeat(6,auto);
+    gap: 10px;
+}
+.sclitonSec1{
+    display: grid;
+    grid-template-columns: 70% 28%;
+    justify-content: space-between;
+}
+.sclitonSec2{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    gap: 10px;
+}
 a {
     color: grey;
 }
@@ -203,9 +222,16 @@ button {
 }
 
 .filterbtn {
+    background-color: transparent;
+    color: #384685;
+    height: 50px;
+    font-size: 25px;
+}
+.filterbtn.activ {
     background-color: #384685;
     color: white;
     height: 50px;
+    font-size: 25px;
 }
 
 .filterjoylashuv {
@@ -227,11 +253,46 @@ button {
 .brend button {
     width: 100%;
     height: 100px;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    border: 4px solid transparent;
+    background-color: #38468582;
+}
+.brend button:hover {
+    border: 4px solid #384685;
+    transform: scale(1.1);
+}
+.brend button.activ {
+    border: 4px solid #384685;
+    transform: scale(1.2);
+    padding: 10px;
 }
 
-.brend img {
+.selecttext {
+    color: grey;
+    text-align: start;
+}
+
+.selectBody {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 15px;
+}
+
+.selectBody Button {
+    height: 50px;
+}
+.selectBody button.activ{
+    background-color: #384685;
+    color: white !important;
+}
+/* select header // */
+.brend img {
+    width: 101%;
+    height: 101%;
 }
 
 .brend::-webkit-scrollbar {
@@ -276,24 +337,7 @@ button {
 }
 
 
-.selecttext {
-    color: grey;
-    text-align: start;
-}
 
-.selectBody {
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: 100%;
-    gap: 15px;
-}
-
-.selectBody Button {
-    height: 50px;
-}
-
-/* select header // */
 .imgcard {
     width: 100%;
     height: auto;

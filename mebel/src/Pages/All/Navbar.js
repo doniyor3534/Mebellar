@@ -5,9 +5,10 @@ import { NavLink } from "react-router-dom";
 import { SearchFilter } from "../../redux/HomeReducer";
 
 function Navbar() {
-  const { likecount, karzinka, kategoryabtns, data, dataDefault } = useSelector(
+  const { likecount, karzinka, kategoryabtns, data, dataDefault,brendfilter,tuman ,viloyat} = useSelector(
     (state) => state.home
   );
+
   const dispatch = useDispatch()
   const [menu, setMenu] = useState(false);
   // kategorybtn
@@ -19,12 +20,11 @@ function Navbar() {
   // kategorybtn
   // search
   const search = (e) => {
-    if (e.target.value !== '') {
+    if (e.target.value !== '' ) {
       let ddd = data.filter((val) =>
         val.sort.toLowerCase().includes(e.target.value.toLowerCase())
       );
       dispatch(SearchFilter(ddd));
-      console.log(ddd);
     } else {
       dispatch(SearchFilter(dataDefault));
     }

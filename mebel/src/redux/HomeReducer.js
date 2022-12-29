@@ -61,6 +61,7 @@ const initialState = {
       name: "ishxona uchun",
       viloyat: "Namangan",
       tuman: "Mingbuloq",
+      brend:{name:'BBB',img:'./img/brend/images (1).jfif'},
       buyurtma: false,
       img: [
         "./img/katalog/1.png",
@@ -83,6 +84,7 @@ const initialState = {
       name: "Bolalar uchun",
       viloyat: "Toshkent",
       tuman: "Boka",
+      brend:{name:'BBB',img:'./img/brend/images (1).jfif'},
       buyurtma: false,
       img: [
         "./img/katalog/2.png",
@@ -105,6 +107,7 @@ const initialState = {
       name: "Yotoqxona uchun",
       viloyat: "Namangan",
       tuman: "Toroqorgon",
+      brend:{name:'BBB',img:'./img/brend/images (1).jfif'},
       buyurtma: false,
       img: [
         "./img/katalog/3.png",
@@ -127,6 +130,7 @@ const initialState = {
       name: "kuxna uchun",
       viloyat: "Namangan",
       tuman: "Pop",
+      brend:{name:'AAA',img:'./img/brend/images (2).jfif'},
       buyurtma: false,
       img: [
         "./img/katalog/4.png",
@@ -149,6 +153,7 @@ const initialState = {
       name: "kuxna uchun",
       viloyat: "Namangan",
       tuman: "Mingbuloq",
+      brend:{name:'AAA',img:'./img/brend/images (2).jfif'},
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -171,6 +176,7 @@ const initialState = {
       name: "kuxna uchun",
       viloyat: "Toshkent",
       tuman: "Toshkent",
+      brend:{name:'AAA',img:'./img/brend/images (2).jfif'},
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -193,6 +199,7 @@ const initialState = {
       name: "kuxna uchun",
       viloyat: "Namangan",
       tuman: "Mingbuloq",
+      brend:{name:'DDD',img:'./img/brend/images (1).png'},
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -215,6 +222,7 @@ const initialState = {
       name: "kuxna uchun",
       viloyat: "Namangan",
       tuman: "Namangan",
+      brend:{name:'DDD',img:'./img/brend/images (1).png'},
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -237,6 +245,7 @@ const initialState = {
       name: "kuxna uchun",
       viloyat: "Namangan",
       tuman: "Mingbuloq",
+      brend:{name:'DDD',img:'./img/brend/images (1).png'},
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -259,6 +268,7 @@ const initialState = {
       name: "kuxna uchun",
       viloyat: "Toshkent",
       tuman: "Mirzo Ulugbek",
+      brend:{name:'DDD',img:'./img/brend/images (1).png'},
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -281,6 +291,7 @@ const initialState = {
       name: "kuxna uchun",
       viloyat: "Toshkent",
       tuman: "Mirzo Ulugbek",
+      brend:{name:'DDD',img:'./img/brend/images (1).png'},
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -303,6 +314,7 @@ const initialState = {
       name: "Shkaf uchun",
       viloyat: "Namangan",
       tuman: "Mingbuloq",
+      brend:{name:'CCC',img:'./img/brend/images (2).png'},
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -325,6 +337,7 @@ const initialState = {
       name: "Shkaf uchun",
       viloyat: "Toshkent",
       tuman: "Mirzo Ulugbek",
+      brend:{name:'CCC',img:'./img/brend/images (2).png'},
       buyurtma: false,
       img: [
         "./img/katalog/5.png",
@@ -428,15 +441,18 @@ const initialState = {
     },
   ],
   brend: [
-    { id: 1, img: "./img/brend/images (1).jfif", name: "brend" },
-    { id: 2, img: "./img/brend/images (2).jfif", name: "brend" },
-    { id: 3, img: "./img/brend/images (1).png", name: "brend" },
-    { id: 4, img: "./img/brend/images (2).png", name: "brend" },
-    { id: 5, img: "./img/brend/images (1).jfif", name: "brend" },
-    { id: 3, img: "./img/brend/images (1).png", name: "brend" },
-    { id: 4, img: "./img/brend/images (2).png", name: "brend" },
-    { id: 8, img: "./img/brend/images (1).jfif", name: "brend" },
+    { id: 1, img: "./img/brend/images (1).jfif", name: "AAA" },
+    { id: 2, img: "./img/brend/images (2).jfif", name: "BBB" },
+    { id: 3, img: "./img/brend/images (1).png", name: "DDD" },
+    { id: 4, img: "./img/brend/images (2).png", name: "CCC" },
+    { id: 5, img: "./img/brend/images (1).jfif", name: "DDD" },
+    { id: 3, img: "./img/brend/images (1).png", name: "EEE" },
+    { id: 4, img: "./img/brend/images (2).png", name: "FFF" },
+    { id: 8, img: "./img/brend/images (1).jfif", name: "GGG" },
   ],
+  brendfilter:'',
+  viloyat:'',
+  tuman:'',
 };
 
 export const HomeReducer = createSlice({
@@ -503,6 +519,15 @@ export const HomeReducer = createSlice({
     SearchFilter: (state, action) => {
         state.data = action.payload 
     },
+    brencountfunc: (state, action) => {
+        state.brendfilter = action.payload 
+    },
+    viloyatcountfunc: (state, action) => {
+        state.viloyat = action.payload 
+    },
+    tumancountfunc: (state, action) => {
+        state.tuman = action.payload 
+    },
    
   },
 });
@@ -516,7 +541,10 @@ export const {
   kategoryabtns,
   SearchFilter,
   savatCount,
-  savatCountdecr
+  savatCountdecr,
+  brencountfunc,
+  tumancountfunc,
+  viloyatcountfunc
 } = HomeReducer.actions;
 
 export default HomeReducer.reducer;
