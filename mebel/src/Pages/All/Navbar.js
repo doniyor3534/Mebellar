@@ -39,7 +39,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbarHead">
         <a href=".">
-          <img src="./img/Vector.png" alt="" className="logo" />
+          <img src="./img/logo.png" alt="" className="logo" />
         </a>
         <div className="search">
           <input type="search" placeholder="Search" onChange={search} />

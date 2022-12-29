@@ -63,7 +63,7 @@ export default function SavatPage() {
  }
 
   return (
-    <>
+    <div className="savatPage">
       <h1 className="title"> Savatchaga olinganlar</h1>
       {
         savatdata.length > 0 ?
@@ -147,6 +147,6 @@ export default function SavatPage() {
           : <Empty />
       }
       <ToastContainer />
-    </>
+    </div>
   );
 }

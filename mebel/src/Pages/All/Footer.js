@@ -1,12 +1,15 @@
 import { InstagramOutlined } from "@ant-design/icons";
 import React from "react";
+import { useState } from "react";
 
 function Footer() {
+  const [footerCount,setFooterCount]=useState(false)
   return (
-    <div className="footer">
+    <div className={footerCount?"footer active":'footer'}>
       <div className="footerUl">
-        <a href="#">
+        <a href="#" className="footerlogo">
           <img src="./img/Vector.png" alt="" />
+          <button className="footerbtn" onClick={()=>setFooterCount(!footerCount)}>footer</button>
         </a>
         <a href="#">8-961-525-91-91</a>
         <p>ish vaqti : 10:00 до 19:00</p>

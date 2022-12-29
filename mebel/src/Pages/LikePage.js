@@ -54,7 +54,7 @@ export default function LikePage() {
   //  carusel ////////
 
   return (
-    <>
+    <div className="likepageHome">
       <h1 className="title">Like Savatcha</h1>
       {
         likedata.length > 0 ?
@@ -138,7 +138,7 @@ export default function LikePage() {
          </>
           : <Empty />
       }
-    </>
+    </div>
   );
 }
 

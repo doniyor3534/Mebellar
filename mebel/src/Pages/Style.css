@@ -57,7 +57,9 @@ button {
 .mdiaNav {
     display: none;
 }
-
+.logo{
+    height: 70px;
+}
 .navbarHead {
     width: 100%;
     height: auto;
@@ -111,8 +113,9 @@ button {
 }
 
 .navbtn:hover {
-   background-color: #c5cbe3 !important;
+    background-color: #c5cbe3 !important;
 }
+
 .navbtn img {
     width: 30px;
     height: 30px;
@@ -122,7 +125,7 @@ button {
     position: absolute;
     bottom: 30px;
     right: -10px;
-    color:#384685  !important;
+    color: #384685 !important;
     font-size: 25px;
     padding: 0 5px;
     border-radius: 15px 15px 15px 0;
@@ -152,7 +155,7 @@ button {
     color: rgb(92, 91, 91);
     font-size: 20px;
     border: none;
-    background-color: white ;
+    background-color: white;
     transition: all 0.2s ease-out;
     border: 1px solid rgb(215, 215, 215);
     border-radius: 5px;
@@ -194,15 +197,17 @@ button {
 }
 
 /* select header // */
-.filterBtns{
+.filterBtns {
     display: grid;
     grid-template-columns: 50% 50%;
 }
-.filterbtn{
+
+.filterbtn {
     background-color: #384685;
     color: white;
     height: 50px;
 }
+
 .filterjoylashuv {
     display: grid;
     grid-template-columns: 100%;
@@ -210,27 +215,33 @@ button {
     gap: 20px;
     overflow-y: scroll;
 }
-.brend{
+
+.brend {
     display: grid;
     grid-template-columns: 60%;
     justify-content: center;
     gap: 20px;
     overflow-y: scroll;
 }
-.brend button{
+
+.brend button {
     width: 100%;
     height: 100px;
 }
-.brend img{
+
+.brend img {
     width: 100%;
     height: 100%;
 }
-.brend::-webkit-scrollbar{
+
+.brend::-webkit-scrollbar {
     display: none;
 }
+
 .filterjoylashuv::-webkit-scrollbar {
     display: none;
 }
+
 .malumotheader::-webkit-scrollbar {
     width: 10px;
     background-color: transparent;
@@ -752,12 +763,13 @@ button {
     height: 70vh;
 }
 
-.modall{
+.modall {
     width: 80% !important;
 
 }
+
 /* profile page*/
-.profilePage{
+.profilePage {
     width: 100%;
     height: auto;
     padding: 50px 0;
@@ -766,21 +778,24 @@ button {
     align-items: center;
     justify-content: center;
 }
-.kirishform{
+
+.kirishform {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    border:1px solid  #cfd3e9;
+    border: 1px solid #cfd3e9;
     border-radius: 7px;
     box-shadow: 0px 50px 50px rgba(128, 128, 128, 0.499);
 }
-.formTitle{
+
+.formTitle {
     font-size: 40px;
     font-weight: 500;
 }
-.kirishform input{
+
+.kirishform input {
     font-size: 25px;
     padding: 15px;
     margin: 15px 0;
@@ -789,39 +804,46 @@ button {
     border: none;
     background-color: #adb9ed69;
 }
-.kirishform a{
+
+.kirishform a {
     margin: 10px 0px;
     position: relative;
 }
-.kirishform a::after{
+
+.kirishform a::after {
     position: absolute;
     bottom: -7px;
-    left:0;
+    left: 0;
     content: "";
     width: 50%;
     height: 2px;
     background-color: #38468589;
-    transition: all 0.3s linear ;
+    transition: all 0.3s linear;
 }
-.kirishform a:hover:after{
+
+.kirishform a:hover:after {
     width: 100%;
 }
-.formbtn{
+
+.formbtn {
     padding: 15px 45px;
     margin: 20px 0px;
     font-size: 25px;
     color: white;
-    background-color:#3846857f;
+    background-color: #3846857f;
     border-radius: 7px;
     border: 1px solid grey;
     transition: all 0.3s linear;
 }
-.formbtn:hover{
-    background-color: #384685 ;
+
+.formbtn:hover {
+    background-color: #384685;
 }
+
 .kirishform p {
     color: grey;
 }
+
 /* profile page*/
 /* boglanish */
 .malumotlarCards {
@@ -883,6 +905,10 @@ button {
 
 /* boglanish */
 /* filterlangan like va savat card  */
+.likepageHome {
+    width: 100%;
+    min-height: 50vh;
+}
 .likepage {
     width: 100%;
     height: auto;
@@ -910,42 +936,102 @@ button {
     z-index: 55;
     background-color: var(--cardbg);
 }
+
 .imgcaruselcard .slick-slider {
     width: 100%;
     height: 100%;
 }
+
 .imgcaruselcard {
     width: 100%;
-    max-height: 500px ;
+    max-height: 500px;
     overflow: hidden;
-    cursor:ew-resize;
-} 
+    cursor: ew-resize;
+}
+
 .imgcaruselcard img {
-    width: 100% ;
-    height: 100% ;
-} 
+    width: 100%;
+    height: 100%;
+}
 
 .likecard .razmer {
     padding: 20px 10% !important;
 }
-.countcard{
+
+.countcard {
     display: flex;
     justify-content: center;
     gap: 15px;
     padding: 20px 0px;
 }
-.countcard{
+
+.countcard {
     color: grey;
 }
-.savatnarx{
+.savatPage{
+    width: 100%;
+    min-height: 50vh;
+}
+.savatnarx {
     font-size: 35px;
     color: grey;
     text-align: end;
 }
-.bodysavat{
+
+.bodysavat {
     color: grey;
     font-style: italic;
 }
+
+/* ///////////////////////profile */
+.profileaccount {
+    width: 60%;
+    min-height: 50vh;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.saitbar {
+    height: min-content;
+    border: 1px solid #b8bbc8;
+    border-radius: 7px;
+    padding: 30px 0px;
+}
+
+.saitbar li {
+    background-color: transparent;
+    padding: 20px;
+    text-align: start;
+}
+
+.saitbar li:hover {
+    background-color: #3846859f;
+    color: white;
+}
+
+.saitbar li.active {
+    background-color: #384685;
+    color: white;
+}
+
+.prifileimg {
+    mix-blend-mode: multiply;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profilcar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.profilename {
+    color: grey;
+}
+
 /* filterlangan like va savat card  */
 /* footer//// */
 .footer {
@@ -974,7 +1060,9 @@ button {
 .footerUl h3 {
     color: white;
 }
-
+.footerbtn{
+    display: none;
+}
 /* footer//// */
 
 
@@ -985,18 +1073,23 @@ button {
     .logo {
         display: none;
     }
-    .header{
+
+    .header {
         padding: 3px;
     }
-    .header a{
+
+    .header a {
         font-size: 10px
     }
-    .header .contact{
+
+    .header .contact {
         font-size: 12px
     }
-    .headerselect{
+
+    .headerselect {
         font-size: 12px
     }
+
     .btnGroups {
         display: none;
     }
@@ -1008,6 +1101,7 @@ button {
     .imgcard {
         padding: 10px 0px;
     }
+
     .navbarBtns {
         display: none;
         transition: all 0.5s ease-out;
@@ -1053,6 +1147,11 @@ button {
     }
 
     .mdiaNav button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .mdiaNav a.active {
         border: none;
         background-color: transparent;
         cursor: pointer;
@@ -1150,14 +1249,42 @@ button {
     }
 
 
+    .likepageHome {
+        width: 100%;
+        min-height: 90vh;
+        padding: 30px 5px;
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: center;
+        row-gap: 30px;
+    }
     .likepage {
         width: 100%;
-        height: auto;
+        min-height: 100vh;
         padding: 30px 5px;
         display: grid;
         grid-template-columns: 100%;
         justify-content: space-around;
         row-gap: 30px;
+    }
+
+    /* ///////////////////////profile */
+    .profileaccount {
+        width: 100%;
+        min-height: 90vh;
+        display: grid;
+        grid-template-columns: 100%;
+        padding: 5px ;
+    }
+    .saitbar {
+        height: 60px;
+        border: 1px solid #b8bbc8;
+        border-radius: 7px;
+        padding: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
     }
     .modall {
         width: 100%;
@@ -1176,10 +1303,30 @@ button {
     }
 
     .footer {
+        height: 80px;
+        overflow: hidden;
         grid-template-columns: repeat(1, auto);
         padding: 20px 10%;
+        transition: all 0.3s linear;
     }
-
-
+    .footer.active {
+        height: auto;
+        overflow: hidden;
+        background-color: #384685;
+    }
+    .footerlogo{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .footerbtn{
+        padding: 5px 10px;
+        color: #384685;
+        background-color: white;
+        border: none;
+        border-radius: 5px;
+        text-transform: uppercase;
+    }
 
 }

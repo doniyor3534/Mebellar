@@ -6,43 +6,43 @@ const initialState = {
   caruselImg: [
     {
       image: "./img/carusel/1.jpg",
-      caption: "San Francisco",
+      caption: "Qulay Mebellar ",
     },
     {
       image: "./img/carusel/2.webp",
-      caption: "San Francisco",
+      caption: "Qulay Mebellar",
     },
     {
       image: "./img/carusel/3.webp",
-      caption: "San Francisco",
+      caption: "Qulay Mebellar",
     },
     {
       image: "./img/carusel/4.webp",
-      caption: "San Francisco",
+      caption: "Qulay Mebellar",
     },
     {
       image: "./img/carusel/5.webp",
-      caption: "San Francisco",
+      caption: "Qulay Mebellar",
     },
     {
       image: "./img/carusel/images (2).jfif",
-      caption: "San Francisco",
+      caption: "Qulay Mebellar",
     },
     {
       image: "./img/carusel/7.webp",
-      caption: "San Francisco",
+      caption: "Qulay Mebellar",
     },
     {
       image: "./img/carusel/8.webp",
-      caption: "San Francisco",
+      caption: "Qulay Mebellar",
     },
     {
       image: "./img/carusel/9.webp",
-      caption: "San Francisco",
+      caption: "Qulay Mebellar",
     },
     {
       image: "./img/carusel/10.webp",
-      caption: "San Francisco",
+      caption: "Qulay Mebellar",
     },
   ],
   katalog: [
