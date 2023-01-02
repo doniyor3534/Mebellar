@@ -6,33 +6,73 @@
     list-style: none;
     font-family: sans-serif;
 }
-.topbtnscrol{
+
+.topbtnscrol {
     position: fixed;
-    top:90vh;
-    right:300px;
+    top: 80vh;
+    right: 300px;
     padding: 15px;
     z-index: 66;
+    border-radius: 50%;
+    border: none;
+    animation: topicon 0.8s linear infinite;
+    font-size: 25px;
+    color: #5b74e3;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
 }
-.scletonnav{
+.bottombtnscrol {
+    position: fixed;
+    top: 90vh;
+    left: 300px;
+    padding: 15px;
+    z-index: 66;
+    border-radius: 50%;
+    border: none;
+    animation: topicon 0.8s linear infinite;
+    font-size: 25px;
+    color: #5b74e3;
+    backdrop-filter: blur(10px); 
+}
+
+@keyframes topicon {
+    0% {
+        box-shadow: 0px 10px 10px #fdfdfd70;
+    }
+
+    100% {
+        box-shadow: 0px 0px 10px #93a2e367, 0px 0px 20px rgba(14, 140, 237, 0.358);
+    }
+
+    0% {
+        box-shadow: 0px 10px 10px #fdfdfd69;
+    }
+}
+
+.scletonnav {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.scletonnavbtns{
+
+.scletonnavbtns {
     display: grid;
-    grid-template-columns: repeat(6,auto);
+    grid-template-columns: repeat(6, auto);
     gap: 10px;
 }
-.sclitonSec1{
+
+.sclitonSec1 {
     display: grid;
     grid-template-columns: 70% 28%;
     justify-content: space-between;
 }
-.sclitonSec2{
+
+.sclitonSec2 {
     display: grid;
-    grid-template-columns: repeat(4,auto);
+    grid-template-columns: repeat(4, auto);
     gap: 10px;
 }
+
 a {
     color: grey;
 }
@@ -56,16 +96,18 @@ button {
 
 .header {
     width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
     height: auto;
-    padding: 30px 5% 10px;
+    padding: 10px 5% 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid rgb(169, 168, 168);
-        position: fixed;
-        top: 0;
-        z-index: 55;
-        backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    z-index: 555;
+    backdrop-filter: blur(10px);
 }
 
 .contact {
@@ -88,17 +130,12 @@ button {
 .mdiaNav {
     display: none;
 }
-.logo{
+
+.logo {
     height: 70px;
 }
-.navbarHead {
-    width: 100%;
-    height: auto;
-    padding: 20px 5%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-}
+
+
 
 .search {
     width: 300px;
@@ -128,7 +165,12 @@ button {
     align-items: flex-end;
     gap: 20px;
 }
-
+.navbarHead{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5%;
+}
 .navbtn {
     display: flex;
     flex-direction: column;
@@ -169,6 +211,7 @@ button {
 .navbtnsScroll {
     width: 100%;
     overflow-x: scroll;
+    padding-top: 10px;
 }
 
 .navbarBtns {
@@ -215,6 +258,7 @@ button {
     padding: 20px 5%;
     /* scroll-snap-type:y mandatory; */
 }
+
 /* .home > div{
     scroll-snap-align: start;
 }
@@ -245,6 +289,7 @@ button {
     height: 50px;
     font-size: 25px;
 }
+
 .filterbtn.activ {
     background-color: #384685;
     color: white;
@@ -277,10 +322,12 @@ button {
     border: 4px solid transparent;
     background-color: #38468582;
 }
+
 .brend button:hover {
     border: 4px solid #384685;
     transform: scale(1.1);
 }
+
 .brend button.activ {
     border: 4px solid #384685;
     transform: scale(1.2);
@@ -303,10 +350,12 @@ button {
 .selectBody Button {
     height: 50px;
 }
-.selectBody button.activ{
+
+.selectBody button.activ {
     background-color: #384685;
     color: white !important;
 }
+
 /* select header // */
 .brend img {
     width: 101%;
@@ -971,6 +1020,7 @@ button {
     width: 100%;
     min-height: 50vh;
 }
+
 .likepage {
     width: 100%;
     height: auto;
@@ -1030,10 +1080,12 @@ button {
 .countcard {
     color: grey;
 }
-.savatPage{
+
+.savatPage {
     width: 100%;
     min-height: 50vh;
 }
+
 .savatnarx {
     font-size: 35px;
     color: grey;
@@ -1122,9 +1174,11 @@ button {
 .footerUl h3 {
     color: white;
 }
-.footerbtn{
+
+.footerbtn {
     display: none;
 }
+
 /* footer//// */
 
 
@@ -1135,15 +1189,39 @@ button {
     .logo {
         display: none;
     }
-
+    .topbtnscrol {
+        position: fixed;
+        top: 80vh;
+        right: 10px;
+        padding: 15px;
+        z-index: 66;
+        border-radius: 50%;
+        border: none;
+        animation: topicon 0.8s linear infinite;
+        font-size: 15px;
+        color: #5b74e3;
+        background-color: transparent;
+    }
+    .bottombtnscrol {
+        position: fixed;
+        top: 80vh;
+        left: 10px;
+        padding: 15px;
+        z-index: 66;
+        border-radius: 50%;
+        border: none;
+        animation: topicon 0.8s linear infinite;
+        font-size: 15px;
+        color: #5b74e3;
+    }
     .header {
         padding: 3px;
         position: fixed;
         top: 0;
-        z-index: 55;
+        z-index: 555;
         /* background-color: #3846854f; */
         backdrop-filter: blur(10px);
-        }
+    }
 
     .header a {
         font-size: 10px
@@ -1160,9 +1238,11 @@ button {
     .btnGroups {
         display: none;
     }
-    .navbar{
-        margin-top: 30px;
+
+    .navbar {
+        margin-top: 0px;
     }
+
     .navbarHead {
         justify-content: center;
     }
@@ -1176,19 +1256,30 @@ button {
         transition: all 0.5s ease-out;
     }
 
+  
+
+    .search {
+        position: fixed;
+        top: 50px;
+        margin: 0 auto;
+        z-index: 555;
+    }
+
     .navbarBtns.active {
         position: fixed;
         bottom: 10vh;
         left: 0;
         width: 100%;
-        height: 90%;
-        padding: 10% 10px;
+        height: 95%;
+        padding: 130px 10px 0px;
         background-color: grey;
         color: white;
         z-index: 55;
         display: inline-block;
         display: grid;
-        grid-template-columns: 100%;
+        justify-content: center;
+        grid-template-columns: 45% 45%;
+        gap: 10px;
     }
 
     .navbarBtns a {
@@ -1196,8 +1287,8 @@ button {
         width: 100%;
         height: auto;
         font-size: 25px;
-        color: white;
-        background-color: #3846856f;
+        color: rgb(74, 73, 85);
+        background-color: #bac4ee00;
     }
 
     .mdiaNav {
@@ -1220,6 +1311,7 @@ button {
         background-color: transparent;
         cursor: pointer;
     }
+
     .mdiaNav a.active {
         border: none;
         background-color: transparent;
@@ -1227,7 +1319,7 @@ button {
     }
 
     .title {
-        padding: 10px 10px;
+        padding: 40px 10px 0;
         font-size: 25px;
     }
 
@@ -1288,6 +1380,7 @@ button {
 
     .mashxurtavarlarCards {
         grid-template-columns: 95%;
+        padding: 20px 0px;
     }
 
     /* skitka lar  */
@@ -1327,6 +1420,7 @@ button {
         justify-content: center;
         row-gap: 30px;
     }
+
     .likepage {
         width: 100%;
         min-height: 100vh;
@@ -1343,8 +1437,9 @@ button {
         min-height: 90vh;
         display: grid;
         grid-template-columns: 100%;
-        padding: 5px ;
+        padding: 5px;
     }
+
     .saitbar {
         height: 60px;
         border: 1px solid #b8bbc8;
@@ -1355,6 +1450,7 @@ button {
         justify-content: center;
         margin-bottom: 15px;
     }
+
     .modall {
         width: 100%;
     }
@@ -1378,23 +1474,30 @@ button {
         padding: 20px 10%;
         transition: all 0.3s linear;
     }
+
     .footer.active {
         height: auto;
         overflow: hidden;
         background-color: #384685;
     }
-    .footerlogo{
+
+    .footerlogo {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
-    .footerbtn{
+    .footericon{
+        width: 100px;
+        height: 50px;
+    }
+    .footerbtn {
+        display: block;
         padding: 5px 10px;
-        color: #384685;
-        background-color: white;
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.452);
         border: none;
-        border-radius: 5px;
+        border-radius: 3px;
         text-transform: uppercase;
     }
 

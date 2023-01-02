@@ -15,6 +15,8 @@ import SavatPage from './Pages/SavatPage';
 import ProfilePage from './Pages/ProfilePage';
 import Scleton from './Pages/All/scleton';
 import { useSelector } from 'react-redux';
+import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 
 
 function App() {
@@ -24,13 +26,15 @@ function App() {
   //////////////////
   const top= ()=>{
     document.documentElement.scrollTop = 0
+    settopresult(false)
   }
- 
+  
+ const [topresult,settopresult]=useState(false)
   //////////////////
   return (
     <div className="App ">
       {
-        data.length < 0?
+        data.length <  0?
         <Scleton/>
         :
       <Router>
@@ -49,7 +53,9 @@ function App() {
           <Route path="/SavatPage" element={<SavatPage />} />
         </Routes>
         <Footer />
-        <button className="topbtnscrol" onClick={top}>top</button>
+       { topresult ?
+        <button className="topbtnscrol" onClick={top}><ArrowUpOutlined /></button>
+       : <a className="bottombtnscrol" href='#footer' onClick={()=>settopresult(true)} ><ArrowDownOutlined /></a>}
       </Router>
       }
     </div>

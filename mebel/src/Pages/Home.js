@@ -175,7 +175,7 @@ function Home() {
         </div>
       </div>
       {/* /////////////////// */}
-      <div className="katalog">
+      {/* <div className="katalog">
         <h1 className="title">KATALOG</h1>
         <div className="katalogCards">
           {katalog.map((val) => (
@@ -195,14 +195,14 @@ function Home() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
       {/* /////////////////// */}
       <div className="mashxurtavarlar">
-        <h1 className="title">Mashxur tavarlar</h1>
+        <h1 className="title">Hamma tavarlar</h1>
         {
           data.length > 0 ?
             <div className="mashxurtavarlarCards">
-              {data.slice(pagcount * 4 - 4, pagcount * 4).map((val) => (
+              {data.map((val) => (
                 <div className="card" key={val.id}>
                   <div className="positionCard">
                     <div className={val.skitka > 0 ? "skitka active" : "skitka"}>
@@ -259,7 +259,7 @@ function Home() {
                       className={val.buyurtma ? "buyurtma active" : "buyurtma "}
                       onClick={() => buyurtma(val)}
                     >
-                      Savtga <ShoppingCartOutlined />
+                      Ko'proq...
                     </button>
                     <button className="like" onClick={() => likeFunn(val)}>
                       {val.like ? (
@@ -291,7 +291,7 @@ function Home() {
             </div>
             : <Empty />
         }
-        <div className="paginationbtns">
+        {/* <div className="paginationbtns">
           <button onClick={prev}>prev</button>
           {pegmass.map((val, i) => (
             <button
@@ -303,7 +303,7 @@ function Home() {
             </button>
           ))}
           <button onClick={next}>next</button>
-        </div>
+        </div> */}
       </div>
       {/* /////////////////////////// */}
       <div className="skitkaCards">
@@ -311,7 +311,7 @@ function Home() {
       </div>
       {/* /////////////////////////////// */}
       <div className="bajarilganIshlar">
-        <h1 className="title">Bajarilgan ishlar</h1>
+        <h1 className="title">Sotilganlardan namuna</h1>
         <div className="qilinganIshlar">
           {qilinganIshalr.map((val, i) => (
             <div

@@ -5,10 +5,10 @@ import { useState } from "react";
 function Footer() {
   const [footerCount,setFooterCount]=useState(false)
   return (
-    <div className={footerCount?"footer active":'footer'}>
+    <div className={footerCount?"footer active":'footer'} id='footer'>
       <div className="footerUl">
         <a href="#" className="footerlogo">
-          <img src="./img/Vector.png" alt="" />
+          <img src="./img/logo.png" alt=""  className="footericon"/>
           <button className="footerbtn" onClick={()=>setFooterCount(!footerCount)}>footer</button>
         </a>
         <a href="#">8-961-525-91-91</a>
