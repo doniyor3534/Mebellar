@@ -20,6 +20,12 @@ import { useState } from 'react';
 
 
 function App() {
+  fetch(
+    "https://console.firebase.google.com/project/chatyasash/database/chatyasash-default-rtdb/data/~2F"
+  )
+  .then(res=>console.log(res))
+
+
   const {data } = useSelector(
     (state) => state.home
   );
@@ -33,31 +39,40 @@ function App() {
   //////////////////
   return (
     <div className="App ">
-      {
-        data.length <  0?
-        <Scleton/>
-        :
-      <Router>
-        <Header />
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/All" element={<Home />} />
-          <Route path="/Kuxni" element={<Kuxni />} />
-          <Route path="/Mexmonxona" element={<Gostinni />} />
-          <Route path="/Devan" element={<Spalni />} />
-          <Route path="/Shkaf" element={<Shkaf />} />
-          <Route path="/Bolalar" element={<Detski />} />
-          <Route path="/ProfilePage" element={<ProfilePage />} />
-          <Route path="/LikePage" element={<LikePage />} />
-          <Route path="/SavatPage" element={<SavatPage />} />
-        </Routes>
-        <Footer />
-       { topresult ?
-        <button className="topbtnscrol" onClick={top}><ArrowUpOutlined /></button>
-       : <a className="bottombtnscrol" href='#footer' onClick={()=>settopresult(true)} ><ArrowDownOutlined /></a>}
-      </Router>
-      }
+      {data.length < 0 ? (
+        <Scleton />
+      ) : (
+        <Router>
+          <Header />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/All" element={<Home />} />
+            <Route path="/Kuxni" element={<Kuxni />} />
+            <Route path="/Mexmonxona" element={<Gostinni />} />
+            <Route path="/Devan" element={<Spalni />} />
+            <Route path="/Shkaf" element={<Shkaf />} />
+            <Route path="/Bolalar" element={<Detski />} />
+            <Route path="/ProfilePage" element={<ProfilePage />} />
+            <Route path="/LikePage" element={<LikePage />} />
+            <Route path="/SavatPage" element={<SavatPage />} />
+          </Routes>
+          <Footer />
+          {topresult ? (
+            <button className="topbtnscrol" onClick={top}>
+              <ArrowUpOutlined />
+            </button>
+          ) : (
+            <a
+              className="topbtnscrol"
+              href="#footer"
+              onClick={() => settopresult(true)}
+            >
+              <ArrowDownOutlined />
+            </a>
+          )}
+        </Router>
+      )}
     </div>
   );
 }

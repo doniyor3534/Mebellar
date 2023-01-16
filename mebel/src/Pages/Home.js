@@ -17,7 +17,6 @@ import QilinganCaruselimg from "./All/QilinganCaruselImg";
 import MalumotlarCards from "./All/MalumotCArds";
 import FilterControl from "./All/FilterControl";
 
-
 function Home() {
   const { caruselImg, katalog, data, qilinganIshalr } = useSelector(
     (state) => state.home
@@ -103,9 +102,9 @@ function Home() {
   //Modal //////////
   //ishlarcardFun/////
   const ishlarcardFun = (i) => {
-    setIsModalcount(i)
-    showModal()
-  }
+    setIsModalcount(i);
+    showModal();
+  };
   //ishlarcardFun/////
 
   return (
@@ -147,168 +146,138 @@ function Home() {
                   }}
                 />
               </div>
-              <FilterControl />
+              {/* //////////////////////////////////////////////// */}
+              <div className="bizningA">
+                <h1 className="title">Bizning afzalliklar</h1>
+                <div className="cards">
+                  <button>
+                    {" "}
+                    <img src="./img/Group.png" alt="" /> Qulay manzil
+                  </button>
+                  <button>
+                    {" "}
+                    <img src="./img/Group (1).png" alt="" /> Tez yetkazis
+                  </button>
+                  <button>
+                    {" "}
+                    <img src="./img/Group (2).png" alt="" /> Arzon narxlar
+                  </button>
+                  <button>
+                    {" "}
+                    <img src="./img/Group (3).png" alt="" /> Kafolatlangan
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        {/* //////////////////////////////////////////////// */}
-        <div className="bizningA">
-          <h1 className="title">Bizning afzalliklar</h1>
-          <div className="cards">
-            <button>
-              {" "}
-              <img src="./img/Group.png" alt="" /> Qulay manzil
-            </button>
-            <button>
-              {" "}
-              <img src="./img/Group (1).png" alt="" /> Tez yetkazis
-            </button>
-            <button>
-              {" "}
-              <img src="./img/Group (2).png" alt="" /> Arzon narxlar
-            </button>
-            <button>
-              {" "}
-              <img src="./img/Group (3).png" alt="" /> Kafolatlangan
-            </button>
+            {/* /////////////////// */}
           </div>
         </div>
       </div>
-      {/* /////////////////// */}
-      {/* <div className="katalog">
-        <h1 className="title">KATALOG</h1>
-        <div className="katalogCards">
-          {katalog.map((val) => (
-            <div className="card" key={val.id}>
-              <img src={val.img} alt="" />
-              <p className="text">{val.title}</p>
-              <div className="cardHoverCatalog">
-                <Button>catalog a</Button>
-                <Button>catalog b</Button>
-                <Button>catalog c</Button>
-                <Button>catalog c</Button>
-                <Button>catalog c</Button>
-                <Button>catalog c</Button>
-                <Button>catalog c</Button>
-                <Button>catalog c</Button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div> */}
+
       {/* /////////////////// */}
       <div className="mashxurtavarlar">
         <h1 className="title">Hamma tavarlar</h1>
-        {
-          data.length > 0 ?
-            <div className="mashxurtavarlarCards">
-              {data.map((val) => (
-                <div className="card" key={val.id}>
-                  <div className="positionCard">
-                    <div className={val.skitka > 0 ? "skitka active" : "skitka"}>
-                      {val.skitka}%
-                    </div>
-                    <div className={val.holati ? "new active" : "new"}>new</div>
+        {data.length > 0 ? (
+          <div className="mashxurtavarlarCards">
+            {data.map((val) => (
+              <div className="card" key={val.id}>
+                <div className="positionCard">
+                  <div className={val.skitka > 0 ? "skitka active" : "skitka"}>
+                    {val.skitka}%
                   </div>
-                  <img
-                    src={val.img[`${val.imgbtnCount}`]}
-                    alt=""
-                    className="cardimg"
-                  />
-                  <div className="imgbtns">
+                  <div className={val.holati ? "new active" : "new"}>new</div>
+                </div>
+                <img
+                  src={val.img[`${val.imgbtnCount}`]}
+                  alt=""
+                  className="cardimg"
+                />
+                <div className="imgbtns">
+                  <button
+                    className={
+                      val.imgbtnCount === 0 ? "imgbtn active" : "imgbtn "
+                    }
+                    onClick={() => dispatch(imgbtnCount([val, 0]))}
+                  ></button>
+                  <button
+                    className={
+                      val.imgbtnCount === 1 ? "imgbtn active" : "imgbtn "
+                    }
+                    onClick={() => dispatch(imgbtnCount([val, 1]))}
+                  ></button>
+                  <button
+                    className={
+                      val.imgbtnCount === 2 ? "imgbtn active" : "imgbtn "
+                    }
+                    onClick={() => dispatch(imgbtnCount([val, 2]))}
+                  ></button>
+                </div>
+                <div className="manzil">
+                  <a href="#">{val.viloyat}/{val.tuman}</a>
+                </div>
+                <div className="razmertext">
+                  <span>{val.name} </span>
+                  <span>{val.narx} sum </span>
+                </div>
+                {/* <div className="colorbtnGroups">
+                  {val.color.map((v, e) => (
                     <button
-                      className={
-                        val.imgbtnCount === 0 ? "imgbtn active" : "imgbtn "
-                      }
-                      onClick={() => dispatch(imgbtnCount([val, 0]))}
-                    ></button>
-                    <button
-                      className={
-                        val.imgbtnCount === 1 ? "imgbtn active" : "imgbtn "
-                      }
-                      onClick={() => dispatch(imgbtnCount([val, 1]))}
-                    ></button>
-                    <button
-                      className={
-                        val.imgbtnCount === 2 ? "imgbtn active" : "imgbtn "
-                      }
-                      onClick={() => dispatch(imgbtnCount([val, 2]))}
-                    ></button>
-                  </div>
-                  <h3 className="razmertext">
-                    {val.sort} : {val.name}
-                  </h3>
-                  {/* <div className="colorbtnGroups">
-                    {val.color.map((v, e) => (
-                      <button
                       key={e}
                       className={
                         val.colorCount === e ? "colors active" : "colors"
                       }
                       style={{ background: v }}
                       onClick={() => dispatch(colorCounts([val, e]))}
-                      ></button>
-                      ))}
-                    </div> */}
-                  <div className="sena">
-                    <span className="underlinetext">120000 sum</span>
-                    <span className="activetext">11000 sum</span>
-                  </div>
-                  <div className="cardbtns">
-                    <button
-                      className={val.buyurtma ? "buyurtma active" : "buyurtma "}
-                      onClick={() => buyurtma(val)}
-                    >
-                      Ko'proq...
-                    </button>
-                    <button className="like" onClick={() => likeFunn(val)}>
-                      {val.like ? (
-                        <img src="./img/katalog/Vector (2).png" alt="" />
-                      ) : (
-                        <img src="./img/katalog/Vector (1).png" alt="" />
-                      )}
-                    </button>
-                  </div>
-                  {/* <div className="razmer">
-                    Razmer :{" "}
-                    <p className="razmerbtn">
+                    ></button>
+                  ))}
+                </div> */}
+                {/* <div className="sena">
+                  <span className="underlinetext">120000 sum</span>
+                  <span className="activetext">11000 sum</span>
+                </div> */}
+                <div className="cardbtns">
+                  <button
+                    className={val.buyurtma ? "buyurtma active" : "buyurtma "}
+                    onClick={() => buyurtma(val)}
+                  >
+                    Ko'proq...
+                  </button>
+                  <button className="like" onClick={() => likeFunn(val)}>
+                    {val.like ? (
+                      <img src="./img/katalog/Vector (2).png" alt="" />
+                    ) : (
+                      <img src="./img/katalog/Vector (1).png" alt="" />
+                    )}
+                  </button>
+                </div>
+                {/* <div className="razmer">
+                  Razmer :{" "}
+                  <p className="razmerbtn">
                     <span style={{ borderBottom: "1px solid grey" }}>buyi</span>{" "}
                     <br /> 2-metr
-                    </p>
-                    <p className="razmerbtn">
+                  </p>
+                  <p className="razmerbtn">
                     <span style={{ borderBottom: "1px solid grey" }}>eni</span>{" "}
                     <br /> 1-metr
-                    </p>
-                    <p className="razmerbtn">
-                      <span style={{ borderBottom: "1px solid grey" }}>
+                  </p>
+                  <p className="razmerbtn">
+                    <span style={{ borderBottom: "1px solid grey" }}>
                       qalinligi
-                      </span>{" "}
-                      <br /> 1.5-sm
-                      </p>
-                    </div> */}
-                </div>
-              ))}
-            </div>
-            : <Empty />
-        }
-        {/* <div className="paginationbtns">
-          <button onClick={prev}>prev</button>
-          {pegmass.map((val, i) => (
-            <button
-              key={val}
-              className={pagcount === i + 1 ? "active " : ""}
-              onClick={() => setPagcount(i + 1)}
-            >
-              {val}
-            </button>
-          ))}
-          <button onClick={next}>next</button>
-        </div> */}
+                    </span>{" "}
+                    <br /> 1.5-sm
+                  </p>
+                </div> */}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <Empty />
+        )}
       </div>
       {/* /////////////////////////// */}
-      <div className="skitkaCards">
+      {/* <div className="skitkaCards">
         <CarouselSkitka />
-      </div>
+      </div> */}
       {/* /////////////////////////////// */}
       <div className="bajarilganIshlar">
         <h1 className="title">Sotilganlardan namuna</h1>

@@ -36,7 +36,7 @@ function Navbar() {
   // search
 
   return (
-    <nav className="navbar">
+    <nav className="navbar" id="navbar">
       <div className="navbarHead">
         <a href=".">
           <img src="./img/logo.png" alt="" className="logo" />
@@ -66,12 +66,14 @@ function Navbar() {
             <img src="./img/mednav/home.png" alt="" />
           </NavLink>
           <NavLink to={"/LikePage"}>
+            <h6 className="badge">{likecount}</h6>
             <img src="./img/mednav/like.png" alt="" />
           </NavLink>
           <NavLink to={"/ProfilePage"}>
             <img src="./img/mednav/kirish.png" alt="" />
           </NavLink>
           <NavLink to={"/SavatPage"}>
+            <h6 className="badge">{karzinka}</h6>
             <img src="./img/mednav/shop.png" alt="" />
           </NavLink>
           <button onClick={() => setMenu(!menu)}>

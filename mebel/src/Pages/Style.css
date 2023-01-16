@@ -10,7 +10,7 @@
 .topbtnscrol {
     position: fixed;
     top: 80vh;
-    right: 300px;
+    right: 30px;
     padding: 15px;
     z-index: 66;
     border-radius: 50%;
@@ -445,7 +445,7 @@ button {
 .title {
     font-style: normal;
     font-weight: 500;
-    font-size: 55px;
+    font-size: 35px;
     line-height: 39px;
     padding: 10px 0px;
     color: #555555;
@@ -456,7 +456,8 @@ button {
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: 21% 21% 21% 21%;
+    grid-template-columns:100%;
+    gap: 10px;
     justify-content: space-between;
     padding: 20px 0;
 }
@@ -573,7 +574,9 @@ button {
     transition: all 0.4s ease-in-out;
     z-index: 1;
 }
-
+.manzil a{
+    color: #384685;
+}
 .card:hover {
     z-index: 55;
     background-color: var(--cardbg);
@@ -649,6 +652,9 @@ button {
 .razmertext {
     padding: 10px 0px;
     color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .colorbtnGroups {
@@ -1267,14 +1273,14 @@ button {
 
     .navbarBtns.active {
         position: fixed;
-        bottom: 10vh;
+        bottom: 8vh;
         left: 0;
         width: 100%;
         height: 95%;
         padding: 130px 10px 0px;
         background-color: grey;
         color: white;
-        z-index: 55;
+        z-index: 554;
         display: inline-block;
         display: grid;
         justify-content: center;
@@ -1297,9 +1303,9 @@ button {
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 10vh;
-        background-color: #384685;
-        z-index: 55;
+        height: 8vh;
+        background-color: #293360;
+        z-index: 555;
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -1312,12 +1318,18 @@ button {
         cursor: pointer;
     }
 
+    .mdiaNav a {
+        position: relative;
+    }
     .mdiaNav a.active {
         border: none;
         background-color: transparent;
         cursor: pointer;
     }
-
+    .badge{
+        bottom:20px;
+        color: rgb(200, 199, 199) !important;
+    }
     .title {
         padding: 40px 10px 0;
         font-size: 25px;
@@ -1379,10 +1391,41 @@ button {
     }
 
     .mashxurtavarlarCards {
-        grid-template-columns: 95%;
+        grid-template-columns: 48% 48%;
         padding: 20px 0px;
+        gap: 0;
     }
-
+    .mashxurtavarlarCards .card{
+        padding: 10px 2px;
+    }
+    .cardimg{
+        height: 100px;
+    }
+    .imgbtns{
+        padding: 5px 0px;
+    }
+    .skitka.active{
+        padding: 3px 6px;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .new{
+        padding: 3px 6px;
+        font-size: 10px;
+    }
+    .buyurtma{
+        font-size: 15px;
+        padding: 0; 
+    }
+    .like img{
+        width: 20px;
+        height: 16px;
+    }
+    .razmertext{
+        font-size: 10px;
+    }
     /* skitka lar  */
     .carusell {
         padding: 50px 0;

@@ -4,12 +4,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import { CheckOutlined } from '@ant-design/icons'
 import { brencountfunc, SearchFilter, tumancountfunc, viloyatcountfunc } from "../../redux/HomeReducer";
 
-function FilterControl() {
-  const { brend, data, tuman, dataDefault } = useSelector((state) => state.home);
-  const dispatch = useDispatch()
+function FilterControl( ) {
+  
+  const { brend, data, tuman, dataDefault } = useSelector(
+    (state) => state.home
+  );
+  const dispatch = useDispatch();
   // ///select
   // ///select viloyat
-  let viloyatCategorya = ['', ...new Set(dataDefault.map((val) => val.viloyat))];
+  let viloyatCategorya = [
+    "",
+    ...new Set(dataDefault.map((val) => val.viloyat)),
+  ];
   let d = [];
   viloyatCategorya.map((val) => {
     d.push({
@@ -20,16 +26,16 @@ function FilterControl() {
   // ///select viloyat
   // card select
   const [count, setCount] = useState(1);
-  const [selectCount, setSelectCount] = useState('');
+  const [selectCount, setSelectCount] = useState("");
   const onChange = (value) => {
     setSelectCount(value);
-    dispatch(viloyatcountfunc(value))
-    if (value !== '') {
+    dispatch(viloyatcountfunc(value));
+    if (value !== "") {
       let ddd = dataDefault.filter((val) =>
         val.viloyat.toLowerCase().includes(value.toLowerCase())
       );
       dispatch(SearchFilter(ddd));
-    }else{
+    } else {
       dispatch(SearchFilter(dataDefault));
     }
   };
@@ -40,25 +46,26 @@ function FilterControl() {
   // card select  tumannnn
   let tumanCategorya = [
     ...new Set(
-      dataDefault.filter((val) => val.viloyat === selectCount).map((val) => val.tuman)
+      dataDefault
+        .filter((val) => val.viloyat === selectCount)
+        .map((val) => val.tuman)
     ),
   ];
-  const tumanfun =(value)=>{
-    dispatch(tumancountfunc(value))
-    if (value !== '') {
+  const tumanfun = (value) => {
+    dispatch(tumancountfunc(value));
+    if (value !== "") {
       let ddd = dataDefault.filter((val) =>
         val.tuman.toLowerCase().includes(value.toLowerCase())
       );
       dispatch(SearchFilter(ddd));
     }
-  }
+  };
   // card select  tumannnn
   // brend count
-  const [brendCount, setBrendCount] = useState('')
+  const [brendCount, setBrendCount] = useState("");
   function brendfun(val, i) {
-    setBrendCount(i)
-    dispatch(brencountfunc(val.name))
-    
+    setBrendCount(i);
+    dispatch(brencountfunc(val.name));
   }
   // brend count
   return (
@@ -94,7 +101,12 @@ function FilterControl() {
           <h1 className="selecttext">Mavjud Tumanlar</h1>
           <div className="selectBody">
             {tumanCategorya.map((val, i) => (
-              <Button className={tuman === val ? "activ" : ''} style={{ color: "grey", fontSize: "20px" }} key={i} onClick={() => tumanfun(val)} >
+              <Button
+                className={tuman === val ? "activ" : ""}
+                style={{ color: "grey", fontSize: "20px" }}
+                key={i}
+                onClick={() => tumanfun(val)}
+              >
                 {val}
                 <CheckOutlined style={{ color: "green", fontSize: "30px" }} />
               </Button>
@@ -104,7 +116,11 @@ function FilterControl() {
       ) : (
         <div className="brend">
           {brend.map((val, i) => (
-            <button className={brendCount === i ? "activ" : ''} onClick={() => brendfun(val, i)} key={i}>
+            <button
+              className={brendCount === i ? "activ" : ""}
+              onClick={() => brendfun(val, i)}
+              key={i}
+            >
               <img src={val.img} alt="" />
             </button>
           ))}
