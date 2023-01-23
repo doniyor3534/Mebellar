@@ -21,6 +21,7 @@
     background-color: transparent;
     backdrop-filter: blur(10px);
 }
+
 .bottombtnscrol {
     position: fixed;
     top: 90vh;
@@ -32,7 +33,7 @@
     animation: topicon 0.8s linear infinite;
     font-size: 25px;
     color: #5b74e3;
-    backdrop-filter: blur(10px); 
+    backdrop-filter: blur(10px);
 }
 
 @keyframes topicon {
@@ -121,11 +122,7 @@ button {
 }
 
 /* nav /////////////////// */
-.navbar {
-    width: 100%;
-    height: auto;
-    padding-top: 50px;
-}
+
 
 .mdiaNav {
     display: none;
@@ -165,12 +162,20 @@ button {
     align-items: flex-end;
     gap: 20px;
 }
-.navbarHead{
+
+.navbarHead {
+    max-width: 1440px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 5%;
+    position: fixed;
+    top: 50px;
+    z-index: 554;
+    backdrop-filter: blur(10px);
 }
+
 .navbtn {
     display: flex;
     flex-direction: column;
@@ -187,6 +192,7 @@ button {
 
 .navbtn:hover {
     background-color: #c5cbe3 !important;
+    color: white !important;
 }
 
 .navbtn img {
@@ -209,15 +215,20 @@ button {
 }
 
 .navbtnsScroll {
+    max-width: 1440px;
     width: 100%;
     overflow-x: scroll;
     padding-top: 10px;
+    position: fixed;
+    top: 120px;
+    z-index: 554;
+    backdrop-filter: blur(10px);
 }
 
 .navbarBtns {
-    height: 80px;
+    height: 60px;
     padding: 0px 5% 10px;
-    background: white !important;
+    background: transparent !important;
     display: flex;
     border-bottom: 1px solid rgb(215, 215, 215);
 }
@@ -286,15 +297,15 @@ button {
 .filterbtn {
     background-color: transparent;
     color: #384685;
-    height: 50px;
-    font-size: 25px;
+    height: 40px;
+    font-size: 20px;
 }
 
 .filterbtn.activ {
     background-color: #384685;
     color: white;
-    height: 50px;
-    font-size: 25px;
+    height: 40px;
+    font-size: 20px;
 }
 
 .filterjoylashuv {
@@ -398,9 +409,9 @@ button {
 }
 
 .malumotheader .ant-select-selector {
-    height: 80px !important;
+    height: 50px !important;
     align-items: center;
-    font-size: 35px;
+    font-size: 25px;
 }
 
 
@@ -456,7 +467,7 @@ button {
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns:100%;
+    grid-template-columns: 100%;
     gap: 10px;
     justify-content: space-between;
     padding: 20px 0;
@@ -559,24 +570,46 @@ button {
     width: 100%;
     height: auto;
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     justify-content: center;
-    gap: 10px;
-    padding: 50px 0px;
+    gap: 30px;
+    padding: 50px 20px;
 }
 
 .card {
     width: 100%;
     height: min-content;
-    border-radius: 5 px;
-    padding: 10px;
+    border-radius: 5px;
+    padding: 0px;
     position: relative;
     transition: all 0.4s ease-in-out;
     z-index: 1;
+    position: relative;
 }
-.manzil a{
+
+.card .slick-slider {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    border: none;
+}
+
+/* .card .slick-list{
+       width: 100px !important;
+       height: 100% !important;
+} */
+.card .slick-prev::before {
+    display: none;
+}
+
+.card .slick-next::before {
+    display: none;
+}
+
+.manzil a {
     color: #384685;
 }
+
 .card:hover {
     z-index: 55;
     background-color: var(--cardbg);
@@ -586,7 +619,7 @@ button {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 10px;
+    padding: 0px;
     display: flex;
 }
 
@@ -596,6 +629,7 @@ button {
     border-radius: 4px;
     padding: 6px 10px;
     display: none;
+    z-index: 55;
 }
 
 .skitka.active {
@@ -604,6 +638,7 @@ button {
     color: rgb(224, 222, 222);
     border-radius: 4px;
     padding: 6px 10px;
+    z-index: 55;
 }
 
 .new {
@@ -612,6 +647,7 @@ button {
     border-radius: 4px;
     padding: 6px 10px;
     display: none;
+    z-index: 55;
 }
 
 .new.active {
@@ -620,6 +656,7 @@ button {
     color: rgb(224, 222, 222);
     border-radius: 4px;
     padding: 6px 10px;
+    z-index: 55;
 }
 
 .cardimg {
@@ -658,11 +695,13 @@ button {
 }
 
 .colorbtnGroups {
-    padding: 10px 0px;
+    padding: 0px 0px;
     display: flex;
     justify-content: start;
     gap: 10px;
 }
+
+
 
 .colors {
     width: 20px;
@@ -683,7 +722,7 @@ button {
     gap: 5px;
     border-top: 1px solid rgb(179, 177, 177);
     border-bottom: 1px solid rgb(179, 177, 177);
-    padding: 15px 0px;
+    padding: 5px 0px;
 }
 
 .underlinetext {
@@ -698,13 +737,13 @@ button {
 
 .cardbtns {
     display: grid;
-    grid-template-columns: 70% 20%;
+    grid-template-columns: 40% 20%;
     justify-content: space-between;
     padding: 10px 0px;
 }
 
 .buyurtma {
-    padding: 10px;
+    padding: 5px;
     border: 1px solid grey;
     border-radius: 5px;
     font-style: normal;
@@ -881,8 +920,7 @@ button {
 }
 
 .modall {
-    width: 80% !important;
-
+    width:  30% !important;
 }
 
 /* profile page*/
@@ -1032,15 +1070,20 @@ button {
     height: auto;
     padding: 30px;
     display: grid;
-    grid-template-columns: 47% 47%;
+    grid-template-columns:33% 33% 33% ;
     justify-content: space-around;
     row-gap: 30px;
+    gap: 15px;
 }
-
+.sotibol{
+    width: 300px;
+    height: 50px;
+    font-size: 25px;
+}
 .likecard {
     width: 100%;
     height: min-content;
-    border-radius: 5 px;
+    border-radius: 5px;
     padding: 10px;
     position: relative;
     display: flex;
@@ -1055,14 +1098,14 @@ button {
     background-color: var(--cardbg);
 }
 
-.imgcaruselcard .slick-slider {
+/* .imgcaruselcard .slick-slider {
     width: 100%;
     height: 100%;
-}
+} */
 
 .imgcaruselcard {
     width: 100%;
-    max-height: 500px;
+    height: 250px;
     overflow: hidden;
     cursor: ew-resize;
 }
@@ -1073,14 +1116,16 @@ button {
 }
 
 .likecard .razmer {
-    padding: 20px 10% !important;
+    padding: 0px 10% !important;
 }
-
+.likecard .cardbtns{
+    grid-template-columns: 60% 30%;
+}
 .countcard {
     display: flex;
     justify-content: center;
     gap: 15px;
-    padding: 20px 0px;
+    padding: 5px 0px;
 }
 
 .countcard {
@@ -1096,6 +1141,9 @@ button {
     font-size: 35px;
     color: grey;
     text-align: end;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .bodysavat {
@@ -1195,6 +1243,7 @@ button {
     .logo {
         display: none;
     }
+
     .topbtnscrol {
         position: fixed;
         top: 80vh;
@@ -1208,6 +1257,7 @@ button {
         color: #5b74e3;
         background-color: transparent;
     }
+
     .bottombtnscrol {
         position: fixed;
         top: 80vh;
@@ -1220,6 +1270,7 @@ button {
         font-size: 15px;
         color: #5b74e3;
     }
+
     .header {
         padding: 3px;
         position: fixed;
@@ -1257,28 +1308,38 @@ button {
         padding: 10px 0px;
     }
 
+   
+    
+    .navbtnsScroll {
+        max-width: 1440px;
+        width: 100%;
+        height: 100%;
+        overflow-x: scroll;
+        padding-top: 10px;
+        position: fixed;
+        top: 20px;
+        z-index: 554;
+        backdrop-filter: none;
+    }
+    .search {
+        position: fixed;
+        top: 0px;
+        margin: 0 auto;
+        z-index: 555;
+    }
     .navbarBtns {
         display: none;
         transition: all 0.5s ease-out;
-    }
-
-  
-
-    .search {
-        position: fixed;
-        top: 50px;
-        margin: 0 auto;
-        z-index: 555;
     }
 
     .navbarBtns.active {
         position: fixed;
         bottom: 8vh;
         left: 0;
-        width: 100%;
-        height: 95%;
+        width: 100% !important;
+        height: 95% !important;
         padding: 130px 10px 0px;
-        background-color: grey;
+        background-color: rgba(109, 106, 106, 0.923) !important;
         color: white;
         z-index: 554;
         display: inline-block;
@@ -1287,13 +1348,20 @@ button {
         grid-template-columns: 45% 45%;
         gap: 10px;
     }
-
+  
+     .Toastify__toast-container{
+        width: 100% ;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 70%;
+        justify-content: center;
+     }
     .navbarBtns a {
         padding: 0px 20px;
         width: 100%;
-        height: auto;
+        height: 70px;
         font-size: 25px;
-        color: rgb(74, 73, 85);
+        color: rgb(251, 250, 255);
         background-color: #bac4ee00;
     }
 
@@ -1321,15 +1389,18 @@ button {
     .mdiaNav a {
         position: relative;
     }
+
     .mdiaNav a.active {
         border: none;
         background-color: transparent;
         cursor: pointer;
     }
-    .badge{
-        bottom:20px;
+
+    .badge {
+        bottom: 20px;
         color: rgb(200, 199, 199) !important;
     }
+
     .title {
         padding: 40px 10px 0;
         font-size: 25px;
@@ -1393,39 +1464,50 @@ button {
     .mashxurtavarlarCards {
         grid-template-columns: 48% 48%;
         padding: 20px 0px;
-        gap: 0;
+        gap: 8px;
     }
-    .mashxurtavarlarCards .card{
+
+    .mashxurtavarlarCards .card {
         padding: 10px 2px;
     }
-    .cardimg{
-        height: 100px;
+   
+    .cardimg {
+        height: 150px;
     }
-    .imgbtns{
+    .cardbtns{
+        padding: 0px 0px;
+    }
+    .imgbtns {
         padding: 5px 0px;
     }
-    .skitka.active{
+
+    .skitka.active {
         padding: 3px 6px;
         font-size: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .new{
+
+    .new {
         padding: 3px 6px;
         font-size: 10px;
     }
-    .buyurtma{
+
+    .buyurtma {
         font-size: 15px;
-        padding: 0; 
+        padding: 0;
     }
-    .like img{
+
+    .like img {
         width: 20px;
         height: 16px;
     }
-    .razmertext{
-        font-size: 10px;
+
+    .razmertext {
+        font-size: 14px;
     }
+
     /* skitka lar  */
     .carusell {
         padding: 50px 0;
@@ -1495,7 +1577,7 @@ button {
     }
 
     .modall {
-        width: 100%;
+        width: 100% !important;
     }
 
     .malumotlarCards {
@@ -1530,10 +1612,12 @@ button {
         align-items: center;
         justify-content: space-between;
     }
-    .footericon{
+
+    .footericon {
         width: 100px;
         height: 50px;
     }
+
     .footerbtn {
         display: block;
         padding: 5px 10px;

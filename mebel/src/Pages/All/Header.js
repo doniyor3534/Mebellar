@@ -16,10 +16,10 @@ function Header() {
   };
   return (
     <div className="header">
-      <button className="contact">
+      <a href='tel:+998991101197' className="contact">
         <img src="./img/Vector.svg" alt="" />
         +99899 110 11 97
-      </button>
+      </a>
       <Button onClick={showModal} className="headerselect">
         Filter <PicCenterOutlined />
       </Button>

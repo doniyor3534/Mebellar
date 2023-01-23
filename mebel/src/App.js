@@ -20,10 +20,7 @@ import { useState } from 'react';
 
 
 function App() {
-  fetch(
-    "https://console.firebase.google.com/project/chatyasash/database/chatyasash-default-rtdb/data/~2F"
-  )
-  .then(res=>console.log(res))
+
 
 
   const {data } = useSelector(

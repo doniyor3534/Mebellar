@@ -36,7 +36,7 @@ function Navbar() {
   // search
 
   return (
-    <nav className="navbar" id="navbar">
+    <nav className=" " id="navbar">
       <div className="navbarHead">
         <a href=".">
           <img src="./img/logo.png" alt="" className="logo" />
@@ -61,6 +61,22 @@ function Navbar() {
           </NavLink>
         </div>
         {/* /////////medianav */}
+        {/* ///////// */}
+      </div>
+      <div className="navbtnsScroll">
+        <div className={menu ? "navbarBtns active" : "navbarBtns"}>
+          {kategoryabtns.map((val, i) => (
+            <NavLink
+              to={`/${val}`}
+              className={allcount === i ? " activ" : ""}
+              key={i}
+              onClick={() => kategBtn(i)}
+            >
+              {val}
+            </NavLink>
+          ))}
+        </div>
+      </div>
         <div className="mdiaNav">
           <NavLink to={"/All"}>
             <img src="./img/mednav/home.png" alt="" />
@@ -80,22 +96,6 @@ function Navbar() {
             <img src="./img/mednav/menu.png" alt="" />
           </button>
         </div>
-        {/* ///////// */}
-      </div>
-      <div className="navbtnsScroll">
-        <div className={menu ? "navbarBtns active" : "navbarBtns"}>
-          {kategoryabtns.map((val, i) => (
-            <NavLink
-              to={`/${val}`}
-              className={allcount === i ? " activ" : ""}
-              key={i}
-              onClick={() => kategBtn(i)}
-            >
-              {val}
-            </NavLink>
-          ))}
-        </div>
-      </div>
     </nav>
   );
 }
