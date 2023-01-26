@@ -10,15 +10,16 @@ function Shkaf() {
  
   return (
     <>
-    {
-      props.length > 0 ?
+      {props.length > 0 ? (
         <>
+          <h1 className="title">Shkaflar</h1>
           <ToastContainer />
           <FilterPage props={props} />
         </>
-        :<Empty/>
-      }
-  </>
+      ) : (
+        <Empty />
+      )}
+    </>
   );
 }
 

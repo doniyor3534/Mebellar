@@ -1,8 +1,11 @@
+import { PicCenterOutlined } from "@ant-design/icons";
+import { Button, Modal } from "antd";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { SearchFilter } from "../../redux/HomeReducer";
+import FilterControl from "./FilterControl";
 
 function Navbar() {
   const { likecount, karzinka, kategoryabtns, data, dataDefault,brendfilter,tuman ,viloyat} = useSelector(
@@ -34,7 +37,17 @@ function Navbar() {
     dispatch(SearchFilter(dataDefault));
   },[])
   // search
-
+  // Modal//////////////
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   return (
     <nav className=" " id="navbar">
       <div className="navbarHead">
@@ -47,6 +60,9 @@ function Navbar() {
             <img src="./img/Group.svg" alt="" />
           </button>
         </div>
+        <Button onClick={showModal} className="headerselect">
+          Filter <PicCenterOutlined />
+        </Button>
         <div className="btnGroups">
           <NavLink to={"/ProfilePage"} className="navbtn">
             <img src="./img/kirish.svg" alt="" />
@@ -77,25 +93,33 @@ function Navbar() {
           ))}
         </div>
       </div>
-        <div className="mdiaNav">
-          <NavLink to={"/All"}>
-            <img src="./img/mednav/home.png" alt="" />
-          </NavLink>
-          <NavLink to={"/LikePage"}>
-            <h6 className="badge">{likecount}</h6>
-            <img src="./img/mednav/like.png" alt="" />
-          </NavLink>
-          <NavLink to={"/ProfilePage"}>
-            <img src="./img/mednav/kirish.png" alt="" />
-          </NavLink>
-          <NavLink to={"/SavatPage"}>
-            <h6 className="badge">{karzinka}</h6>
-            <img src="./img/mednav/shop.png" alt="" />
-          </NavLink>
-          <button onClick={() => setMenu(!menu)}>
-            <img src="./img/mednav/menu.png" alt="" />
-          </button>
-        </div>
+      <div className="mdiaNav">
+        <NavLink to={"/All"}>
+          <img src="./img/mednav/home.png" alt="" />
+        </NavLink>
+        <NavLink to={"/LikePage"}>
+          <h6 className="badge">{likecount}</h6>
+          <img src="./img/mednav/like.png" alt="" />
+        </NavLink>
+        <NavLink to={"/ProfilePage"}>
+          <img src="./img/mednav/kirish.png" alt="" />
+        </NavLink>
+        <NavLink to={"/SavatPage"}>
+          <h6 className="badge">{karzinka}</h6>
+          <img src="./img/mednav/shop.png" alt="" />
+        </NavLink>
+        <button onClick={() => setMenu(!menu)}>
+          <img src="./img/mednav/menu.png" alt="" />
+        </button>
+      </div>
+      <Modal
+        title="Basic Modal"
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <FilterControl />
+      </Modal>
     </nav>
   );
 }

@@ -40,7 +40,7 @@ function App() {
         <Scleton />
       ) : (
         <Router>
-          <Header />
+          {/* <Header /> */}
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />

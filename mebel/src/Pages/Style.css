@@ -171,7 +171,7 @@ button {
     align-items: center;
     padding: 0px 5%;
     position: fixed;
-    top: 50px;
+    top: 0px;
     z-index: 554;
     backdrop-filter: blur(10px);
 }
@@ -218,9 +218,8 @@ button {
     max-width: 1440px;
     width: 100%;
     overflow-x: scroll;
-    padding-top: 10px;
     position: fixed;
-    top: 120px;
+    top: 70px;
     z-index: 554;
     backdrop-filter: blur(10px);
 }
@@ -1070,7 +1069,7 @@ button {
     height: auto;
     padding: 30px;
     display: grid;
-    grid-template-columns:33% 33% 33% ;
+    grid-template-columns:100% ;
     justify-content: space-around;
     row-gap: 30px;
     gap: 15px;
@@ -1083,14 +1082,14 @@ button {
 .likecard {
     width: 100%;
     height: min-content;
-    border-radius: 5px;
     padding: 10px;
     position: relative;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     transition: all 0.4s ease-in-out;
     z-index: 1;
-    border-bottom: 1px solid rgb(93, 91, 91);
+    border-bottom: 1px solid rgb(197, 195, 195);
 }
 
 .likecard:hover {
@@ -1098,17 +1097,14 @@ button {
     background-color: var(--cardbg);
 }
 
-/* .imgcaruselcard .slick-slider {
-    width: 100%;
-    height: 100%;
-} */
-
 .imgcaruselcard {
-    width: 100%;
-    height: 250px;
+    width: 200px;
+    height: 140px;
     overflow: hidden;
     cursor: ew-resize;
+    position: relative;
 }
+
 
 .imgcaruselcard img {
     width: 100%;
@@ -1125,7 +1121,7 @@ button {
     display: flex;
     justify-content: center;
     gap: 15px;
-    padding: 5px 0px;
+    padding: 5px 0px 15px;
 }
 
 .countcard {
@@ -1138,7 +1134,7 @@ button {
 }
 
 .savatnarx {
-    font-size: 35px;
+    font-size: 25px;
     color: grey;
     text-align: end;
     display: flex;
