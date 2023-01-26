@@ -3144,7 +3144,8 @@ const initialState = {
   ],
   brendfilter:'',
   viloyat:'',
-  tuman:'',
+  tuman: '',
+  sotibOlinganlar :  JSON.parse(localStorage.getItem("Sotibolinganlar")) || []
 };
 
 export const HomeReducer = createSlice({
@@ -3199,28 +3200,44 @@ export const HomeReducer = createSlice({
       state.likecount = likehisob.length;
     },
     savatCount: (state, action) => {
-        state.data = state.data.map((val) =>
-          val.id === action.payload.id ? { ...action.payload, count: action.payload.count +1 } : val
-        );
+      state.data = state.data.map((val) =>
+        val.id === action.payload.id
+          ? { ...action.payload, count: action.payload.count + 1 }
+          : val
+      );
     },
     savatCountdecr: (state, action) => {
-        state.data = state.data.map((val) =>
-          val.id === action.payload.id ? { ...action.payload, count: (action.payload.count >1? action.payload.count -1:1) } : val
-        );
+      state.data = state.data.map((val) =>
+        val.id === action.payload.id
+          ? {
+              ...action.payload,
+              count: action.payload.count > 1 ? action.payload.count - 1 : 1,
+            }
+          : val
+      );
     },
     SearchFilter: (state, action) => {
-        state.data = action.payload 
+      state.data = action.payload;
     },
     brencountfunc: (state, action) => {
-        state.brendfilter = action.payload 
+      state.brendfilter = action.payload;
     },
     viloyatcountfunc: (state, action) => {
-        state.viloyat = action.payload 
+      state.viloyat = action.payload;
     },
     tumancountfunc: (state, action) => {
-        state.tuman = action.payload 
+      state.tuman = action.payload;
     },
-   
+    sotibOlinganlarFun: (state, action) => {
+      localStorage.setItem("Sotibolinganlar",JSON.stringify(action.payload));
+      state.sotibOlinganlar = JSON.parse(
+        localStorage.getItem("Sotibolinganlar")
+      );
+      state.data = state.data.map((val) =>
+      val.buyurtma === true ? { ...val, buyurtma: (val.buyurtma = false) } : val
+      );
+      state.karzinka = 0;
+    },
   },
 });
 
@@ -3236,7 +3253,8 @@ export const {
   savatCountdecr,
   brencountfunc,
   tumancountfunc,
-  viloyatcountfunc
+  viloyatcountfunc,
+  sotibOlinganlarFun
 } = HomeReducer.actions;
 
 export default HomeReducer.reducer;

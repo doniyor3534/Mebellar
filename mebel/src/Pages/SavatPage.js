@@ -9,13 +9,14 @@ import {
   likefun,
   savatCount,
   savatCountdecr,
+  sotibOlinganlarFun,
 } from "../redux/HomeReducer";
 import Slider from "react-slick";
 import AutoPlayMethods from "./All/cardslic";
 import { useState } from "react";
 
 export default function SavatPage() {
-  const { data } = useSelector((state) => state.home);
+  const { data, sotibOlinganlar } = useSelector((state) => state.home);
   const dispatch = useDispatch();
   let savatdata = data.filter((val) => val.buyurtma === true);
 
@@ -61,14 +62,14 @@ export default function SavatPage() {
   };
   //  carusel ////////
   // ////totalfun
-   const [totalsum,setTotalsum] = useState(0)
-   const totalfun = async () => {
-     let summa = await data
-       .filter((val) => val.buyurtma === true)
-       .reduce((a, b) => a + b.narx * b.count, 0);
-     setTotalsum(summa);
-   };
-  totalfun()
+  const [totalsum, setTotalsum] = useState(0);
+  const totalfun = async () => {
+    let summa = await data
+      .filter((val) => val.buyurtma === true)
+      .reduce((a, b) => a + b.narx * b.count, 0);
+    setTotalsum(summa);
+  };
+  totalfun();
   // counter
   const countincr = (val) => {
     dispatch(savatCount(val));
@@ -78,6 +79,12 @@ export default function SavatPage() {
     dispatch(savatCountdecr(val));
     totalfun();
   };
+  // //////////sotibolishfun
+  console.log(sotibOlinganlar);
+  const sotibolishfun = () => {
+    dispatch(sotibOlinganlarFun(savatdata));
+    console.log(sotibOlinganlar);
+  }
   return (
     <div className="savatPage">
       <h1 className="title"> Savatchaga olinganlar</h1>
@@ -101,8 +108,8 @@ export default function SavatPage() {
                 <div className="ca">
                   <div className="countcard">
                     <h1>
-                     <Button onClick={() => countincr(val)}>+</Button>
-                      <span style={{margin:'0px 8px'}}>{val.count}</span>
+                      <Button onClick={() => countincr(val)}>+</Button>
+                      <span style={{ margin: "0px 8px" }}>{val.count}</span>
                       <Button onClick={() => countdecr(val)}>-</Button>
                     </h1>
                   </div>
@@ -127,7 +134,7 @@ export default function SavatPage() {
                     className={val.buyurtma ? "buyurtma active" : "buyurtma "}
                     onClick={() => buyurtma(val)}
                   >
-                  <DeleteOutlined />
+                    <DeleteOutlined />
                   </button>
                   <button className="like" onClick={() => likeFunn(val)}>
                     {val.like ? (
@@ -140,13 +147,11 @@ export default function SavatPage() {
               </div>
             ))}
           </div>
-          <Button className="sotibol" type="primary">
+          <Button className="sotibol" type="primary" onClick={sotibolishfun}>
             Sotib olish
           </Button>
           <h1 style={{ color: "grey", marginTop: "10px" }}>
-            Total Summa :
-            {totalsum}
-           / Sum
+            Total Summa :{totalsum}/ Sum
           </h1>
         </>
       ) : (

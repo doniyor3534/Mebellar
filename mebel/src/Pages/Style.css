@@ -997,7 +997,19 @@ button {
 .kirishform p {
     color: grey;
 }
-
+.GoogleAuthbtn{
+     padding: 15px 45px;
+     margin: 20px 0px;
+     font-size: 25px;
+     color: #000000;
+     background-color: #FFF;
+     border-radius: 7px;
+     border: 1px solid grey;
+     transition: all 0.3s linear;
+}
+.GoogleAuthbtn:hover{
+     box-shadow: 0px 3px 10px grey; 
+}
 /* profile page*/
 /* boglanish */
 .malumotlarCards {
