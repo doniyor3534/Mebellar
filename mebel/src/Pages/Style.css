@@ -17,9 +17,9 @@
     border: none;
     animation: topicon 0.8s linear infinite;
     font-size: 25px;
-    color: #5b74e3;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
+    background-color: #293360;
+    color: white;
+    /* backdrop-filter: blur(10px); */
 }
 
 .bottombtnscrol {
@@ -32,8 +32,9 @@
     border: none;
     animation: topicon 0.8s linear infinite;
     font-size: 25px;
-    color: #5b74e3;
-    backdrop-filter: blur(10px);
+         background-color: #293360;
+         color: white;
+    /* backdrop-filter: blur(10px); */
 }
 
 @keyframes topicon {
@@ -578,7 +579,7 @@ button {
 .card {
     width: 100%;
     height: min-content;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 0px;
     position: relative;
     transition: all 0.4s ease-in-out;
@@ -607,6 +608,7 @@ button {
 
 .manzil a {
     color: #384685;
+    padding: 0px 10px;
 }
 
 .card:hover {
@@ -686,7 +688,7 @@ button {
 }
 
 .razmertext {
-    padding: 10px 0px;
+    padding: 10px 10px 0;
     color: grey;
     display: flex;
     align-items: center;
@@ -738,7 +740,7 @@ button {
     display: grid;
     grid-template-columns: 40% 20%;
     justify-content: space-between;
-    padding: 10px 0px;
+    padding: 10px 10px;
 }
 
 .buyurtma {
@@ -1042,17 +1044,26 @@ button {
     align-items: flex-start;
     justify-content: center;
     gap: 15px;
-    background-color: #4da9f05b;
+    background-color: #11609c88;
     border-radius: 10px;
     padding: 25px;
 }
 
 .boglanishcard h1 {
     font-size: 40px;
+    color: white;
 }
 
 .boglanishcard p {
-    color: #384685;
+    color: #cacedf;
+    font-size: 25px;
+}
+.boglanishcard a {
+    color: #06ee6a;
+    font-size: 30px;
+    border:1px solid #06ee6a;
+    border-radius: 7px;
+    padding: 5px;
 }
 
 .sasvollarbtn {
@@ -1158,7 +1169,23 @@ button {
     color: grey;
     font-style: italic;
 }
-
+.savattoastIcon{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    margin: 0 auto;
+    font-size: 50px;
+    color: #FFF;
+}
+.savattoastText{
+    font-size: 25px;
+    color: grey;
+    text-align: center;
+}
 /* ///////////////////////profile */
 .profileaccount {
     width: 60%;
@@ -1262,8 +1289,8 @@ button {
         border: none;
         animation: topicon 0.8s linear infinite;
         font-size: 15px;
-        color: #5b74e3;
-        background-color: transparent;
+        color: #fcfcff;
+        background-color: #293360;
     }
 
     .bottombtnscrol {
@@ -1276,7 +1303,8 @@ button {
         border: none;
         animation: topicon 0.8s linear infinite;
         font-size: 15px;
-        color: #5b74e3;
+        color: #fcfcff;
+        background-color: #293360;
     }
 
     .header {

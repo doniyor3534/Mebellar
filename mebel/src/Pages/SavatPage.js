@@ -1,5 +1,5 @@
-import { DeleteOutlined, ShoppingCartOutlined } from "@ant-design/icons";
-import { Button, Empty } from "antd";
+import { CheckOutlined, DeleteOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { Button, Empty, Modal } from "antd";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
@@ -83,8 +83,20 @@ export default function SavatPage() {
   console.log(sotibOlinganlar);
   const sotibolishfun = () => {
     dispatch(sotibOlinganlarFun(savatdata));
-    console.log(sotibOlinganlar);
+    showModal()
   }
+  // ////////savatToast
+   const [isModalOpen, setIsModalOpen] = useState(false);
+   const showModal = () => {
+     setIsModalOpen(true);
+   };
+   const handleOk = () => {
+     setIsModalOpen(false);
+   };
+   const handleCancel = () => {
+     setIsModalOpen(false);
+   };
+  // ////////savatToast
   return (
     <div className="savatPage">
       <h1 className="title"> Savatchaga olinganlar</h1>
@@ -158,6 +170,16 @@ export default function SavatPage() {
         <Empty />
       )}
       <ToastContainer />
+      <Modal
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <div className="savattoastIcon ">
+          <CheckOutlined />
+        </div>
+        <h4 className="savattoastText">Sotib olish Muvofaqqiyatli amalga oshirildi  !!!</h4>
+      </Modal>
     </div>
   );
 }

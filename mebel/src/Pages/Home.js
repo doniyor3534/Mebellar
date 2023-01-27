@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CarouselSkitka from "./All/Crousel";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button, Empty, Modal } from "antd";
+import { Button, Empty, Modal, Rate } from "antd";
 import { SearchOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import QilinganCaruselimg from "./All/QilinganCaruselImg";
 import MalumotlarCards from "./All/MalumotCArds";
@@ -277,25 +277,14 @@ function Home() {
       >
         {modalContent ? (
           <>
-            <div className="likecard" key={i}>
+            <div className="modalcard" key={i}>
               <div className="imgcaruselcard">
                 <AutoPlayMethods props={modalcard.img} />
               </div>
               <h3 className="razmertext">
                 {modalcard.sort} : {modalcard.name}
               </h3>
-              <div className="colorbtnGroups">
-                {/* {modalcard.color.map((v, e) => (
-                  <button
-                    key={e}
-                    className={
-                      modalcard.colorCount === e ? "colors active" : "colors"
-                    }
-                    style={{ background: v }}
-                    onClick={() => dispatch(colorCounts([modalcard, e]))}
-                  ></button>
-                ))} */}
-              </div>
+
               <div className="sena">
                 <span className="underlinetext">120000 sum</span>
                 <span className="activetext">11000 sum</span>
@@ -307,10 +296,10 @@ function Home() {
                 <Button onClick={() => countincr(modalcard)}>+</Button>
                 <Button onClick={() => countdecr(modalcard)}>-</Button>
               </div>
-
+              <Rate allowHalf defaultValue={2.5} />
               <h2 className="savatnarx">
                 <h6> {modalcard.name} : </h6>
-                <h4>  {modalcard.count * modalcard.narx}$</h4>
+                <h4> {modalcard.count * modalcard.narx}$</h4>
               </h2>
               <div className="cardbtns">
                 <button

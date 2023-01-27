@@ -1,4 +1,5 @@
 import React from "react";
+import {EditOutlined} from '@ant-design/icons'
 
 function MalumotlarCards() {
     return (
@@ -8,8 +9,10 @@ function MalumotlarCards() {
           <div className="boglanishcard">
             <h1>Biz bilan bog'laning</h1>
             <p>Namangan/5-kichik nohiya/alpomish.1-qavat</p>
-            <a href="#">+998991101197</a>
-            <button className="sasvollarbtn">Savol yo'llang</button>
+            <a href="tel:+998991101197">+99899-110-11-97</a>
+            <button className="sasvollarbtn">
+              Savol yo'llang <EditOutlined />
+            </button>
           </div>
         </div>
         <div className="xarita">

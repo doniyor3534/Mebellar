@@ -6,7 +6,7 @@ export default function ProfilePage() {
     const [user,setUser] = useState('')
    useEffect(() => {
         setUser(JSON.parse(localStorage.getItem("user")));
-   },[])
+   },[user])
   //  const img = user.photoURL;
   //  ////////
    const logOutfun = () => {
